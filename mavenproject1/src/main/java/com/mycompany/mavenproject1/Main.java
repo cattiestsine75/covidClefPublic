@@ -5,7 +5,7 @@
  */
 package com.mycompany.mavenproject1;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+//72 is dead
 import java.io.FileInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 
 /**
  *
- * @author ethan
+ * @author ethan zelmer email: ethan.zelmer@torontomu.ca
  */
 public class Main {
 
@@ -44,8 +44,8 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    //"C:\Users\ethan\Desktop\2023USRAResearch\CovidClef2023\API KEYS\CoreApiKey.txt"
     public static void main(String[] args) {
+
         try {
             Scanner coreIn = new Scanner(new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\keys\\CoreApiKey.txt"));
             CoreApiKey = coreIn.nextLine();
@@ -65,36 +65,74 @@ public class Main {
 
         ArrayList<SLR> slrs = initialize();
         //   pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
-       // elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
+        // elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         //  medxrivPopulate(slrs, searchAmt, searchOffset);
-        corePopulate(slrs, searchAmt, searchOffset);
+        //  corePopulate(slrs, searchAmt, searchOffset);
 
-        int i = 0;
-        int j = 0;
-        for (SLR s : slrs) {
-            if (s.references != null) {
-                for (Reference r : s.references) {
-                    j++;
-                    // if (i < searchAmt) {
-                    if (!r.hasBeenFound) {
-                        // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
-                        // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
-                    }
-                    //}
+       // int i = 0;
+       // int j = 0;
+        int ct = 0;
+       
+
+        for (int i = 2; i < slrs.size(); i++) {  //specific slr id. Exact.
+            for (int j = 0; j < slrs.get(i).references.size(); j++) { //row of Spreadsheet. For specific rowid, take j + 1
+                Reference r = slrs.get(i).references.get(j);
+                if (r.Abstract.contains("id=\"Par")) {
+                    System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("SLR:" + i + " REF: " + j + " ABS: " + r.Abstract + "\n");
+                 //   r.Abstract = removeLike(r.Abstract,"id=\"Par" );
+                 //   r.dumpData(j+1, i);
+                    ct++;
                 }
             }
-            i++;
-            j = 0;
         }
+        
+        
+        
+        System.out.println("COUNT: " + ct);
+        
+        
+        
+        
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
-            slrs.get(k).dumpData(k);
+            //   slrs.get(k).dumpData(k);
         }
+       // System.out.println(slrs.get(2).references.get(0).doi);
+//                                  same               +1
+        //slrs.get(2).references.get(0).idFormat = "test";
+       // slrs.get(2).references.get(0).dumpData(1, 2);
+
+        
+        
+      
+        
+        
+         
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
         System.out.println(searchOffset);
+
+    }
+    
+    
+    public static String removeLike(String txt, String srch){
+        
+        int x = txt.indexOf(srch) + srch.length();
+        //System.out.println(txt.substring(x));
+        int ct = 0;
+        while (Character.isDigit(txt.charAt(x + ct))) {
+            ct++;
+        }
+       // System.out.println(ct);
+     //   System.out.println(txt.substring(0, x - srch.length()) + txt.substring(x + ct + 2));
+      //  System.out.println(Character.isDigit(txt.charAt(x + ct)));
+        txt = (txt.substring(0, x - srch.length()) + txt.substring(x + ct + 2));
+        
+        return txt;
+        
+         
     }
 
     /**
@@ -379,6 +417,8 @@ public class Main {
                     colTerator++;
                     Cell cell = cellIterator.next();
                     String cellValue = df.formatCellValue(cell);
+                 //   System.out.println(cellValue +"   :" +  colTerator);
+                    try{
                     switch (colTerator) {
                         case 1:
                             added.doi = cellValue;
@@ -388,12 +428,13 @@ public class Main {
                             break;
                         case 3:
                             if (!cellValue.equals("Unknown Title") && cellValue.length() > 5) {
-                                System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
+                                //  System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
                                 added.hasBeenFound = true;
                                 Reference.found++;
                                 added.title = cellValue;
+                              
                             } else {
-                                System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
+                                // System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
                             }
                             break;
                         case 4:
@@ -403,7 +444,7 @@ public class Main {
                             break;
                         case 5:
                             if (added.hasBeenFound) {
-                                if (cellValue.length() > 2) {
+                                if (cellValue.length() > 2 && cellValue.contains("[") && cellValue.contains("]")) {
                                     StringTokenizer auths = new StringTokenizer(cellValue.substring(cellValue.lastIndexOf("[") + 1, cellValue.indexOf("]")), ",");
                                     while (auths.hasMoreTokens()) {
                                         StringTokenizer bits = new StringTokenizer(auths.nextToken(), "%");
@@ -428,11 +469,16 @@ public class Main {
                             break;
                         case 8:
                             if (added.hasBeenFound && cellValue.length() > 4) {
+                            //    System.out.println(cellValue);
                                 added.dateAccepted = LocalDate.parse(cellValue);
                             }
                             break;
                     }
+                }catch(Exception e){
+                        System.out.println(e +" innerError " + fileID);
                 }
+                }
+               
                 colTerator = 0;
                 if (added.doi.length() > 3 && added.doi.indexOf("10.") == 0) {
                     References.add(added);
