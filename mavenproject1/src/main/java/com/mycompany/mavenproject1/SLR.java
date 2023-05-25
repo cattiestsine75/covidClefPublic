@@ -46,7 +46,15 @@ public class SLR {
     }
 
     public void dumpData(int k) {
-       
+        /*
+        for (int i = 0; i < references.size(); i++) {
+            Reference r = references.get(i);
+            System.out.println("\n{" + k + ":\n " + r.title + "\n" + r.Abstract + "\n" + r.id + "\n" + r.idFormat + "\n" + r.dateAccepted + "\n" + "}");
+        }
+         */
+
+        //
+        //
         try {
             File myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\References\\" + k + ".xlsx");
 
@@ -71,10 +79,10 @@ public class SLR {
                 
                 
                 //THIS IS AN IMPORTANT LINE!
-                if(!r.hasBeenFound){ //if it wasn't previously found
+                //if(!r.hasBeenFound){ //if it wasn't previously found
                 data.put(i+2, new Object[]{r.title, r.Abstract, r.authors.toString(), r.id, r.idFormat, r.dateAccepted.toString()});
                 
-                }
+               // }
             }
 
             Set<Integer> keyid = data.keySet();
@@ -95,7 +103,6 @@ public class SLR {
             FileOutputStream out = new FileOutputStream(myFile);
             workbook.write(out);
             out.close();
-            //workbook.close();
         } catch (Exception ex) {
             System.out.println(ex);
         }

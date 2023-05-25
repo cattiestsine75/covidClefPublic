@@ -8,20 +8,9 @@ package com.mycompany.mavenproject1;
 import static com.mycompany.mavenproject1.Main.getHTML;
 import static com.mycompany.mavenproject1.Main.grabTag;
 import static com.mycompany.mavenproject1.Main.removeLike;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.time.LocalDate;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * A reference of a given SLR.
@@ -39,7 +28,7 @@ public class Reference {
     String Abstract; //the abstract of the referenced work.
     String id; // the ID of the Referenced work
     String idFormat; //the Format/Database type for which the ID (see above) is relevant.
-    String metadata; 
+
     ArrayList<Author> authors; //Arraylist of Author objects.
 
     LocalDate dateAccepted; //date accepted.
@@ -394,42 +383,5 @@ public class Reference {
             }
         }
 
-    }
-    
-    
-    public void dumpData(int rowid, int SLRid ){
-           File myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\References\\" + SLRid + ".xlsx");
-
-        FileInputStream file;
-        try {
-            file = new FileInputStream(myFile);
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-            XSSFSheet spreadsheet = workbook.getSheetAt(0);
-            XSSFRow row;
-             
-            //int rowid = 0; // row number, row 1 on excel = 0 as rowid
-
-       
-               // System.out.println(key);
-                row = spreadsheet.getRow(rowid);
-             
-                Object[] objectArr = new Object[]{this.title, this.Abstract, this.authors.toString(), this.id, this.idFormat, this.dateAccepted.toString()};
-                int cellid = 2; // column number,  A = 0
-                for (Object obj : objectArr) {
-                    Cell cell = row.createCell(cellid++);
-                    cell.setCellValue((String) (obj));
-                }
-            
-
-            FileOutputStream out = new FileOutputStream(myFile);
-            workbook.write(out);
-            out.close();
-            workbook.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        }
-        catch(java.io.IOException ex){
-            System.out.println(ex);
-        }
     }
 }
