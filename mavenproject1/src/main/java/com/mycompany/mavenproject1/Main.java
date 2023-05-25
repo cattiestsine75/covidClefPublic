@@ -36,11 +36,11 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 105;// starts at 0
-    public static int searchAmt = Math.min(searchOffset + 3, 113);//ends at 5
+    public static int searchOffset = 98;// starts at 0
+    public static int searchAmt = Math.min(searchOffset + 2 + 3, 113);//ends at 5
     //CORE OFFSET 110, CORE MISSED 6
-    //doc 12 of SLR 53
-
+    //98 + 
+    
     /**
      * @param args the command line arguments
      */
@@ -64,12 +64,12 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
-       pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
+        pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
         elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
-         springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
-         medxrivPopulate(slrs, searchAmt, searchOffset);
-          // corePopulate(slrs, searchAmt, searchOffset);
-          System.out.println("Done searching");
+        springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
+        medxrivPopulate(slrs, searchAmt, searchOffset);
+        // corePopulate(slrs, searchAmt, searchOffset);
+        System.out.println("Done searching");
         int i = 0;
         int j = 0;
         for (SLR s : slrs) {
@@ -458,9 +458,10 @@ public class Main {
                 if (added.doi.length() > 3 && added.doi.indexOf("10.") == 0) {
                     References.add(added);
                     Reference.total++;
-                }else{
-                    System.out.println("BEEP BEEP" + fileID + " " + (rowTerator+1) + " DOI:" + added.doi);
-                    
+                } else {
+                    if (added.doi.length() > 3) {
+                        System.out.println("Warning: SLR" + fileID + " Reference" + (rowTerator + 1) + " has DOI:" + added.doi + ". As this is not the proper format for a doi, it will not be added. Your spreadsheets may read improperly if this is the case.");
+                    }
                 }
             }
             workbook.close();
