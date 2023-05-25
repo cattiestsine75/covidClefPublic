@@ -36,7 +36,7 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 3;// starts at 0
+    public static int searchOffset = 110;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 3, 113);//ends at 5
     //CORE OFFSET 110, CORE MISSED 6
     //doc 12 of SLR 53
@@ -68,7 +68,7 @@ public class Main {
        // elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         //  medxrivPopulate(slrs, searchAmt, searchOffset);
-        corePopulate(slrs, searchAmt, searchOffset);
+        //corePopulate(slrs, searchAmt, searchOffset);
 
         int i = 0;
         int j = 0;
@@ -109,7 +109,7 @@ public class Main {
         ArrayList<SLR> slrs = new ArrayList<SLR>();
         slrs = getSLRs();
         for (int j = 2; j < slrs.size(); j++) {
-            System.out.println("creating reference object " + j + " of " + slrs.size());
+            System.out.println("creating reference object " + j + " of " + (slrs.size()-1));
             slrs.get(j).references = refFileToDOIs(j);
         }
         return slrs;
@@ -385,6 +385,7 @@ public class Main {
                     colTerator++;
                     Cell cell = cellIterator.next();
                     String cellValue = df.formatCellValue(cell);
+                    try{
                     switch (colTerator) {
                         case 1:
                             added.doi = cellValue;
@@ -437,6 +438,9 @@ public class Main {
                                 added.dateAccepted = LocalDate.parse(cellValue);
                             }
                             break;
+                    }
+                    }catch(Exception e){
+                        System.out.println("Inner error while parsing data from excel input on file "+ fileID + ":\n" + e);
                     }
                 }
                 colTerator = 0;
