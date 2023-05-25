@@ -73,6 +73,7 @@ public class Reference {
         if (in.indexOf("error code=\"cannotDisseminateFormat\"") == -1) { //if we have found it
             System.out.println("PMC DOCUMENT FOUND");
             if (!this.hasBeenFound) {
+                this.idFormat = "PMC";
                 System.out.println("FILLING DOCMENT WITH PMC");
                 found++;
                 this.hasBeenFound = true;
@@ -153,7 +154,7 @@ public class Reference {
                 }
                 formatAbstract();
             } else {
-                System.out.println("ADDING TO FILLED APIS" + " ID:" + this.id);
+                //   System.out.println("ADDING TO FILLED APIS" + " ID:" + this.id);
                 if (!this.foundApis.contains("PMC")) {
                     this.foundApis = this.foundApis + "_PMC";
                 }
@@ -216,7 +217,7 @@ public class Reference {
 
                     }
                 } else {
-                    System.out.println("ADDING TO FILLED APIS");
+                    //   System.out.println("ADDING TO FILLED APIS");
                     if (!this.foundApis.contains("elsevier")) {
                         this.foundApis = this.foundApis + "_elsevier";
                     }
@@ -298,6 +299,7 @@ public class Reference {
             String th = grabTag(in, "\"totalHits\":", ",", true);
             if (!th.equals("0")) { //if we found it
                 if (this.id.equals("not found")) { //and the document hasn't been found
+                    System.out.println("ADDING CORE INFO TO DOC");
                     found++;
                     this.hasBeenFound = true;
                     this.id = this.doi;
@@ -344,8 +346,8 @@ public class Reference {
                     } catch (Exception e) {
                         System.out.println(e);
                     }
-                }else{ //the document has been found
-                    if(!this.foundApis.contains("Core")){
+                } else { //the document has been found
+                    if (!this.foundApis.contains("Core")) {
                         this.foundApis = this.foundApis + "_Core";
                     }
                 }
@@ -365,6 +367,8 @@ public class Reference {
         if (in.contains("<record")) { //if we found it.
             if (!this.id.equals("not found")) { //and the document is not found
                 found++;
+                this.id = this.doi;
+                this.idFormat = "medrxiv/biorxiv doi";
                 this.hasBeenFound = true;
                 in = in.substring(in.lastIndexOf("<record")); //get the latest versioned record.
                 String Abstract = "";
@@ -398,8 +402,7 @@ public class Reference {
                     Author a = new Author(fn, ln, null);
                     this.authors.add(a);
                 }
-                this.id = this.doi;
-                this.idFormat = "medrxiv/biorxiv doi";
+
             } else {
                 if (!this.foundApis.contains("MedBiorxiv")) {
                     this.foundApis = this.foundApis + "_MedBiorxiv";

@@ -71,7 +71,7 @@ public class SLR {
                 
                 Reference r = this.references.get(i);
 
-                String x = (i + 2) + "";
+               // String x = (i + 2) + "";
              //   System.out.println(x + "  " + r.title + " " + r.doi + " " + r.dateAccepted);
                 
                 
@@ -84,7 +84,7 @@ public class SLR {
                 
                // }
             }
-
+            System.out.println("\nTHE SIZE: " + data.size() + "\n\n");
             Set<Integer> keyid = data.keySet();
             int rowid = 0; // row number, row 1 = 0
 

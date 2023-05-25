@@ -36,7 +36,7 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 1;// starts at 0
+    public static int searchOffset = 105;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 3, 113);//ends at 5
     //CORE OFFSET 110, CORE MISSED 6
     //doc 12 of SLR 53
@@ -64,12 +64,12 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
-           pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
+       pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
         elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
-        springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
-          medxrivPopulate(slrs, searchAmt, searchOffset);
-        //corePopulate(slrs, searchAmt, searchOffset);
-System.out.println("Done searching");
+         springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
+         medxrivPopulate(slrs, searchAmt, searchOffset);
+          // corePopulate(slrs, searchAmt, searchOffset);
+          System.out.println("Done searching");
         int i = 0;
         int j = 0;
         for (SLR s : slrs) {
@@ -77,11 +77,10 @@ System.out.println("Done searching");
                 for (Reference r : s.references) {
                     j++;
                     // if (i < searchAmt) {
-                    
-                        // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                     //   System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
-                        // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
-                    
+
+                    // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    //   System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
+                    // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
                     //}
                 }
             }
@@ -90,9 +89,9 @@ System.out.println("Done searching");
         }
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
-         for(int l = 0;l<slrs.get(k).references.size(); l++){
-             System.out.println(k + " " + l + " " +  slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis);
-         }
+            for (int l = 0; l < slrs.get(k).references.size(); l++) {
+                System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis);
+            }
             slrs.get(k).dumpData(k);
         }
         System.out.println("\n\nDONE WITH THAT\n\n");
@@ -112,7 +111,7 @@ System.out.println("Done searching");
         ArrayList<SLR> slrs = new ArrayList<SLR>();
         slrs = getSLRs();
         for (int j = 2; j < slrs.size(); j++) {
-            System.out.println("creating reference object " + j + " of " + (slrs.size()-1));
+            System.out.println("creating reference object " + j + " of " + (slrs.size() - 1));
             slrs.get(j).references = refFileToDOIs(j);
         }
         return slrs;
@@ -163,9 +162,9 @@ System.out.println("Done searching");
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
                 //if (!slrs.get(i).references.get(j).hasBeenFound) {
-                    System.out.println("Searching Elsevier for document " + j + " of SLR " + i);
-                    slrs.get(i).references.get(j).populateElsevier(ElsevierApiKey);
-              //  }
+                System.out.println("Searching Elsevier for document " + j + " of SLR " + i);
+                slrs.get(i).references.get(j).populateElsevier(ElsevierApiKey);
+                //  }
             }
         }
     }
@@ -182,10 +181,10 @@ System.out.println("Done searching");
     public static void medxrivPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-              //  if (!slrs.get(i).references.get(j).hasBeenFound) {
-                    System.out.println("Searching MEDXRIV for document " + j + " of SLR " + i);
-                    slrs.get(i).references.get(j).populateMedrxiv();
-              //  }
+                //  if (!slrs.get(i).references.get(j).hasBeenFound) {
+                System.out.println("Searching MEDXRIV for document " + j + " of SLR " + i);
+                slrs.get(i).references.get(j).populateMedrxiv();
+                //  }
             }
         }
     }
@@ -204,10 +203,10 @@ System.out.println("Done searching");
     public static void corePopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-           //     if (!slrs.get(i).references.get(j).hasBeenFound) {
+                if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching Core for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateCore(CoreApiKey);
-            //    }
+                }
             }
         }
     }
@@ -226,10 +225,10 @@ System.out.println("Done searching");
     public static void springerPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-           //     if (!slrs.get(i).references.get(j).hasBeenFound) {
-                    System.out.println("Searching Springer for document " + j + " of SLR " + i);
-                    slrs.get(i).references.get(j).populateSpringer(SpringerApiKey);
-           //     }
+                //     if (!slrs.get(i).references.get(j).hasBeenFound) {
+                System.out.println("Searching Springer for document " + j + " of SLR " + i);
+                slrs.get(i).references.get(j).populateSpringer(SpringerApiKey);
+                //     }
             }
         }
     }
@@ -306,27 +305,26 @@ System.out.println("Done searching");
      */
     public static void searchPMCForRefs(ArrayList<SLR> slrs, int j) {
         for (int i = 0; i < slrs.get(j).references.size(); i++) {
-        //    if (slrs.get(j).references.get(i).id.equals("not found")) {
-                String doi = slrs.get(j).references.get(i).doi;
-                String PMCID = "NULL";
-                if (doi.indexOf("10") == 0) {
-                    PMCID = doiToPMC(slrs.get(j).references.get(i).doi);
-                }
-                if (!PMCID.equals("NULL")) {//if we found a pmcID
-                    slrs.get(j).references.get(i).id = PMCID;
-                    slrs.get(j).references.get(i).idFormat = "PMC";
-                }else{
-                    slrs.get(j).references.get(i).id = "not found";
-                      slrs.get(j).references.get(i).idFormat = "N/A";
-                }
-          //  }
+            //    if (slrs.get(j).references.get(i).id.equals("not found")) {
+            String doi = slrs.get(j).references.get(i).doi;
+            String PMCID = "NULL";
+            if (doi.indexOf("10") == 0) {
+                PMCID = doiToPMC(slrs.get(j).references.get(i).doi);
+            }
+            if (!PMCID.equals("NULL")) {//if we found a pmcID
+                slrs.get(j).references.get(i).id = PMCID;
+                slrs.get(j).references.get(i).idFormat = "PMC";
+            } else {
+                slrs.get(j).references.get(i).id = "not found";
+                slrs.get(j).references.get(i).idFormat = "N/A";
+            }
+            //  }
         }
     }
 
-    
     /**
-     * 
-     * @return List of SLRS, unpopulated, based on the SLR excel file. 
+     *
+     * @return List of SLRS, unpopulated, based on the SLR excel file.
      */
     public static ArrayList<SLR> getSLRs() {
         ArrayList<SLR> slrs = new ArrayList<SLR>();
@@ -391,74 +389,86 @@ System.out.println("Done searching");
                     colTerator++;
                     Cell cell = cellIterator.next();
                     String cellValue = df.formatCellValue(cell);
-                    try{
-                    switch (colTerator) {
-                        case 1:
-                            added.doi = cellValue;
-                            break;
-                        case 2:
-                            //parse the spreadsheet date and store that as our date (if wanted)
-                            break;
-                        case 3:
-                            if (!cellValue.equals("Unknown Title") && cellValue.length() > 5) {
-                               // System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
-                                added.hasBeenFound = true;
-                                Reference.found++;
-                                added.title = cellValue;
-                            } else {
-                              //  System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
-                            }
-                            break;
-                        case 4:
-                            if (added.hasBeenFound) {
-                                added.Abstract = cellValue;
-                            }
-                            break;
-                        case 5:
-                            if (added.hasBeenFound) {
-                                if (cellValue.length() > 2) {
-                                    StringTokenizer auths = new StringTokenizer(cellValue.substring(cellValue.lastIndexOf("[") + 1, cellValue.indexOf("]")), ",");
-                                    while (auths.hasMoreTokens()) {
-                                        StringTokenizer bits = new StringTokenizer(auths.nextToken(), "%");
-                                        String fn = bits.nextToken();
-                                        String ln = bits.nextToken();
-                                        String email = bits.nextToken();
-                                        Author x = new Author(fn, ln, email);
-                                        added.authors.add(x);
+                    try {
+                        switch (colTerator) {
+                            case 1:
+                                added.doi = cellValue;
+                                break;
+                            case 2:
+                                //parse the spreadsheet date and store that as our date (if wanted)
+                                break;
+                            case 3:
+                                if (!cellValue.equals("Unknown Title") && cellValue.length() > 5) {
+                                    // System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
+                                    added.hasBeenFound = true;
+                                    Reference.found++;
+                                    added.title = cellValue;
+                                } else {
+                                    //  System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
+                                }
+                                break;
+                            case 4:
+                                if (added.hasBeenFound) {
+                                    added.Abstract = cellValue;
+                                }
+                                break;
+                            case 5:
+                                if (added.hasBeenFound) {
+                                    if (cellValue.length() > 2) {
+                                        StringTokenizer auths = new StringTokenizer(cellValue.substring(cellValue.lastIndexOf("[") + 1, cellValue.indexOf("]")), ",");
+                                        while (auths.hasMoreTokens()) {
+                                            StringTokenizer bits = new StringTokenizer(auths.nextToken(), "%");
+                                            String fn = bits.nextToken();
+                                            String ln = bits.nextToken();
+                                            String email = bits.nextToken();
+                                            Author x = new Author(fn, ln, email);
+                                            added.authors.add(x);
+                                        }
                                     }
                                 }
-                            }
-                            break;
-                        case 6:
-                            if (added.hasBeenFound) {
-                                added.id = cellValue;
-                            }
-                            break;
-                        case 7:
-                            if (added.hasBeenFound) {
-                                added.idFormat = cellValue;
-                            }
-                            break;
-                        case 8:
-                            if (added.hasBeenFound && cellValue.length() > 4) {
-                                added.dateAccepted = LocalDate.parse(cellValue);
-                            }
-                            break;
-                    }
-                    }catch(Exception e){
-                        System.out.println("Inner error while parsing data from excel input on file "+ fileID + ":\n" + e);
+                                break;
+                            case 6:
+                                if (added.hasBeenFound) {
+                                    added.id = cellValue;
+                                }
+                                break;
+                            case 7:
+                                if (added.hasBeenFound) {
+                                    added.idFormat = cellValue;
+                                }
+                                break;
+                            case 8:
+                                if (added.hasBeenFound && cellValue.length() > 4) {
+                                    added.dateAccepted = LocalDate.parse(cellValue);
+                                }
+                                break;
+                            case 9:
+                                if (added.hasBeenFound && cellValue.length() > 2) {
+                                    added.foundApis = cellValue;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Inner error while parsing data from excel input on file " + fileID + ":\n" + e);
                     }
                 }
                 colTerator = 0;
                 if (added.doi.length() > 3 && added.doi.indexOf("10.") == 0) {
                     References.add(added);
                     Reference.total++;
+                }else{
+                    System.out.println("BEEP BEEP" + fileID + " " + (rowTerator+1) + " DOI:" + added.doi);
+                    
                 }
             }
             workbook.close();
+            System.out.println(fileID + " " + rowTerator);
         } catch (Exception e) {
             System.out.println(e + " on file " + fileID);
         }
+
         return References;
     }
 
