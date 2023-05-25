@@ -102,6 +102,7 @@ public class SLR {
 
             FileOutputStream out = new FileOutputStream(myFile);
             workbook.write(out);
+            workbook.close();
             out.close();
         } catch (Exception ex) {
             System.out.println(ex);

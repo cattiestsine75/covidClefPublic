@@ -366,6 +366,9 @@ public class Reference {
         }
     }
 
+    /**
+     * Reformats the abstract, adding newlines after sentences being ended, and removing any possible tags.
+     */
     public void formatAbstract() {
         for (int i = 0; i < Abstract.length(); i++) {
             if (Abstract.charAt(i) == '.' && !Character.isDigit(Abstract.charAt(i - 1))) {

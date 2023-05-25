@@ -79,7 +79,7 @@ public class Main {
                     // if (i < searchAmt) {
                     if (!r.hasBeenFound) {
                         // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
+                     //   System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
                         // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
                     }
                     //}
@@ -90,7 +90,7 @@ public class Main {
         }
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
-            slrs.get(k).dumpData(k);
+           // slrs.get(k).dumpData(k);
         }
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
@@ -317,6 +317,11 @@ public class Main {
         }
     }
 
+    
+    /**
+     * 
+     * @return List of SLRS, unpopulated, based on the SLR excel file. 
+     */
     public static ArrayList<SLR> getSLRs() {
         ArrayList<SLR> slrs = new ArrayList<SLR>();
         SLR dummy = new SLR();
@@ -344,6 +349,7 @@ public class Main {
                 slrs.add(added);
             }
             workbook.close();
+            file.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -388,12 +394,12 @@ public class Main {
                             break;
                         case 3:
                             if (!cellValue.equals("Unknown Title") && cellValue.length() > 5) {
-                                System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
+                               // System.out.println(fileID + ", " + (rowTerator + 1) + " HAS BEEN FOUND");
                                 added.hasBeenFound = true;
                                 Reference.found++;
                                 added.title = cellValue;
                             } else {
-                                System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
+                              //  System.out.println(fileID + ", " + rowTerator + " HAS NOT BEEN FOUND");
                             }
                             break;
                         case 4:
