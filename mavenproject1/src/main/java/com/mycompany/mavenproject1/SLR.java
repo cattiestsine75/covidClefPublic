@@ -65,7 +65,7 @@ public class SLR {
             XSSFSheet spreadsheet = workbook.getSheetAt(0);
             XSSFRow row;
             Map<Integer, Object[]> data = new TreeMap<Integer, Object[]>();
-            data.put(1, new Object[]{"Title", "Abstract", "Authors", "ID", "ID Format", "Date Accepted"});
+            data.put(1, new Object[]{"Title", "Abstract", "Authors", "ID", "ID Format", "Date Accepted", "Other found locations"});
             
             for (int i = 0; i < this.references.size(); i++) {
                 
@@ -80,7 +80,7 @@ public class SLR {
                 
                 //THIS IS AN IMPORTANT LINE!
                 //if(!r.hasBeenFound){ //if it wasn't previously found
-                data.put(i+2, new Object[]{r.title, r.Abstract, r.authors.toString(), r.id, r.idFormat, r.dateAccepted.toString()});
+                data.put(i+2, new Object[]{r.title, r.Abstract, r.authors.toString(), r.id, r.idFormat, r.dateAccepted.toString(), r.foundApis});
                 
                // }
             }

@@ -28,7 +28,7 @@ public class Reference {
     String Abstract; //the abstract of the referenced work.
     String id; // the ID of the Referenced work
     String idFormat; //the Format/Database type for which the ID (see above) is relevant.
-
+    String foundApis;
     ArrayList<Author> authors; //Arraylist of Author objects.
 
     LocalDate dateAccepted; //date accepted.
@@ -44,6 +44,7 @@ public class Reference {
         this.idFormat = "N/A";
         this.title = "Unknown Title";
         this.Abstract = "Unknown Abstract";
+        this.foundApis = "";
 
         authors = new ArrayList<Author>();
         dateAccepted = LocalDate.EPOCH;
@@ -68,137 +69,157 @@ public class Reference {
      */
     public void populate(String in) {
 
-        //   if (this.id.equals("not found")) {
         // System.out.println("ATTEMPTING TO POPULATE");
-        if (in.indexOf("error code=\"cannotDisseminateFormat\"") == -1) {
-            found++;
-            String title = grabTag(in, "article-title", false);
-            int bad = title.indexOf("<sup");
-            if (bad == -1) {
-                bad = 99999999;
-            }
-            bad = Math.min(bad, title.indexOf("<xref"));
-            if (bad > 15) {
-                title = title.substring(0, bad + 1);
-            }
-            //System.out.println(title);
-            this.title = title;                                                                                         //where we add the title
-
-            //AUTHOR RELATED STUFF
-            String autIn = in;
-            while (autIn.indexOf("<contrib") != -1) {
-                //System.out.println("AUTHOR PROBLEM");
-                String authorBlock = grabTag(autIn, "<contrib", "</contrib>", true);
-                // System.out.println(authorBlock);
-                String surname = grabTag(authorBlock, "surname", false);
-                String firstname = grabTag(authorBlock, "given-names", false);
-                String email = grabTag(authorBlock, "email", false);
-                this.authors.add(new Author(firstname, surname, email));                                                   //where we add the authors
-                // System.out.println(firstname + " " + surname + " " + email);
-                autIn = autIn.substring(autIn.indexOf("</contrib") + 1);
-            }
-
-            //DATE RELATED STUFF:
-            String dateIn = grabTag(in, "\"accepted\"", "</date>", true);
-            LocalDate date = LocalDate.EPOCH;
-            if (!dateIn.equals("NULL")) {
-                //System.out.println(dateIn);
-
-                int day = 1;
-                int month = 1;
-                int year = 1970;
-                if (dateIn.contains("day")) {
-                    day = Integer.parseInt(grabTag(dateIn, "day", false));
+        if (in.indexOf("error code=\"cannotDisseminateFormat\"") == -1) { //if we have found it
+            System.out.println("PMC DOCUMENT FOUND");
+            if (!this.hasBeenFound) {
+                System.out.println("FILLING DOCMENT WITH PMC");
+                found++;
+                this.hasBeenFound = true;
+                String title = grabTag(in, "article-title", false);
+                int bad = title.indexOf("<sup");
+                if (bad == -1) {
+                    bad = 99999999;
                 }
-                if (dateIn.contains("month")) {
-                    month = Integer.parseInt(grabTag(dateIn, "month", false));
+                bad = Math.min(bad, title.indexOf("<xref"));
+                if (bad > 15) {
+                    title = title.substring(0, bad + 1);
                 }
-                if (dateIn.contains("year")) {
-                    year = Integer.parseInt(grabTag(dateIn, "year", false));
+                //System.out.println(title);
+                this.title = title;                                                                                         //where we add the title
+
+                //AUTHOR RELATED STUFF
+                String autIn = in;
+                while (autIn.indexOf("<contrib") != -1) {
+                    //System.out.println("AUTHOR PROBLEM");
+                    String authorBlock = grabTag(autIn, "<contrib", "</contrib>", true);
+                    // System.out.println(authorBlock);
+                    String surname = grabTag(authorBlock, "surname", false);
+                    String firstname = grabTag(authorBlock, "given-names", false);
+                    String email = grabTag(authorBlock, "email", false);
+                    this.authors.add(new Author(firstname, surname, email));                                                   //where we add the authors
+                    // System.out.println(firstname + " " + surname + " " + email);
+                    autIn = autIn.substring(autIn.indexOf("</contrib") + 1);
                 }
-                date = LocalDate.of(year, month, day);
-            }
-            this.dateAccepted = date;
 
-            //ABSTRACT RELATED STUFF:
-            String absIn = grabTag(in, "<abstract", "</abstract>", true);
-            this.Abstract = "";
+                //DATE RELATED STUFF:
+                String dateIn = grabTag(in, "\"accepted\"", "</date>", true);
+                LocalDate date = LocalDate.EPOCH;
+                if (!dateIn.equals("NULL")) {
+                    //System.out.println(dateIn);
 
-            if (!absIn.contains("<sec")) {
-                if (absIn.contains("<p")) {
-                    this.Abstract = grabTag(absIn, "<p", "</p", true);
-                    this.Abstract = this.Abstract.substring(1);
-                    formatAbstract();
+                    int day = 1;
+                    int month = 1;
+                    int year = 1970;
+                    if (dateIn.contains("day")) {
+                        day = Integer.parseInt(grabTag(dateIn, "day", false));
+                    }
+                    if (dateIn.contains("month")) {
+                        month = Integer.parseInt(grabTag(dateIn, "month", false));
+                    }
+                    if (dateIn.contains("year")) {
+                        year = Integer.parseInt(grabTag(dateIn, "year", false));
+                    }
+                    date = LocalDate.of(year, month, day);
                 }
-            }
-            while (absIn.contains("<sec")) {
+                this.dateAccepted = date;
 
-                String abstractBlock = grabTag(absIn, "<sec", "</sec>", true);
-                String tit = grabTag(abstractBlock, "title", false);
-                String info = grabTag(abstractBlock, "<p", "</p", true);
-                info = info.substring(1);
-                for (int i = 0; i < info.length(); i++) {
-                    //System.out.print(in.charAt(i));
-                    if (info.charAt(i) == '.' && !Character.isDigit(info.charAt(i - 1))) {
-                        info = info.substring(0, i + 1) + '\n' + info.substring(i + 1);
+                //ABSTRACT RELATED STUFF:
+                String absIn = grabTag(in, "<abstract", "</abstract>", true);
+                this.Abstract = "";
+
+                if (!absIn.contains("<sec")) {
+                    if (absIn.contains("<p")) {
+                        this.Abstract = grabTag(absIn, "<p", "</p", true);
+                        this.Abstract = this.Abstract.substring(1);
+                        formatAbstract();
                     }
                 }
+                while (absIn.contains("<sec")) {
 
-                this.Abstract = this.Abstract + tit + "\n" + info + "\n";                                        //where we add to the abstract
-                absIn = absIn.substring(absIn.indexOf("<sec") + 1);
+                    String abstractBlock = grabTag(absIn, "<sec", "</sec>", true);
+                    String tit = grabTag(abstractBlock, "title", false);
+                    String info = grabTag(abstractBlock, "<p", "</p", true);
+                    info = info.substring(1);
+                    for (int i = 0; i < info.length(); i++) {
+                        //System.out.print(in.charAt(i));
+                        if (info.charAt(i) == '.' && !Character.isDigit(info.charAt(i - 1))) {
+                            info = info.substring(0, i + 1) + '\n' + info.substring(i + 1);
+                        }
+                    }
+
+                    this.Abstract = this.Abstract + tit + "\n" + info + "\n";                                        //where we add to the abstract
+                    absIn = absIn.substring(absIn.indexOf("<sec") + 1);
+                }
+                formatAbstract();
+            } else {
+                System.out.println("ADDING TO FILLED APIS" + " ID:" + this.id);
+                if (!this.foundApis.contains("PMC")) {
+                    this.foundApis = this.foundApis + "_PMC";
+                }
             }
-            formatAbstract();
         } else {
             this.id = "not found";
             this.idFormat = "N/A";
         }
-        //   }
+        //  }
     }
 
     /**
      * Populates a reference object given an elsevier key. This requires that
-     * the reference has a doi value beginning with '10.XX'
-     * This api searches the Scopus, Embase, ScienceDirect, and EngineeringVillage databases hosted by elsevier.
+     * the reference has a doi value beginning with '10.XX' This api searches
+     * the Scopus, Embase, ScienceDirect, and EngineeringVillage databases
+     * hosted by elsevier.
      *
      * @param key Your personalized Elsevier key.
      */
     public void populateElsevier(String key) {
-        if (this.id.equals("not found") && this.doi.indexOf("10.") == 0) {
+        if (this.doi.indexOf("10.") == 0) { //if this doi is valid.
 
             String url = "https://api.elsevier.com/content/article/doi/" + this.doi
                     + "?APIKey=" + key
                     + "&httpAccept=text/xml";
             String in = getHTML(url);
-            if (in.indexOf("<service-error>") == -1 && in.indexOf("error: Some failure in") == -1) {
-                this.idFormat = "elsevier_pii";
-                found++;
-                String coreData = grabTag(in, "coredata", false);
-                this.id = grabTag(coreData, "pii", false);
-                String title = grabTag(coreData, "dc:title", false);
-                String Abstract = grabTag(coreData, "dc:description", false);
-                String date = grabTag(coreData, "<prism:coverDate>", "</prism:coverDate>", true);
-                LocalDate theDate = LocalDate.EPOCH;
-                if (!date.equals("NULL")) {
-                    theDate = LocalDate.parse(date);
-                }
-                this.dateAccepted = theDate;
-                this.Abstract = Abstract;
-                this.title = title;
-                // System.out.println(theDate);
-                // System.out.println(title);
-                //   System.out.println(Abstract);
+            if (in.indexOf("<service-error>") == -1 && in.indexOf("error: Some failure in") == -1) { //if there's a 
+                System.out.println("Elsevier DOCUMENT FOUND");
+                if (this.id.equals("not found")) { //if this document hasn't been found.
+                    System.out.println("FILLING ELSEVIER DOCUMENT");
+                    this.idFormat = "elsevier_pii";
+                    found++;
+                    this.hasBeenFound = true;
+                    String coreData = grabTag(in, "coredata", false);
+                    this.id = grabTag(coreData, "pii", false);
+                    String title = grabTag(coreData, "dc:title", false);
+                    String Abstract = grabTag(coreData, "dc:description", false);
+                    String date = grabTag(coreData, "<prism:coverDate>", "</prism:coverDate>", true);
+                    LocalDate theDate = LocalDate.EPOCH;
+                    if (!date.equals("NULL")) {
+                        theDate = LocalDate.parse(date);
+                    }
+                    this.dateAccepted = theDate;
+                    this.Abstract = Abstract;
+                    this.title = title;
+                    // System.out.println(theDate);
+                    // System.out.println(title);
+                    //   System.out.println(Abstract);
 
-                String authorsData = coreData;
-                int x = 0;
-                while (authorsData.indexOf("<dc:creator>", x + 1) != -1) {
-                    x = authorsData.indexOf("<dc:creator>", x + 1) + "<dc:creator>".length();
-                    String authorStuff = authorsData.substring(x, authorsData.indexOf("<", x + 1));
-                    StringTokenizer tk = new StringTokenizer(authorStuff, ",");
-                    String lastname = tk.nextToken();
-                    String firstname = tk.nextToken();
+                    String authorsData = coreData;
+                    int x = 0;
+                    while (authorsData.indexOf("<dc:creator>", x + 1) != -1) {
+                        x = authorsData.indexOf("<dc:creator>", x + 1) + "<dc:creator>".length();
+                        String authorStuff = authorsData.substring(x, authorsData.indexOf("<", x + 1));
+                        StringTokenizer tk = new StringTokenizer(authorStuff, ",");
+                        String lastname = tk.nextToken();
+                        String firstname = tk.nextToken();
 
-                    this.authors.add(new Author(firstname, lastname, null));
+                        this.authors.add(new Author(firstname, lastname, null));
 
+                    }
+                } else {
+                    System.out.println("ADDING TO FILLED APIS");
+                    if (!this.foundApis.contains("elsevier")) {
+                        this.foundApis = this.foundApis + "_elsevier";
+                    }
                 }
                 // System.out.println(in);
 
@@ -215,41 +236,48 @@ public class Reference {
      *
      */
     public void populateSpringer(String key) {
-        if (this.id.equals("not found") && this.doi.indexOf("10.") == 0) {
+        if (this.doi.indexOf("10.") == 0) {
             String url = "https://api.springernature.com/metadata/pam?q=doi:" + this.doi
                     + "&api_key=" + key;
 
             String in = (getHTML(url));
-            if (grabTag(in, "total", false).equals("1")) {
-                found++;
-                this.id = this.doi;
-                this.idFormat = "Springer";
+            if (grabTag(in, "total", false).equals("1")) { //if we've found it
+                if (this.id.equals("not found")) { //and the document hasn't been filled
+                    found++; //fill it
+                    this.hasBeenFound = true;
+                    this.id = this.doi;
+                    this.idFormat = "Springer";
 
-                if (in.indexOf("Abstract") != -1) {
-                    String abs = in.substring(in.indexOf("Abstract"));
-                    String Abstract = (grabTag(abs, "<p>", "</", true));
-                    this.Abstract = Abstract;
-                    formatAbstract();
-                }
-                String date = grabTag(in, "<prism:publicationDate>", "</", true);
-                String authorsData = in;
-                String title = (grabTag(in, "<dc:title>", "</dc:title>", true));
-                this.title = title;
+                    if (in.indexOf("Abstract") != -1) {
+                        String abs = in.substring(in.indexOf("Abstract"));
+                        String Abstract = (grabTag(abs, "<p>", "</", true));
+                        this.Abstract = Abstract;
+                        formatAbstract();
+                    }
+                    String date = grabTag(in, "<prism:publicationDate>", "</", true);
+                    String authorsData = in;
+                    String title = (grabTag(in, "<dc:title>", "</dc:title>", true));
+                    this.title = title;
 
-                if (!date.equals("NULL")) {
-                    this.dateAccepted = LocalDate.parse(date);
-                }
+                    if (!date.equals("NULL")) {
+                        this.dateAccepted = LocalDate.parse(date);
+                    }
 
-                int x = 0;
-                while (authorsData.indexOf("<dc:creator>", x + 1) != -1) {
-                    x = authorsData.indexOf("<dc:creator>", x + 1) + "<dc:creator>".length();
-                    String authorStuff = authorsData.substring(x, authorsData.indexOf("<", x + 1));
-                    StringTokenizer tk = new StringTokenizer(authorStuff, ",");
-                    String lastname = tk.nextToken();
-                    String firstname = tk.nextToken();
-                    // System.out.println(firstname + " " + lastname);
-                    this.authors.add(new Author(firstname, lastname, null));
+                    int x = 0;
+                    while (authorsData.indexOf("<dc:creator>", x + 1) != -1) {
+                        x = authorsData.indexOf("<dc:creator>", x + 1) + "<dc:creator>".length();
+                        String authorStuff = authorsData.substring(x, authorsData.indexOf("<", x + 1));
+                        StringTokenizer tk = new StringTokenizer(authorStuff, ",");
+                        String lastname = tk.nextToken();
+                        String firstname = tk.nextToken();
+                        // System.out.println(firstname + " " + lastname);
+                        this.authors.add(new Author(firstname, lastname, null));
 
+                    }
+                } else { //if the document HAS been filled already
+                    if (!this.foundApis.contains("Springer")) {
+                        this.foundApis = this.foundApis + "_Springer";
+                    }
                 }
             }
         }
@@ -268,106 +296,121 @@ public class Reference {
             String url = "https://api.core.ac.uk/v3/search/works/?q=doi:" + this.doi + "&api_key=" + key;
             String in = getHTML(url);
             String th = grabTag(in, "\"totalHits\":", ",", true);
-            if (!th.equals("0")) {
-                found++;
-                this.id = this.doi;
-                this.idFormat = "CORE";
-                int x = 0;
-                if (in.contains("\"authors\":[")) {
-                    String authorsData = grabTag(in, "\"authors\":[", "]", true);
-                    // System.out.println(authorsData);
-                    authorsData = removeLike(authorsData, ",", 1);
-                    // System.out.println("\n\nAFTER REMOVAL:\n" + authorsData);
+            if (!th.equals("0")) { //if we found it
+                if (this.id.equals("not found")) { //and the document hasn't been found
+                    found++;
+                    this.hasBeenFound = true;
+                    this.id = this.doi;
+                    this.idFormat = "CORE";
+                    int x = 0;
+                    if (in.contains("\"authors\":[")) {
+                        String authorsData = grabTag(in, "\"authors\":[", "]", true);
+                        // System.out.println(authorsData);
+                        authorsData = removeLike(authorsData, ",", 1);
+                        // System.out.println("\n\nAFTER REMOVAL:\n" + authorsData);
 
-                    while (authorsData.indexOf("\"name\":\"", x + 1) != -1) {
-                        x = authorsData.indexOf("\"name\":\"", x + 1) + "\"name\":\"".length();
-                        String authorStuff = authorsData.substring(x, authorsData.indexOf("\"", x + 1));
+                        while (authorsData.indexOf("\"name\":\"", x + 1) != -1) {
+                            x = authorsData.indexOf("\"name\":\"", x + 1) + "\"name\":\"".length();
+                            String authorStuff = authorsData.substring(x, authorsData.indexOf("\"", x + 1));
 
-                        if (authorStuff.indexOf(" ") != -1) {
-                            String fn = authorStuff.substring(0, authorStuff.indexOf(" "));
-                            String ln = authorStuff.substring(authorStuff.indexOf(" ") + 1);
-                            this.authors.add(new Author(fn, ln, "coreGivesNoEmail"));
+                            if (authorStuff.indexOf(" ") != -1) {
+                                String fn = authorStuff.substring(0, authorStuff.indexOf(" "));
+                                String ln = authorStuff.substring(authorStuff.indexOf(" ") + 1);
+                                this.authors.add(new Author(fn, ln, "coreGivesNoEmail"));
 
-                        } else {
-                            //add it regardless?
+                            } else {
+                                //add it regardless?
+                            }
                         }
                     }
-                }
-                if (in.contains("\"title\":\"")) {
-                    String title = grabTag(in, "\"title\":\"", "\"", true);
-                    this.title = title;
+                    if (in.contains("\"title\":\"")) {
+                        String title = grabTag(in, "\"title\":\"", "\"", true);
+                        this.title = title;
 
-                }
-                if (in.contains("\"abstract\":\"")) {
-                    String Abstract = grabTag(in, "\"abstract\":\"", "\"", true);
-                    for (int i = 0; i < Abstract.length(); i++) {
-                        if (Abstract.charAt(i) == '.' && !Character.isDigit(Abstract.charAt(i - 1))) {
-                            Abstract = Abstract.substring(0, i + 1) + '\n' + Abstract.substring(i + 1);
-                        }
                     }
-                    this.Abstract = Abstract;
+                    if (in.contains("\"abstract\":\"")) {
+                        String Abstract = grabTag(in, "\"abstract\":\"", "\"", true);
+                        for (int i = 0; i < Abstract.length(); i++) {
+                            if (Abstract.charAt(i) == '.' && !Character.isDigit(Abstract.charAt(i - 1))) {
+                                Abstract = Abstract.substring(0, i + 1) + '\n' + Abstract.substring(i + 1);
+                            }
+                        }
+                        this.Abstract = Abstract;
 
-                }
-                try {
-                    Thread.sleep(2000); //this is done to counter rate limiting. That being said, It's not perfect.
-                    //At it's worst, if core has received no calls, and then receieves the current rate limit (150) then this adds an additional 5 minutes to runtime.
-                } catch (Exception e) {
-                    System.out.println(e);
+                    }
+                    try {
+                        Thread.sleep(2000); //this is done to counter rate limiting. That being said, It's not perfect.
+                        //At it's worst, if core has received no calls, and then receieves the current rate limit (150) then this adds an additional 5 minutes to runtime.
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }else{ //the document has been found
+                    if(!this.foundApis.contains("Core")){
+                        this.foundApis = this.foundApis + "_Core";
+                    }
                 }
             }
         }
 
     }
-   
+
     public void populateMedrxiv() {
 
         String base = "https://api.medrxiv.org/details/medrxiv/"
                 + this.doi + "/na/xml";
         String in = (getHTML(base));
-        if(!in.contains("<record")){
+        if (!in.contains("<record")) {
             in = getHTML("https://api.biorxiv.org/details/biorxiv/" + this.doi + "/na/xml");//if we don't have record, check biorxiv to see if it's there
         }
-        if (in.contains("<record")) {
-            found++;
-            in = in.substring(in.lastIndexOf("<record")); //get the latest versioned record.
-            String Abstract = "";
-            if (in.contains("<abstract")) {
-                Abstract = grabTag(in, "<abstract", "</abstract", true);
-                Abstract = grabTag(Abstract, "<![CDATA[", "]]>", true);
-            }
-            this.Abstract = Abstract;
-            String tBlock = grabTag(in, "<title", "</title", true);
-            String Title = grabTag(tBlock, "<![CDATA[", "]]>", true);
-            this.title = Title;
-            System.out.println(Title);
-            String date = grabTag(in, "<date>", "</date", true);
-
-            this.dateAccepted = LocalDate.parse(date);
-
-            String aBlock = grabTag(in, "<authors>", "</authors", true);
-            aBlock = grabTag(aBlock, "<![CDATA[", "]]>", true);
-
-            StringTokenizer tk = new StringTokenizer(aBlock, ";");
-            while (tk.hasMoreTokens()) {
-                String fn = "couldn't find firstname";
-                String ln = "couldn't find lastname";
-                StringTokenizer tk2 = new StringTokenizer(tk.nextToken(), ",");
-                if (tk2.hasMoreTokens()) {
-                    ln = tk2.nextToken();
+        if (in.contains("<record")) { //if we found it.
+            if (!this.id.equals("not found")) { //and the document is not found
+                found++;
+                this.hasBeenFound = true;
+                in = in.substring(in.lastIndexOf("<record")); //get the latest versioned record.
+                String Abstract = "";
+                if (in.contains("<abstract")) {
+                    Abstract = grabTag(in, "<abstract", "</abstract", true);
+                    Abstract = grabTag(Abstract, "<![CDATA[", "]]>", true);
                 }
-                if (tk2.hasMoreTokens()) {
-                    fn = tk2.nextToken();
+                this.Abstract = Abstract;
+                String tBlock = grabTag(in, "<title", "</title", true);
+                String Title = grabTag(tBlock, "<![CDATA[", "]]>", true);
+                this.title = Title;
+                System.out.println(Title);
+                String date = grabTag(in, "<date>", "</date", true);
+
+                this.dateAccepted = LocalDate.parse(date);
+
+                String aBlock = grabTag(in, "<authors>", "</authors", true);
+                aBlock = grabTag(aBlock, "<![CDATA[", "]]>", true);
+
+                StringTokenizer tk = new StringTokenizer(aBlock, ";");
+                while (tk.hasMoreTokens()) {
+                    String fn = "couldn't find firstname";
+                    String ln = "couldn't find lastname";
+                    StringTokenizer tk2 = new StringTokenizer(tk.nextToken(), ",");
+                    if (tk2.hasMoreTokens()) {
+                        ln = tk2.nextToken();
+                    }
+                    if (tk2.hasMoreTokens()) {
+                        fn = tk2.nextToken();
+                    }
+                    Author a = new Author(fn, ln, null);
+                    this.authors.add(a);
                 }
-                Author a = new Author(fn, ln, null);
-                this.authors.add(a);
+                this.id = this.doi;
+                this.idFormat = "medrxiv/biorxiv doi";
+            } else {
+                if (!this.foundApis.contains("MedBiorxiv")) {
+                    this.foundApis = this.foundApis + "_MedBiorxiv";
+                }
             }
-            this.id = this.doi;
-            this.idFormat = "medrxiv/biorxiv doi";
         }
     }
 
     /**
-     * Reformats the abstract, adding newlines after sentences being ended, and removing any possible tags.
+     * Reformats the abstract, adding newlines after sentences being ended, and
+     * removing any possible tags.
      */
     public void formatAbstract() {
         for (int i = 0; i < Abstract.length(); i++) {

@@ -36,7 +36,7 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 110;// starts at 0
+    public static int searchOffset = 1;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 3, 113);//ends at 5
     //CORE OFFSET 110, CORE MISSED 6
     //doc 12 of SLR 53
@@ -64,12 +64,12 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
-        //   pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
-       // elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
-        //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
-        //  medxrivPopulate(slrs, searchAmt, searchOffset);
+           pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
+        elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
+        springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
+          medxrivPopulate(slrs, searchAmt, searchOffset);
         //corePopulate(slrs, searchAmt, searchOffset);
-
+System.out.println("Done searching");
         int i = 0;
         int j = 0;
         for (SLR s : slrs) {
@@ -77,11 +77,11 @@ public class Main {
                 for (Reference r : s.references) {
                     j++;
                     // if (i < searchAmt) {
-                    if (!r.hasBeenFound) {
+                    
                         // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                      //   System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
                         // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
-                    }
+                    
                     //}
                 }
             }
@@ -90,7 +90,10 @@ public class Main {
         }
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
-           // slrs.get(k).dumpData(k);
+         for(int l = 0;l<slrs.get(k).references.size(); l++){
+             System.out.println(k + " " + l + " " +  slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis);
+         }
+            slrs.get(k).dumpData(k);
         }
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
@@ -127,7 +130,7 @@ public class Main {
             System.out.println("Searching for PMCIDs of documents in SLR" + i + " of SLR" + k);
             searchPMCForRefs(slrs, i);
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (slrs.get(i).references.get(j).idFormat.equals("PMC") && !slrs.get(i).references.get(j).hasBeenFound) {
+                if (slrs.get(i).references.get(j).idFormat.equals("PMC")) {
                     System.out.println("Searching PMC for document " + j + " of SLR " + i);
                     String pmcid = slrs.get(i).references.get(j).id.substring(3);
                     if (pmcid.contains(".")) {
@@ -159,10 +162,10 @@ public class Main {
     public static void elsevierPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (!slrs.get(i).references.get(j).hasBeenFound) {
+                //if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching Elsevier for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateElsevier(ElsevierApiKey);
-                }
+              //  }
             }
         }
     }
@@ -179,10 +182,10 @@ public class Main {
     public static void medxrivPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (!slrs.get(i).references.get(j).hasBeenFound) {
+              //  if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching MEDXRIV for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateMedrxiv();
-                }
+              //  }
             }
         }
     }
@@ -201,10 +204,10 @@ public class Main {
     public static void corePopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (!slrs.get(i).references.get(j).hasBeenFound) {
+           //     if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching Core for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateCore(CoreApiKey);
-                }
+            //    }
             }
         }
     }
@@ -223,10 +226,10 @@ public class Main {
     public static void springerPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (!slrs.get(i).references.get(j).hasBeenFound) {
+           //     if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching Springer for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateSpringer(SpringerApiKey);
-                }
+           //     }
             }
         }
     }
@@ -303,17 +306,20 @@ public class Main {
      */
     public static void searchPMCForRefs(ArrayList<SLR> slrs, int j) {
         for (int i = 0; i < slrs.get(j).references.size(); i++) {
-            if (slrs.get(j).references.get(i).id.equals("not found")) {
+        //    if (slrs.get(j).references.get(i).id.equals("not found")) {
                 String doi = slrs.get(j).references.get(i).doi;
                 String PMCID = "NULL";
                 if (doi.indexOf("10") == 0) {
                     PMCID = doiToPMC(slrs.get(j).references.get(i).doi);
                 }
-                if (!PMCID.equals("NULL")) {
+                if (!PMCID.equals("NULL")) {//if we found a pmcID
                     slrs.get(j).references.get(i).id = PMCID;
                     slrs.get(j).references.get(i).idFormat = "PMC";
+                }else{
+                    slrs.get(j).references.get(i).id = "not found";
+                      slrs.get(j).references.get(i).idFormat = "N/A";
                 }
-            }
+          //  }
         }
     }
 
