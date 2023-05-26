@@ -36,7 +36,7 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 98;// starts at 0
+    public static int searchOffset = 113;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 2 + 3, 113);//ends at 5
     //CORE OFFSET 110, CORE MISSED 6
     //98 + 
