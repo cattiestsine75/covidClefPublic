@@ -411,6 +411,82 @@ public class Reference {
         }
     }
 
+    public void populateCrossref() {
+        if (this.doi.indexOf("10.") == 0) {
+            String url = "https://api.crossref.org/works/" + this.doi;
+            String in = getHTML(url);
+            if (!in.contains("error: Some failure in getHTML line")) {//if we found it
+
+                if (this.id.equals("not found")) {
+                    this.idFormat = "CROSSREF";
+                    this.id = this.doi;
+                    found++;
+                    this.hasBeenFound = true;
+                    String abs = "";
+                    String title = "";
+                    String auths = "";
+                    String date = "";
+                    String srch = "abstract\":";
+                    if (in.contains(srch)) {
+                        int x = in.indexOf(srch) + srch.length();
+                        abs = in.substring(x, in.indexOf("\",", x));
+                        this.Abstract = abs;
+                        //  System.out.println(abs);
+                    }
+                    srch = "\"title\":[";
+                    if (in.contains(srch)) {
+                        int x = in.indexOf(srch) + srch.length();
+                        title = in.substring(x, in.indexOf("],", x));
+                        this.title = title;
+                        //  System.out.println(title);
+                    }
+                    srch = "\"author\":[";
+                    if (in.contains(srch)) {
+                        int x = 0;
+
+                        x = in.indexOf(srch, x) + srch.length();
+                        auths = in.substring(x, in.indexOf("],", x));
+                        x = 0;
+                        srch = "\"given\":\"";
+                        while (auths.indexOf(srch, x) != -1) {
+                            srch = "\"given\":\"";
+                            int y = auths.indexOf(srch, x) + srch.length();
+                            String fn = auths.substring(y, auths.indexOf("\"", y));
+                            srch = "\"family\":\"";
+                            y = auths.indexOf(srch, y) + srch.length();
+                            String ln = auths.substring(y, auths.indexOf("\"", y));
+                            // System.out.println(fn + ", " + ln);
+                            this.authors.add(new Author(fn, ln, "xref no email"));
+                            x = y + 1;
+
+                        }
+                        // System.out.println(auths);
+                    }
+                    srch = "\"date-time\":\"";
+                    if (in.contains(srch)) {
+                        int x = in.indexOf(srch) + srch.length();
+                        date = in.substring(x, in.indexOf("\",", x));
+                        if (Character.isDigit(date.charAt(0)) && Character.isLetter(date.charAt(10))) {
+                            date = date.substring(0, 10);
+                            this.dateAccepted = LocalDate.parse(date);
+                        }
+
+                    }
+                    formatAbstract();
+                } else {
+                    if (!this.foundApis.contains("CROSSREF")) {
+                        this.foundApis = this.foundApis + "_CROSSREF";
+                    }
+                }
+            }
+        }
+        try{
+            Thread.sleep(1000);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
     /**
      * Reformats the abstract, adding newlines after sentences being ended, and
      * removing any possible tags.

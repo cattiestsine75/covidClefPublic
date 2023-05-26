@@ -36,11 +36,12 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 34;// starts at 0
-    public static int searchAmt = Math.min(searchOffset + 2 + 30, 113);//ends at 5
+    public static int searchOffset = 0;// starts at 0
+    public static int searchAmt = Math.min(searchOffset + 2 + 113, 113);//ends at 5
     //CORE OFFSET 36 - 34
     //98 + 
     //have access to 88% of the references.
+
     /**
      * @param args the command line arguments
      */
@@ -68,26 +69,28 @@ public class Main {
         //elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         // medxrivPopulate(slrs, searchAmt, searchOffset);
-         //corePopulate(slrs, searchAmt, searchOffset);
+        //corePopulate(slrs, searchAmt, searchOffset);
+       // crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
-        
-        
+
         //go through each of the references
         int i = 0;
         int j = 0;
         int count = 0;
+        int scount = 0;
         for (SLR s : slrs) {
             if (s.references != null) {
                 for (Reference r : s.references) {
                     j++;
-                    if (r.title.contains("<") && r.title.contains(">")) { //if this condition is met
+                    if (r.idFormat.equals("CROSSREF")) { //if this condition is met
                         count++;
-                       // r.id = r.doi;                                                        //make these changes
-                       //  r.idFormat = "CORE";
-                        System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :" + r.title);                     //print this out
-                        
+                        if(r.Abstract.length()>50){
+                            scount ++;
                         }
+                        System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.doi + "\nABSTRACT" + r.Abstract);                     //print this out
+
+                    }
                 }
             }
             i++;
@@ -98,11 +101,14 @@ public class Main {
             for (int l = 0; l < slrs.get(k).references.size(); l++) {
                 //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
             }
-          //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+              slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
         }
-        System.out.println("COUNT: " + count);
+        System.out.println("COUNT: "+scount + " OF "  + count);
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
+
+        //  System.out.println(in.substring(in.indexOf("abstract")));
+        //  System.out.println(in.substring(in.indexOf("abstract")));
     }
 
     /**
@@ -238,6 +244,21 @@ public class Main {
                 //     }
             }
         }
+    }
+
+    public static void crossrefPopulate(ArrayList<SLR> slrs, int k, int offset) {
+        for (int i = 2 + offset; i < k; i++) {
+            for (int j = 0; j < slrs.get(i).references.size(); j++) {
+                if (!slrs.get(i).references.get(j).hasBeenFound) {
+                    System.out.println("Searching CrossRef for document " + j + " of SLR " + i);
+                    slrs.get(i).references.get(j).populateCrossref();
+                }
+            }
+        }
+    }
+
+    public static void crossrefPopulate(ArrayList<SLR> slrs) {
+        crossrefPopulate(slrs, slrs.size(), 0);
     }
 
     /**
@@ -558,11 +579,13 @@ public class Main {
             InputStream is = conn.getInputStream();
             result = IOUtils.toString(is, StandardCharsets.UTF_8);
             header = conn.getHeaderFields().toString();
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("unable to read url " + urlToRead);
         } catch (Exception e) {
-            if (!e.toString().contains("elsevier")) {
-                System.out.println(header);
-                System.out.println(e);
-            }
+
+            System.out.println(header);
+            System.out.println(e);
+
         }
         return result;
     }
