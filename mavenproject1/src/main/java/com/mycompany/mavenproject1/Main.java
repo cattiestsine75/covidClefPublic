@@ -36,11 +36,11 @@ public class Main {
     public static String ElsevierApiKey = "";
     public static String SpringerApiKey = "";
     public static String CoreApiKey = "";
-    public static int searchOffset = 113;// starts at 0
-    public static int searchAmt = Math.min(searchOffset + 2 + 3, 113);//ends at 5
-    //CORE OFFSET 110, CORE MISSED 6
+    public static int searchOffset = 34;// starts at 0
+    public static int searchAmt = Math.min(searchOffset + 2 + 30, 113);//ends at 5
+    //CORE OFFSET 36 - 34
     //98 + 
-    
+    //have access to 88% of the references.
     /**
      * @param args the command line arguments
      */
@@ -64,24 +64,30 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
-        pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
-        elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
-        springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
-        medxrivPopulate(slrs, searchAmt, searchOffset);
-        // corePopulate(slrs, searchAmt, searchOffset);
+        //pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
+        //elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
+        //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
+        // medxrivPopulate(slrs, searchAmt, searchOffset);
+         //corePopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
+        
+        
+        //go through each of the references
         int i = 0;
         int j = 0;
+        int count = 0;
         for (SLR s : slrs) {
             if (s.references != null) {
                 for (Reference r : s.references) {
                     j++;
-                    // if (i < searchAmt) {
-
-                    // System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    //   System.out.println("SLR:" + i + " REF: " + j + " Title: " + r.title + "\nID:  " + r.id + "\n");
-                    // System.out.println("SLR:" + i + ", REF:" + j + " id:" + r.id + "of format " + r.idFormat + ", DOI:" + r.doi + " TITLE: " + r.title + "\nABSTRACT:" + r.Abstract + "\n\nAUTHORS" + r.authors);
-                    //}
+                    if (r.title.contains("<") && r.title.contains(">")) { //if this condition is met
+                        count++;
+                       // r.id = r.doi;                                                        //make these changes
+                       //  r.idFormat = "CORE";
+                        System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :" + r.title);                     //print this out
+                        
+                        }
                 }
             }
             i++;
@@ -90,13 +96,13 @@ public class Main {
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
             for (int l = 0; l < slrs.get(k).references.size(); l++) {
-                System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis);
+                //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
             }
-            slrs.get(k).dumpData(k);
+          //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
         }
+        System.out.println("COUNT: " + count);
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
-        System.out.println(searchOffset);
     }
 
     /**
@@ -123,6 +129,7 @@ public class Main {
      *
      * @param slrs arraylist of SLRS you wish to populate
      * @param k quantity of documents you wish to populate
+     * @param offset offset- where we should 'start' looking.
      */
     public static void pmcPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
@@ -465,7 +472,7 @@ public class Main {
                 }
             }
             workbook.close();
-            System.out.println(fileID + " " + rowTerator);
+            //System.out.println(fileID + " " + rowTerator);
         } catch (Exception e) {
             System.out.println(e + " on file " + fileID);
         }
