@@ -250,10 +250,17 @@ public class Reference {
                     this.idFormat = "Springer";
 
                     if (in.indexOf("Abstract") != -1) {
-                        String abs = in.substring(in.indexOf("Abstract"));
-                        String Abstract = (grabTag(abs, "<p>", "</", true));
-                        this.Abstract = Abstract;
-                        formatAbstract();
+                        String x = in.substring(in.indexOf("Abstract"));
+                        x = x.substring(0, x.indexOf("</xhtml:body>"));
+                        String abs = "";
+                        while (x.contains("<p>")) {
+                            String tag = (grabTag(x, "<p", "</p", true));
+                            tag = tag.substring(tag.indexOf(">") + 1);
+                            abs = abs + "\n" + tag;
+                            x = x.substring(x.indexOf("</p") + 1);
+                        }
+                        this.Abstract = abs;
+                        this.formatAbstract();
                     }
                     String date = grabTag(in, "<prism:publicationDate>", "</", true);
                     String authorsData = in;
@@ -356,6 +363,12 @@ public class Reference {
 
     }
 
+    /**
+     * Populates a reference object using the Medrxiv api. This requires that
+     * the reference has a doi value beginning with '10.XX'
+     *
+     *
+     */
     public void populateMedrxiv() {
 
         String base = "https://api.medrxiv.org/details/medrxiv/"
@@ -411,6 +424,12 @@ public class Reference {
         }
     }
 
+    /**
+     * Populates a reference object using the Crossref api. This requires that
+     * the reference has a doi value beginning with '10.XX'
+     *
+     *
+     */
     public void populateCrossref() {
         if (this.doi.indexOf("10.") == 0) {
             String url = "https://api.crossref.org/works/" + this.doi;
@@ -480,9 +499,9 @@ public class Reference {
                 }
             }
         }
-        try{
+        try {
             Thread.sleep(1000);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -508,5 +527,18 @@ public class Reference {
             }
         }
 
+    }
+
+    public void clear() {
+       // this.doi = "UnknownDOI";
+        this.hasBeenFound = false;
+        this.id = "not found";
+        this.idFormat = "N/A";
+        this.title = "Unknown Title";
+        this.Abstract = "Unknown Abstract";
+        this.foundApis = "";
+
+        authors = new ArrayList<Author>();
+        dateAccepted = LocalDate.EPOCH;
     }
 }

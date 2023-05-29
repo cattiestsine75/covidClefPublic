@@ -70,7 +70,7 @@ public class Main {
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         // medxrivPopulate(slrs, searchAmt, searchOffset);
         //corePopulate(slrs, searchAmt, searchOffset);
-       // crossrefPopulate(slrs, searchAmt, searchOffset);
+        // crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
 
         //go through each of the references
@@ -82,13 +82,15 @@ public class Main {
             if (s.references != null) {
                 for (Reference r : s.references) {
                     j++;
-                    if (r.idFormat.equals("CROSSREF")) { //if this condition is met
+                    if (r.Abstract.length()<50 && r.id.length()>8 && !r.id.equals("not found")) { //if this condition is met
                         count++;
-                        if(r.Abstract.length()>50){
-                            scount ++;
-                        }
-                        System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.doi + "\nABSTRACT" + r.Abstract);                     //print this out
+                       // if (r.Abstract.length() > 450) {
+                            scount++;
+                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.id + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            
+                           System.out.println("\n\n");
+                      //  }
 
                     }
                 }
@@ -97,13 +99,23 @@ public class Main {
             j = 0;
         }
         System.out.println("\n\n");
+    
+        //System.out.println(slrs.get(41).references.get(6).title);
+        // System.out.println(slrs.get(54).references.get(3).title);
+        //System.out.println(slrs.get(77).references.get(1).title);
+        //System.out.println(slrs.get(77).references.get(14).title);
+        //System.out.println(slrs.get(88).references.get(1).title);
+        //System.out.println(slrs.get(89).references.get(29).title);
+
+        System.out.println("");
+        System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
             for (int l = 0; l < slrs.get(k).references.size(); l++) {
                 //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
             }
-              slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+            // slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
         }
-        System.out.println("COUNT: "+scount + " OF "  + count);
+        System.out.println("COUNT: " + scount + " OF " + count);
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
