@@ -526,7 +526,22 @@ public class Reference {
                 Abstract = Abstract.substring(0, x) + Abstract.substring(y);
             }
         }
+        
+       
 
+    }
+    public void removeParIdTag(){
+         String srch = "id=\"Par";
+        while(Abstract.contains(srch)){
+            int loc = Abstract.indexOf(srch) +srch.length();
+            while(Character.isDigit(Abstract.charAt(loc))){
+              
+                loc++;
+            }
+            loc = loc+ 2;
+            int y= Abstract.indexOf(srch);
+            Abstract = Abstract.substring(0, y) + Abstract.substring(loc);
+        }
     }
 
     public void clear() {

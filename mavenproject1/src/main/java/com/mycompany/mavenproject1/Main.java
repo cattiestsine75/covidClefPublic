@@ -78,19 +78,20 @@ public class Main {
         int j = 0;
         int count = 0;
         int scount = 0;
+        
         for (SLR s : slrs) {
             if (s.references != null) {
                 for (Reference r : s.references) {
                     j++;
-                    if (r.Abstract.length()<50 && r.id.length()>8 && !r.id.equals("not found")) { //if this condition is met
+                    if (r.hasBeenFound) { //if this condition is met
                         count++;
-                       // if (r.Abstract.length() > 450) {
+                        if (r.Abstract.length() < 50) {
                             scount++;
                             System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.id + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                            
-                           System.out.println("\n\n");
-                      //  }
+                            System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.doi + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            System.out.println(r.foundApis);
+                            System.out.println("\n\n");
+                        }
 
                     }
                 }
@@ -99,14 +100,14 @@ public class Main {
             j = 0;
         }
         System.out.println("\n\n");
-    
+         
+       
         //System.out.println(slrs.get(41).references.get(6).title);
         // System.out.println(slrs.get(54).references.get(3).title);
         //System.out.println(slrs.get(77).references.get(1).title);
         //System.out.println(slrs.get(77).references.get(14).title);
         //System.out.println(slrs.get(88).references.get(1).title);
         //System.out.println(slrs.get(89).references.get(29).title);
-
         System.out.println("");
         System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
