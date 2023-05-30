@@ -78,29 +78,37 @@ public class Main {
         int j = 0;
         int count = 0;
         int scount = 0;
-
+        ArrayList<String> dois = new ArrayList<String>();
         for (SLR s : slrs) {
             if (s.references != null) {
                 for (Reference r : s.references) {
                     j++;
-                    if (r.hasBeenFound) { //if this condition is met
+                    if (!dois.contains(r.doi)) {
+                        dois.add(r.doi);
+                    }
+                   // if (!r.hasBeenFound) { //if this condition is met
                         count++;
-                        if (r.Abstract.length() < 50) {
+                        if (r.doi.charAt(r.doi.length()-1)=='.') {
                             scount++;
                             System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + "}. DOI:" + r.doi + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title +  ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
                             System.out.println(r.foundApis);
                             System.out.println("\n\n");
                         }
 
-                    }
+                   // }
                 }
             }
             i++;
             j = 0;
         }
+        System.out.println("\n\n\n");
+        System.out.println(dois.size());
         System.out.println("\n\n");
 
+        
+        
+      
         //System.out.println(slrs.get(41).references.get(6).title);
         // System.out.println(slrs.get(54).references.get(3).title);
         //System.out.println(slrs.get(77).references.get(1).title);
@@ -115,12 +123,18 @@ public class Main {
             }
             // slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
         }
+        
         System.out.println("COUNT: " + scount + " OF " + count);
+        
+        
+     
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
         //  System.out.println(in.substring(in.indexOf("abstract")));
         //  System.out.println(in.substring(in.indexOf("abstract")));
+        
+
     }
 
     /**
@@ -163,10 +177,18 @@ public class Main {
                     String base = "https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:" + pmcid
                             + "&metadataPrefix=pmc";
                     String in = getHTML(base);
-                    slrs.get(i).references.get(j).populate(in);//populate
+                 //   slrs.get(i).references.get(j).populate(in);//populate
                 }
             }
         }
+    }
+    
+    public static void pmcPopulatev2(ArrayList<SLR> slrs, int k, int offset){
+         for (int i = 2 + offset; i < k; i++) {
+            for (int j = 0; j < slrs.get(i).references.size(); j++) {
+                slrs.get(i).references.get(j).populate();
+            }
+         }
     }
 
     /**
@@ -267,7 +289,8 @@ public class Main {
      * @param k the last index of the SLR that should be populated. This is done
      * to prevent excessive compile times, as well as adhere to rate limits from
      * various api providers.
-     * @param offset the offset from the first slr for which should be populated.
+     * @param offset the offset from the first slr for which should be
+     * populated.
      */
     public static void crossrefPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
@@ -277,9 +300,17 @@ public class Main {
                     slrs.get(i).references.get(j).populateCrossref();
                 }
             }
-        } 
+        }
     }
 
+    /**
+     * Populates the SLRs arraylist's of References using the Crossref database
+     *
+     * @param slrs ArrayList of SLR objects. It is assumed that this arraylist
+     * was created using the Initialize code to ensure that they are created
+     * properly.
+     * @see initialize
+     */
     public static void crossrefPopulate(ArrayList<SLR> slrs) {
         crossrefPopulate(slrs, slrs.size(), 0);
     }
@@ -542,7 +573,8 @@ public class Main {
      * @return the PMC id of the DOI
      */
     public static String doiToPMC(String doi) {
-        String in = pubmedConvertDOI(doi);
+        String base = "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/";
+        String in = getHTML(base + "?ids=" + doi);
         return grabTag(in, "pmcid=\"", "\"", true);
     }
 

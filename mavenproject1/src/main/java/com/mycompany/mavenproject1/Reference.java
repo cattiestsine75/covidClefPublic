@@ -34,7 +34,8 @@ public class Reference {
     LocalDate dateAccepted; //date accepted.
 
     /**
-     * creates a 'blank slate' reference.
+     * creates a 'blank slate' reference. This is not enough to be populated
+     * however, as DOIs are not added to the reference.
      */
     public Reference() {
 
@@ -69,7 +70,6 @@ public class Reference {
      */
     public void populate(String in) {
 
-        // System.out.println("ATTEMPTING TO POPULATE");
         if (in.indexOf("error code=\"cannotDisseminateFormat\"") == -1) { //if we have found it
             System.out.println("PMC DOCUMENT FOUND");
             if (!this.hasBeenFound) {
@@ -162,6 +162,135 @@ public class Reference {
         } else {
             this.id = "not found";
             this.idFormat = "N/A";
+        }
+
+        //  }
+    }
+
+    public void populate() {
+
+        boolean canpop = false;
+
+        String PMCID = "NULL";
+        if (doi.indexOf("10") == 0) {
+            String base = "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/";
+            String inn = getHTML(base + "?ids=" + this.doi);
+            PMCID = grabTag(inn, "pmcid=\"", "\"", true);
+            //  PMCID = doiToPMC(r.doi);
+        }
+        if (!PMCID.equals("NULL")) {//if we found a pmcID
+            this.id = PMCID;
+            this.idFormat = "PMC";
+            String pmcid = this.id.substring(3);
+            if (pmcid.contains(".")) {
+                pmcid = pmcid.substring(0, pmcid.indexOf("."));
+            }
+
+            canpop = true;
+        } else {
+            this.id = "not found";
+            this.idFormat = "N/A";
+        }
+
+        if (canpop) { //if we found a valid pmc.
+            String base = "https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:" + this.id.substring(3)
+                    + "&metadataPrefix=pmc";
+            String in = getHTML(base);
+            // System.out.println("ATTEMPTING TO POPULATE");
+            if (in.indexOf("error code=\"cannotDisseminateFormat\"") == -1) { //if we have found it
+                System.out.println("PMC DOCUMENT FOUND");
+                if (!this.hasBeenFound) {
+                    this.idFormat = "PMC";
+                    System.out.println("FILLING DOCMENT WITH PMC");
+                    found++;
+                    this.hasBeenFound = true;
+                    String title = grabTag(in, "article-title", false);
+                    int bad = title.indexOf("<sup");
+                    if (bad == -1) {
+                        bad = 99999999;
+                    }
+                    bad = Math.min(bad, title.indexOf("<xref"));
+                    if (bad > 15) {
+                        title = title.substring(0, bad + 1);
+                    }
+                    //System.out.println(title);
+                    this.title = title;                                                                                         //where we add the title
+
+                    //AUTHOR RELATED STUFF
+                    String autIn = in;
+                    while (autIn.indexOf("<contrib") != -1) {
+                        //System.out.println("AUTHOR PROBLEM");
+                        String authorBlock = grabTag(autIn, "<contrib", "</contrib>", true);
+                        // System.out.println(authorBlock);
+                        String surname = grabTag(authorBlock, "surname", false);
+                        String firstname = grabTag(authorBlock, "given-names", false);
+                        String email = grabTag(authorBlock, "email", false);
+                        this.authors.add(new Author(firstname, surname, email));                                                   //where we add the authors
+                        // System.out.println(firstname + " " + surname + " " + email);
+                        autIn = autIn.substring(autIn.indexOf("</contrib") + 1);
+                    }
+
+                    //DATE RELATED STUFF:
+                    String dateIn = grabTag(in, "\"accepted\"", "</date>", true);
+                    LocalDate date = LocalDate.EPOCH;
+                    if (!dateIn.equals("NULL")) {
+                        //System.out.println(dateIn);
+
+                        int day = 1;
+                        int month = 1;
+                        int year = 1970;
+                        if (dateIn.contains("day")) {
+                            day = Integer.parseInt(grabTag(dateIn, "day", false));
+                        }
+                        if (dateIn.contains("month")) {
+                            month = Integer.parseInt(grabTag(dateIn, "month", false));
+                        }
+                        if (dateIn.contains("year")) {
+                            year = Integer.parseInt(grabTag(dateIn, "year", false));
+                        }
+                        date = LocalDate.of(year, month, day);
+                    }
+                    this.dateAccepted = date;
+
+                    //ABSTRACT RELATED STUFF:
+                    String absIn = grabTag(in, "<abstract", "</abstract>", true);
+                    this.Abstract = "";
+
+                    if (!absIn.contains("<sec")) {
+                        if (absIn.contains("<p")) {
+                            this.Abstract = grabTag(absIn, "<p", "</p", true);
+                            this.Abstract = this.Abstract.substring(1);
+                            formatAbstract();
+                        }
+                    }
+                    while (absIn.contains("<sec")) {
+
+                        String abstractBlock = grabTag(absIn, "<sec", "</sec>", true);
+                        String tit = grabTag(abstractBlock, "title", false);
+                        String info = grabTag(abstractBlock, "<p", "</p", true);
+                        info = info.substring(1);
+                        for (int i = 0; i < info.length(); i++) {
+                            //System.out.print(in.charAt(i));
+                            if (info.charAt(i) == '.' && !Character.isDigit(info.charAt(i - 1))) {
+                                info = info.substring(0, i + 1) + '\n' + info.substring(i + 1);
+                            }
+                        }
+
+                        this.Abstract = this.Abstract + tit + "\n" + info + "\n";                                        //where we add to the abstract
+                        absIn = absIn.substring(absIn.indexOf("<sec") + 1);
+                    }
+                    formatAbstract();
+                } else {
+                    //   System.out.println("ADDING TO FILLED APIS" + " ID:" + this.id);
+                    if (!this.foundApis.contains("PMC")) {
+                        this.foundApis = this.foundApis + "_PMC";
+                    }
+                }
+            } else {
+                this.id = "not found";
+                this.idFormat = "N/A";
+            }
+
         }
         //  }
     }
@@ -526,35 +655,35 @@ public class Reference {
                 Abstract = Abstract.substring(0, x) + Abstract.substring(y);
             }
         }
-        
-       
 
     }
-    
+
     /**
-     * Removes the 'id=\"Par#=> left by some documents with complex paragraph structure within their abstract.
+     * Removes the 'id=\"Par#=> left by some documents with complex paragraph
+     * structure within their abstract.
      */
-    public void removeParIdTag(){
-         String srch = "id=\"Par";
-        while(Abstract.contains(srch)){
-            int loc = Abstract.indexOf(srch) +srch.length();
-            while(Character.isDigit(Abstract.charAt(loc))){
-              
+    public void removeParIdTag() {
+        String srch = "id=\"Par";
+        while (Abstract.contains(srch)) {
+            int loc = Abstract.indexOf(srch) + srch.length();
+            while (Character.isDigit(Abstract.charAt(loc))) {
+
                 loc++;
             }
-            loc = loc+ 2;
-            int y= Abstract.indexOf(srch);
+            loc = loc + 2;
+            int y = Abstract.indexOf(srch);
             Abstract = Abstract.substring(0, y) + Abstract.substring(loc);
         }
     }
 
-    
     /**
-     * Reverts a reference to it's 'initialized' way: Removes all information except the DOI, such that it can be repopulated.
-     * Useful for repopulating specific entries. ie: Go through all entries, clear all that have the 'pmc' idFormat, and then repopulate them using Elsevier (as an example).
+     * Reverts a reference to it's 'initialized' way: Removes all information
+     * except the DOI, such that it can be repopulated. Useful for repopulating
+     * specific entries. ie: Go through all entries, clear all that have the
+     * 'pmc' idFormat, and then repopulate them using Elsevier (as an example).
      */
     public void clear() {
-       // this.doi = "UnknownDOI";
+        // this.doi = "UnknownDOI";
         this.hasBeenFound = false;
         this.id = "not found";
         this.idFormat = "N/A";
