@@ -530,6 +530,10 @@ public class Reference {
        
 
     }
+    
+    /**
+     * Removes the 'id=\"Par#=> left by some documents with complex paragraph structure within their abstract.
+     */
     public void removeParIdTag(){
          String srch = "id=\"Par";
         while(Abstract.contains(srch)){
@@ -544,6 +548,11 @@ public class Reference {
         }
     }
 
+    
+    /**
+     * Reverts a reference to it's 'initialized' way: Removes all information except the DOI, such that it can be repopulated.
+     * Useful for repopulating specific entries. ie: Go through all entries, clear all that have the 'pmc' idFormat, and then repopulate them using Elsevier (as an example).
+     */
     public void clear() {
        // this.doi = "UnknownDOI";
         this.hasBeenFound = false;

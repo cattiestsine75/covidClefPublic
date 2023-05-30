@@ -1,1 +1,10 @@
+Instructions:
 
+
+1) Apply for API keys for Elsevier, Springer, and Core. 
+
+2) Create txt files with nothing in them except the API keys. Name these files accordingly.
+
+3) Create proper references to these files such that they can be read and stored in the workspace.
+
+4) The getSLRs and refFileToDOIs methods are used to draw information out of excel (.xlsx) files and store them in SLR or Reference objects. If your use case does not involve files of the SAME FORMATTING as provided in this example, you must modify their behaviour to work properly.

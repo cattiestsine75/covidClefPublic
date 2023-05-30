@@ -78,7 +78,7 @@ public class Main {
         int j = 0;
         int count = 0;
         int scount = 0;
-        
+
         for (SLR s : slrs) {
             if (s.references != null) {
                 for (Reference r : s.references) {
@@ -100,8 +100,7 @@ public class Main {
             j = 0;
         }
         System.out.println("\n\n");
-         
-       
+
         //System.out.println(slrs.get(41).references.get(6).title);
         // System.out.println(slrs.get(54).references.get(3).title);
         //System.out.println(slrs.get(77).references.get(1).title);
@@ -259,6 +258,17 @@ public class Main {
         }
     }
 
+    /**
+     *
+     * @param slrs ArrayList of SLR objects. It is assumed that this arraylist
+     * was created using the Initialize code to ensure that they are created
+     * properly.
+     * @see initialize
+     * @param k the last index of the SLR that should be populated. This is done
+     * to prevent excessive compile times, as well as adhere to rate limits from
+     * various api providers.
+     * @param offset the offset from the first slr for which should be populated.
+     */
     public static void crossrefPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
@@ -267,7 +277,7 @@ public class Main {
                     slrs.get(i).references.get(j).populateCrossref();
                 }
             }
-        }
+        } 
     }
 
     public static void crossrefPopulate(ArrayList<SLR> slrs) {
