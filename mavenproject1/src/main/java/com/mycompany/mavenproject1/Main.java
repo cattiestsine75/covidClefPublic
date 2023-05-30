@@ -86,55 +86,39 @@ public class Main {
                     if (!dois.contains(r.doi)) {
                         dois.add(r.doi);
                     }
-                   // if (!r.hasBeenFound) { //if this condition is met
-                        count++;
-                        if (r.doi.charAt(r.doi.length()-1)=='.') {
-                            scount++;
-                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title +  ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                            System.out.println(r.foundApis);
-                            System.out.println("\n\n");
-                        }
+                     if (r.id.equals("not found") && r.foundApis.contains("xiv")) { //if this condition is met
+                    count++;
+                 //   if (r.Abstract.length()>50) {
+                 r.id = r.doi;
+                 r.idFormat = "medrxiv/biorxiv doi";
+                        scount++;
+                        System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                        System.out.println(r.foundApis);
+                        System.out.println("\n\n");
+                    }
 
-                   // }
+                  //   }
                 }
             }
             i++;
             j = 0;
         }
-        System.out.println("\n\n\n");
-        System.out.println(dois.size());
-        System.out.println("\n\n");
-
         
-        
-      
-        //System.out.println(slrs.get(41).references.get(6).title);
-        // System.out.println(slrs.get(54).references.get(3).title);
-        //System.out.println(slrs.get(77).references.get(1).title);
-        //System.out.println(slrs.get(77).references.get(14).title);
-        //System.out.println(slrs.get(88).references.get(1).title);
-        //System.out.println(slrs.get(89).references.get(29).title);
-        System.out.println("");
-        System.out.println("\n\n");
         for (int k = 2 + searchOffset; k < searchAmt; k++) {
             for (int l = 0; l < slrs.get(k).references.size(); l++) {
                 //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
             }
-            // slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+             slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
         }
-        
+
         System.out.println("COUNT: " + scount + " OF " + count);
-        
-        
-     
+
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
         //  System.out.println(in.substring(in.indexOf("abstract")));
         //  System.out.println(in.substring(in.indexOf("abstract")));
-        
-
     }
 
     /**
@@ -177,18 +161,25 @@ public class Main {
                     String base = "https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:" + pmcid
                             + "&metadataPrefix=pmc";
                     String in = getHTML(base);
-                 //   slrs.get(i).references.get(j).populate(in);//populate
+                    //   slrs.get(i).references.get(j).populate(in);//populate
                 }
             }
         }
     }
+
     
-    public static void pmcPopulatev2(ArrayList<SLR> slrs, int k, int offset){
-         for (int i = 2 + offset; i < k; i++) {
+    /**
+     * modified version of the pmcpopulate command that function more similarly to how other high level populate methods work.
+     * @param slrs
+     * @param k
+     * @param offset 
+     */
+    public static void pmcPopulatev2(ArrayList<SLR> slrs, int k, int offset) {
+        for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
                 slrs.get(i).references.get(j).populate();
             }
-         }
+        }
     }
 
     /**
