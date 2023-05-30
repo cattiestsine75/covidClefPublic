@@ -7,4 +7,8 @@ Instructions:
 
 3) Create proper references to these files such that they can be read and stored in the workspace.
 
-4) The getSLRs and refFileToDOIs methods are used to draw information out of excel (.xlsx) files and store them in SLR or Reference objects. If your use case does not involve files of the SAME FORMATTING as provided in this example, you must modify their behaviour to work properly.
+4) Create files and populate them with dois for references, or names for SLRs.
+
+4.a) The getSLRs and refFileToDOIs methods are used to draw information out of excel (.xlsx) files and store them in SLR or Reference objects. If your use case does not involve files of the SAME FORMATTING as provided in this example, you must modify their behaviour to work properly.
+
+4.b) Create reference to these files within the workspace.
