@@ -254,6 +254,7 @@ public class Reference {
 
                     //ABSTRACT RELATED STUFF:
                     String absIn = grabTag(in, "<abstract", "</abstract>", true);
+                   // System.out.println(absIn);
                     this.Abstract = "";
 
                     if (!absIn.contains("<sec")) {
@@ -690,7 +691,7 @@ public class Reference {
         this.title = "Unknown Title";
         this.Abstract = "Unknown Abstract";
         this.foundApis = "";
-
+        Reference.found--;
         authors = new ArrayList<Author>();
         dateAccepted = LocalDate.EPOCH;
     }

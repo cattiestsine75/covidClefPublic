@@ -66,6 +66,7 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
+        
         //pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
         //elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
@@ -88,6 +89,7 @@ public class Main {
                         dois.add(r.doi);
                     }
                     
+                    
                     for (Reference r2 : s.references) {
                         if (r.title.equals(r2.title) && !r.doi.equals(r2.doi) && !r.title.equals("Unknown Title")) {
                             count++;
@@ -98,7 +100,7 @@ public class Main {
                     }
                      
                     
-                    /*
+                    
                     if (r.id.equals("not found")) { //if this condition is met
                         count++;
                         if (r.Abstract.length() > 50) {
@@ -124,7 +126,7 @@ public class Main {
                         }
                     }
                     
-                    */
+                    
                 }
             }
             i++;
@@ -134,6 +136,9 @@ public class Main {
         System.out.println("\n\n\n\n\n");
 
         System.out.println("COUNT: " + scount + " OF " + count);
+        
+         
+       
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
         if (uIn.charAt(0) == 'y' || uIn.charAt(0) == 'Y') {
@@ -142,7 +147,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-             //   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
