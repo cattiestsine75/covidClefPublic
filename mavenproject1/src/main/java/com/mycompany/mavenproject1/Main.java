@@ -47,6 +47,7 @@ public class Main {
      */
     //"C:\Users\ethan\Desktop\2023USRAResearch\CovidClef2023\API KEYS\CoreApiKey.txt"
     public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
         try {
             Scanner coreIn = new Scanner(new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\keys\\CoreApiKey.txt"));
             CoreApiKey = coreIn.nextLine();
@@ -86,33 +87,66 @@ public class Main {
                     if (!dois.contains(r.doi)) {
                         dois.add(r.doi);
                     }
-                     if (r.id.equals("not found") && r.foundApis.contains("xiv")) { //if this condition is met
-                    count++;
-                 //   if (r.Abstract.length()>50) {
-                 r.id = r.doi;
-                 r.idFormat = "medrxiv/biorxiv doi";
-                        scount++;
-                        System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                        System.out.println(r.foundApis);
-                        System.out.println("\n\n");
+                    
+                    for (Reference r2 : s.references) {
+                        if (r.title.equals(r2.title) && !r.doi.equals(r2.doi) && !r.title.equals("Unknown Title")) {
+                            count++;
+                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            System.out.println(r.foundApis);
+                        }
                     }
+                     
+                    
+                    /*
+                    if (r.id.equals("not found")) { //if this condition is met
+                        count++;
+                        if (r.Abstract.length() > 50) {
 
-                  //   }
+                            scount++;
+
+                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            System.out.println(r.foundApis);
+                            r.clear();
+                            r.populate();
+                            r.populateElsevier(ElsevierApiKey);
+                            r.populateSpringer(SpringerApiKey);
+                            r.populateMedrxiv();
+                            r.populateCore(CoreApiKey);
+                            r.populateCrossref();
+
+                            System.out.println("\n\nNEW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
+                            System.out.println(r.foundApis);
+                            System.out.println("\n\n");
+
+                        }
+                    }
+                    
+                    */
                 }
             }
             i++;
             j = 0;
         }
-        
-        for (int k = 2 + searchOffset; k < searchAmt; k++) {
-            for (int l = 0; l < slrs.get(k).references.size(); l++) {
-                //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
-            }
-             slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
-        }
+
+        System.out.println("\n\n\n\n\n");
 
         System.out.println("COUNT: " + scount + " OF " + count);
+        System.out.println("Commit above changes?\ny/n");
+        String uIn = keyboard.nextLine();
+        if (uIn.charAt(0) == 'y' || uIn.charAt(0) == 'Y') {
+            System.out.println("Committing");
+            for (int k = 2 + searchOffset; k < searchAmt; k++) {
+                for (int l = 0; l < slrs.get(k).references.size(); l++) {
+                    //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
+                }
+             //   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+            }
+        } else {
+            System.out.println("Aborting!");
+        }
 
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
@@ -167,12 +201,13 @@ public class Main {
         }
     }
 
-    
     /**
-     * modified version of the pmcpopulate command that function more similarly to how other high level populate methods work.
+     * modified version of the pmcpopulate command that function more similarly
+     * to how other high level populate methods work.
+     *
      * @param slrs
      * @param k
-     * @param offset 
+     * @param offset
      */
     public static void pmcPopulatev2(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {

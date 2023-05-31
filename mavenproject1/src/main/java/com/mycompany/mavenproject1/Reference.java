@@ -133,7 +133,7 @@ public class Reference {
                     if (absIn.contains("<p")) {
                         this.Abstract = grabTag(absIn, "<p", "</p", true);
                         this.Abstract = this.Abstract.substring(1);
-                        formatAbstract();
+                       // formatAbstract();
                     }
                 }
                 while (absIn.contains("<sec")) {
@@ -260,7 +260,7 @@ public class Reference {
                         if (absIn.contains("<p")) {
                             this.Abstract = grabTag(absIn, "<p", "</p", true);
                             this.Abstract = this.Abstract.substring(1);
-                            formatAbstract();
+                        //    formatAbstract();
                         }
                     }
                     while (absIn.contains("<sec")) {
