@@ -66,7 +66,7 @@ public class Main {
         // TODO code application logic here
 
         ArrayList<SLR> slrs = initialize();
-        
+
         //pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
         //elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
@@ -74,7 +74,7 @@ public class Main {
         //corePopulate(slrs, searchAmt, searchOffset);
         // crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
-
+        
         //go through each of the references
         int i = 0;
         int j = 0;
@@ -88,40 +88,16 @@ public class Main {
                     if (!dois.contains(r.doi)) {
                         dois.add(r.doi);
                     }
-                    
-                    
-                    for (Reference r2 : s.references) {
-                        if (r.title.equals(r2.title) && !r.doi.equals(r2.doi) && !r.title.equals("Unknown Title")) {
-                            count++;
-                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                            System.out.println(r.foundApis);
-                        }
-                    }
-                     
-                    
-                    
-                    if (r.id.equals("not found")) { //if this condition is met
+                    if (r.Abstract.length() < 50) { //if this condition is met
                         count++;
-                        if (r.Abstract.length() > 50) {
+                        if (r.idFormat.equals("PMC")) {
 
                             scount++;
 
                             System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                             System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
                             System.out.println(r.foundApis);
-                            r.clear();
-                            r.populate();
-                            r.populateElsevier(ElsevierApiKey);
-                            r.populateSpringer(SpringerApiKey);
-                            r.populateMedrxiv();
-                            r.populateCore(CoreApiKey);
-                            r.populateCrossref();
-
-                            System.out.println("\n\nNEW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                            System.out.println(r.foundApis);
-                            System.out.println("\n\n");
+                        
 
                         }
                     }
@@ -147,12 +123,14 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                 //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
         }
+         
 
+       
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
