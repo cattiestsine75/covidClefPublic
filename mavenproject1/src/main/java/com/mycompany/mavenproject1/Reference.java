@@ -167,6 +167,11 @@ public class Reference {
         //  }
     }
 
+    
+    
+    /**
+     * Populates the reference with all relevant information using the PMC database given that the reference's doi is able to be found in the PMC database.
+     */
     public void populate() {
 
         boolean canpop = false;

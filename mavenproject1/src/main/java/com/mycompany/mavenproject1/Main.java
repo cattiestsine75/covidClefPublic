@@ -47,6 +47,12 @@ public class Main {
      */
     //"C:\Users\ethan\Desktop\2023USRAResearch\CovidClef2023\API KEYS\CoreApiKey.txt"
     public static void main(String[] args) {
+        int pmcs = 0;
+        int elsevs = 0;
+        int springs = 0;
+        int crosses = 0;
+        int cores = 0;
+        int meds = 0;
         Scanner keyboard = new Scanner(System.in);
         try {
             Scanner coreIn = new Scanner(new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\keys\\CoreApiKey.txt"));
@@ -74,7 +80,7 @@ public class Main {
         //corePopulate(slrs, searchAmt, searchOffset);
         // crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
-        
+
         //go through each of the references
         int i = 0;
         int j = 0;
@@ -88,21 +94,24 @@ public class Main {
                     if (!dois.contains(r.doi)) {
                         dois.add(r.doi);
                     }
-                    if (r.Abstract.length() < 50) { //if this condition is met
-                        count++;
-                        if (r.idFormat.equals("PMC")) {
-
-                            scount++;
-
-                            System.out.println("\n\nOLD~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                            System.out.println("}. DOI:  {" + r.doi + "}   SLR:" + i + ", Ref" + (j + 1) + " :{" + r.title + ", id format: " + r.idFormat + "\nABSTRACT" + r.Abstract + ", len:" + r.Abstract.length());                     //print this out
-                            System.out.println(r.foundApis);
-                        
-
-                        }
+                    if (r.foundApis.contains("PMC") || r.idFormat.equals("PMC")) {
+                        pmcs++;
                     }
-                    
-                    
+                    if (r.foundApis.contains("elsevier") || r.idFormat.equals("elsevier_pii")) {
+                        elsevs++;
+                    }
+                    if(r.foundApis.contains("Core")||r.idFormat.equals("CORE")){
+                        cores++;
+                    }
+                    if(r.foundApis.contains("MedBiorxiv")|| r.idFormat.equals("medrxiv/biorxiv doi")){
+                        meds++;
+                    }
+                    if(r.foundApis.contains("Springer")||r.idFormat.equals("Springer")){
+                        springs++;
+                    }
+                    if(r.foundApis.contains("CROSSREF")||r.idFormat.equals("CROSSREF")){
+                        crosses++;
+                    }
                 }
             }
             i++;
@@ -112,9 +121,7 @@ public class Main {
         System.out.println("\n\n\n\n\n");
 
         System.out.println("COUNT: " + scount + " OF " + count);
-        
-         
-       
+        System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d\n", pmcs, elsevs, cores, meds, springs, crosses);
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
         if (uIn.charAt(0) == 'y' || uIn.charAt(0) == 'Y') {
@@ -123,14 +130,12 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                 //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
         }
-         
 
-       
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
