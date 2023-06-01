@@ -78,7 +78,7 @@ public class Main {
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         // medxrivPopulate(slrs, searchAmt, searchOffset);
         //corePopulate(slrs, searchAmt, searchOffset);
-        // crossrefPopulate(slrs, searchAmt, searchOffset);
+    //     crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
 
         //go through each of the references
@@ -130,7 +130,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
@@ -309,10 +309,10 @@ public class Main {
     public static void crossrefPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-                if (!slrs.get(i).references.get(j).hasBeenFound) {
+              //  if (!slrs.get(i).references.get(j).hasBeenFound) {
                     System.out.println("Searching CrossRef for document " + j + " of SLR " + i);
                     slrs.get(i).references.get(j).populateCrossref();
-                }
+              //  }
             }
         }
     }
