@@ -27,6 +27,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.StringTokenizer;
 
+/*
+july 8th deadline
+
+ */
+//show where the crossref data comes from
 /**
  *
  * @author ethan
@@ -38,9 +43,7 @@ public class Main {
     public static String CoreApiKey = "";
     public static int searchOffset = 0;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 2 + 113, 113);//ends at 5
-    //CORE OFFSET 36 - 34
-    //98 + 
-    //have access to 88% of the references.
+    // have 97.6 of references, missing 55.
 
     /**
      * @param args the command line arguments
@@ -64,13 +67,8 @@ public class Main {
         } catch (FileNotFoundException f) {
             System.out.println("ERROR READING APIS:\n" + f);
         }
-        /*
-        keep track of where references can be found, and where they aren't, even if it's already been found.
-        more biomed datasets
-        all information available in excel
-         */
-        // TODO code application logic here
 
+        // TODO code application logic here
         ArrayList<SLR> slrs = initialize();
 
         //pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
@@ -78,7 +76,7 @@ public class Main {
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
         // medxrivPopulate(slrs, searchAmt, searchOffset);
         //corePopulate(slrs, searchAmt, searchOffset);
-    //     crossrefPopulate(slrs, searchAmt, searchOffset);
+        //     crossrefPopulate(slrs, searchAmt, searchOffset);
         System.out.println("Done searching");
 
         //go through each of the references
@@ -100,17 +98,30 @@ public class Main {
                     if (r.foundApis.contains("elsevier") || r.idFormat.equals("elsevier_pii")) {
                         elsevs++;
                     }
-                    if(r.foundApis.contains("Core")||r.idFormat.equals("CORE")){
+                    if (r.foundApis.contains("Core") || r.idFormat.equals("CORE")) {
                         cores++;
                     }
-                    if(r.foundApis.contains("MedBiorxiv")|| r.idFormat.equals("medrxiv/biorxiv doi")){
+                    if (r.foundApis.contains("MedBiorxiv") || r.idFormat.equals("medrxiv/biorxiv doi")) {
                         meds++;
                     }
-                    if(r.foundApis.contains("Springer")||r.idFormat.equals("Springer")){
+                    if (r.foundApis.contains("Springer") || r.idFormat.equals("Springer")) {
                         springs++;
                     }
-                    if(r.foundApis.contains("CROSSREF")||r.idFormat.equals("CROSSREF")){
+                    if (r.foundApis.contains("CROSSREF") || r.idFormat.equals("CROSSREF")) {
                         crosses++;
+                    }
+                    if (r.idFormat.equals("CROSSREF")) {
+                        count++;
+                        System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("SLR:" + i + ", REF" + j + " :" + r);
+                     //   r.clear();
+                     //   r.populateCrossref();
+                        // if (r.id.equals("not found")) {
+                        System.out.println("\n\nOLD^, new below, \n\n");
+                        scount++;
+                        System.out.println("SLR:" + i + ", REF" + j + " :" + r);
+                        
+                        //  }
                     }
                 }
             }
@@ -130,7 +141,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
@@ -309,10 +320,10 @@ public class Main {
     public static void crossrefPopulate(ArrayList<SLR> slrs, int k, int offset) {
         for (int i = 2 + offset; i < k; i++) {
             for (int j = 0; j < slrs.get(i).references.size(); j++) {
-              //  if (!slrs.get(i).references.get(j).hasBeenFound) {
-                    System.out.println("Searching CrossRef for document " + j + " of SLR " + i);
-                    slrs.get(i).references.get(j).populateCrossref();
-              //  }
+                //  if (!slrs.get(i).references.get(j).hasBeenFound) {
+                System.out.println("Searching CrossRef for document " + j + " of SLR " + i);
+                slrs.get(i).references.get(j).populateCrossref();
+                //  }
             }
         }
     }

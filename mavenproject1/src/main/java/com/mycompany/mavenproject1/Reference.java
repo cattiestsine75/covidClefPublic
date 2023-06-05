@@ -30,6 +30,7 @@ public class Reference {
     String idFormat; //the Format/Database type for which the ID (see above) is relevant.
     String foundApis;
     ArrayList<Author> authors; //Arraylist of Author objects.
+    String miscInfo;
 
     LocalDate dateAccepted; //date accepted.
 
@@ -46,6 +47,7 @@ public class Reference {
         this.title = "Unknown Title";
         this.Abstract = "Unknown Abstract";
         this.foundApis = "";
+        this.miscInfo = "";
 
         authors = new ArrayList<Author>();
         dateAccepted = LocalDate.EPOCH;
@@ -58,7 +60,7 @@ public class Reference {
      * @return DOI, Date accepted, ID, IDFormat, Title, Abstract, and Authors
      */
     public String toString() {
-        return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
+        return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat +" MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
     }
 
     /**
@@ -624,6 +626,15 @@ public class Reference {
                             date = date.substring(0, 10);
                             this.dateAccepted = LocalDate.parse(date);
                         }
+
+                    }
+                    String publisher = "";
+                    srch = "\"publisher\":";
+                    if (in.contains(srch)) {
+                        int x = in.indexOf(srch) + srch.length() + 1;
+                        publisher = in.substring(x, in.indexOf("\",", x));
+                        this.miscInfo = "PUBLISHER: " + publisher;
+                       // System.out.println("PUB:" + publisher);
 
                     }
                     formatAbstract();
