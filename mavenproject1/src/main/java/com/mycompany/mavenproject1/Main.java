@@ -112,15 +112,13 @@ public class Main {
                     }
                     if (r.idFormat.equals("CROSSREF")) {
                         count++;
-                        System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println("SLR:" + i + ", REF" + j + " :" + r);
-                     //   r.clear();
-                     //   r.populateCrossref();
+                        //System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
                         // if (r.id.equals("not found")) {
-                        System.out.println("\n\nOLD^, new below, \n\n");
+                        // System.out.println("\n\nOLD^, new below, \n\n");
                         scount++;
-                        System.out.println("SLR:" + i + ", REF" + j + " :" + r);
-                        
+                        // System.out.println("SLR" + i + ", REF:" + (j +1)+ ": "+r.miscInfo);
+
                         //  }
                     }
                 }
@@ -128,8 +126,9 @@ public class Main {
             i++;
             j = 0;
         }
-
-        System.out.println("\n\n\n\n\n");
+       slrs.get(42).references.get(5).clear();
+        slrs.get(42).references.get(5).populateCrossref();
+        System.out.println(slrs.get(42).references.get(5));
 
         System.out.println("COUNT: " + scount + " OF " + count);
         System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d\n", pmcs, elsevs, cores, meds, springs, crosses);
@@ -141,7 +140,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                //  slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
@@ -552,6 +551,11 @@ public class Main {
                             case 9:
                                 if (added.hasBeenFound && cellValue.length() > 2) {
                                     added.foundApis = cellValue;
+                                }
+                                break;
+                            case 10:
+                                if (added.hasBeenFound && cellValue.length() > 1) {
+                                    added.miscInfo = cellValue;
                                 }
                                 break;
                             default:

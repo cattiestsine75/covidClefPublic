@@ -84,7 +84,7 @@ public class SLR {
                 
                // }
             }
-            System.out.println("\nTHE SIZE: " + data.size() + "\n\n");
+            System.out.println("\n" + k + " THE SIZE: " + data.size() + "\n\n");
             Set<Integer> keyid = data.keySet();
             int rowid = 0; // row number, row 1 = 0
 
@@ -96,7 +96,11 @@ public class SLR {
                 int cellid = 2; // column number,  A = 0
                 for (Object obj : objectArr) {
                     Cell cell = row.createCell(cellid++);
+                    try{
                     cell.setCellValue((String) (obj));
+                    }catch(Exception e){
+                        System.out.println(e + "\n\nHERES THE ERROR STRING:" + (String)obj);
+                    }
                 }
             }
 
