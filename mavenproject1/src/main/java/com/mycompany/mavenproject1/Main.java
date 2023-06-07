@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -68,6 +70,30 @@ public class Main {
             System.out.println("ERROR READING APIS:\n" + f);
         }
 
+        String path = ("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\AdditionalFiles\\6-6-23-ELASTIC.txt");
+        ArrayList<String> docs = new ArrayList<>();
+        try {
+            String contents = Files.readString(Paths.get(path));
+
+            int x = 0;
+            int y = 0;
+            while (contents.indexOf("s2_id", y) != -1) {
+                x = contents.indexOf("s2_id", y);
+                if (contents.indexOf("{", x) != -1) {
+                    x = contents.indexOf("{", x);
+                }
+
+                docs.add(contents.substring(y, x));
+                y = x + 1;
+            }
+
+            // System.out.println(docs.get(docs.size()-1));
+            //System.out.println("\n\n"+contents.substring(x));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println(docs.size());
+
         // TODO code application logic here
         ArrayList<SLR> slrs = initialize();
 
@@ -110,15 +136,22 @@ public class Main {
                     if (r.foundApis.contains("CROSSREF") || r.idFormat.equals("CROSSREF")) {
                         crosses++;
                     }
-                    if (r.idFormat.equals("CROSSREF")) {
+                    if (r.idFormat.equals("ELASTIC")) {
+
                         count++;
                         //System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+                        //  System.out.println(r.doi);
                         // if (r.id.equals("not found")) {
                         // System.out.println("\n\nOLD^, new below, \n\n");
-                        scount++;
-                        // System.out.println("SLR" + i + ", REF:" + (j +1)+ ": "+r.miscInfo);
+                        // scount++;
 
+                        System.out.println("HAVE NOT FOUND: SLR" + i + ", REF:" + (j + 1) + ": " + r.doi);
+                        r.formatAbstract();
+                        if (!r.title.equals("Unknown Title")) {
+                            scount++;
+                        }
+                      //  System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted + "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
+                        System.out.println("\n\n");
                         //  }
                     }
                 }
@@ -126,14 +159,12 @@ public class Main {
             i++;
             j = 0;
         }
-       slrs.get(42).references.get(5).clear();
-        slrs.get(42).references.get(5).populateCrossref();
-        System.out.println(slrs.get(42).references.get(5));
 
         System.out.println("COUNT: " + scount + " OF " + count);
         System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d\n", pmcs, elsevs, cores, meds, springs, crosses);
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
+
         if (uIn.charAt(0) == 'y' || uIn.charAt(0) == 'Y') {
             System.out.println("Committing");
             for (int k = 2 + searchOffset; k < searchAmt; k++) {
@@ -146,11 +177,12 @@ public class Main {
             System.out.println("Aborting!");
         }
 
+        // System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted+ "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
         System.out.println("\n\nDONE WITH THAT\n\n");
         System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
         //  System.out.println(in.substring(in.indexOf("abstract")));
-        //  System.out.println(in.substring(in.indexOf("abstract")));
+        //  System.out.println(in.substrsing(in.indexOf("abstract")));
     }
 
     /**

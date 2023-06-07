@@ -1,0 +1,2584 @@
+
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "152698",
+        "_score" : 35.53615,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "dezzigmx",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of CT features of 15 Children with 2019 novel coronavirus infection].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0007",
+          "pmcid" : "",
+          "pubmed_id" : "32061200",
+          "license" : "unk",
+          "abstract" : "Objective: To explore imaging characteristics of children with 2019 novel coronavirus (2019-nCoV) infection. Methods: A retrospective analysis was performed on clinical data and chest CT images of 15 children diagnosed with 2019-nCoV. They were admitted to the third people's Hospital of Shenzhen from January 16 to February 6, 2020. The distribution and morphology of pulmonary lesions on chest CT images were analyzed. Results: Among the 15 children, there were 5 males and 10 females, aged from 4 to 14 years old. Five of the 15 children were febrile and 10 were asymptomatic on first visit. The first nasal or pharyngeal swab samples in all the 15 cases were positive for 2019-nCoV nucleic acid. For their first chest CT images, 6 patients had no lesions, while 9 patients had pulmonary inflammation lesions. Seven cases of small nodular ground glass opacities and 2 cases of speckled ground glass opacities were found. After 3 to 5 days of treatment, 2019-nCoV nucleic acid in a second respiratory sample turned negative in 6 cases. Among them, chest CT images showed less lesions in 2 cases, no lesion in 3 cases, and no improvement in 1 case. Other 9 cases were still positive in a second nucleic acid test. Six patients showed similar chest CT inflammation, while 3 patients had new lesions, which were all small nodular ground glass opacities. Conclusions: The early chest CT images of children with 2019-nCoV infection are mostly small nodular ground glass opacities. The clinical symptoms of children with 2019-nCoV infection are nonspecific. Dynamic reexamination of chest CT and nucleic acid are important.",
+          "publish_time" : "2020-02-16",
+          "authors" : "Feng, K; Yun, Y X; Wang, X F; Yang, G D; Zheng, Y J; Lin, C M; Wang, L F",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0007; https://www.ncbi.nlm.nih.gov/pubmed/32061200/",
+          "s2_id" : "211134409"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1763,
+      "relation" : "eq"
+    },
+    "max_score" : 15.176096,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "12057",
+        "_score" : 15.176096,
+        "_source" : {
+          "corduid" : "ntzgj6s0",
+          "sha" : "b016878c3fa4bee288be7170af06a748fb2eb8a7",
+          "source_x" : "PMC",
+          "title" : "Effects of Renin-Angiotensin Inhibition on ACE2 (Angiotensin-Converting Enzyme 2) and TMPRSS2 (Transmembrane Protease Serine 2) Expression: Insights Into COVID-19",
+          "doi" : "10.1161/hypertensionaha.120.15782",
+          "pmcid" : "PMC7375182",
+          "pubmed_id" : "32673509",
+          "license" : "no-cc",
+          "abstract" : "",
+          "publish_time" : "2020-07-14",
+          "authors" : "Wu, Congqing; Ye, Dien; Mullick, Adam E.; Li, Zhenyu; Danser, A.H. Jan; Daugherty, Alan; Lu, Hong S.",
+          "journal" : "Hypertension",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "document_parses/pdf_json/b016878c3fa4bee288be7170af06a748fb2eb8a7.json",
+          "pmc_json_files" : "document_parses/pmc_json/PMC7375182.xml.json",
+          "url" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7375182/",
+          "s2_id" : ""
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 4,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10000,
+      "relation" : "gte"
+    },
+    "max_score" : 3.7313473,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "12616",
+        "_score" : 3.7313473,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "g8sm6d66",
+          "sha" : "c0866901b90f84b4a5177f39fa592ca6c2cde743; 6fc19504eee21afc8b5e908a298daeefefd878be",
+          "source_x" : "PMC",
+          "title" : "How μ-Opioid Receptor Recognizes Fentanyl",
+          "doi" : "10.1101/2020.08.16.253013",
+          "pmcid" : "PMC7444290",
+          "pubmed_id" : "32839778",
+          "license" : "no-cc",
+          "abstract" : "The opioid crisis has escalated during the COVID-19 pandemic. More than half of the overdose-related deaths are related to synthetic opioids represented by fentanyl which is a potent agonist of mu-opioid receptor (mOR). In recent years, crystal structures of mOR complexed with morphine derivatives have been determined; however, structural basis of mOR activation by fentanyl-like synthetic opioids remains lacking. Exploiting the X-ray structure of mOR bound to a morphinan ligand and several state-of-the-art simulation techniques, including weighted ensemble and continuous constant pH molecular dynamics, we elucidated the detailed binding mechanism of fentanyl with mOR. Surprisingly, in addition to the orthosteric site common to morphinan opiates, fentanyl can move deeper and bind mOR through hydrogen bonding with a conserved histidine H297, which has been shown to modulate mOR’s ligand affinity and pH dependence in mutagenesis experiments, but its precise role remains unclear. Intriguingly, the secondary binding mode is only accessible when H297 adopts a neutral HID tautomer. Alternative binding modes and involvement of tautomer states may represent general mechanisms in G protein-coupled receptor (GPCR)-ligand recognition. Our work provides a starting point for understanding mOR activation by fentanyl analogs that are emerging at a rapid pace and assisting the design of safer analgesics to combat the opioid crisis. Current protein simulation studies employ standard protonation and tautomer states; our work demonstrates the need to move beyond the practice to advance our understanding of protein-ligand recognition.",
+          "publish_time" : "2020-08-20",
+          "authors" : "Vo, Quynh N.; Mahinthichaichan, Paween; Shen, Jana; Ellis, Christopher R.",
+          "journal" : "bioRxiv",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "document_parses/pdf_json/c0866901b90f84b4a5177f39fa592ca6c2cde743.json; document_parses/pdf_json/6fc19504eee21afc8b5e908a298daeefefd878be.json",
+          "pmc_json_files" : "document_parses/pmc_json/PMC7444290.xml.json",
+          "url" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7444290/",
+          "s2_id" : ""
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 4,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4126,
+      "relation" : "eq"
+    },
+    "max_score" : 26.427273,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "96791",
+        "_score" : 26.427273,
+        "_ignored" : [
+          "authors.keyword",
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "5l6c0it4",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Risk Factors Associated With Acute Respiratory Distress Syndrome and Death in Patients With Coronavirus Disease 2019 Pneumonia in Wuhan, China.",
+          "doi" : "10.1001/jamainternmed.2020.0994",
+          "pmcid" : "",
+          "pubmed_id" : "32167524",
+          "license" : "unk",
+          "abstract" : "Importance Coronavirus disease 2019 (COVID-19) is an emerging infectious disease that was first reported in Wuhan, China, and has subsequently spread worldwide. Risk factors for the clinical outcomes of COVID-19 pneumonia have not yet been well delineated. Objective To describe the clinical characteristics and outcomes in patients with COVID-19 pneumonia who developed acute respiratory distress syndrome (ARDS) or died. Design, Setting, and Participants Retrospective cohort study of 201 patients with confirmed COVID-19 pneumonia admitted to Wuhan Jinyintan Hospital in China between December 25, 2019, and January 26, 2020. The final date of follow-up was February 13, 2020. Exposures Confirmed COVID-19 pneumonia. Main Outcomes and Measures The development of ARDS and death. Epidemiological, demographic, clinical, laboratory, management, treatment, and outcome data were also collected and analyzed. Results Of 201 patients, the median age was 51 years (interquartile range, 43-60 years), and 128 (63.7%) patients were men. Eighty-four patients (41.8%) developed ARDS, and of those 84 patients, 44 (52.4%) died. In those who developed ARDS, compared with those who did not, more patients presented with dyspnea (50 of 84 [59.5%] patients and 30 of 117 [25.6%] patients, respectively [difference, 33.9%; 95% CI, 19.7%-48.1%]) and had comorbidities such as hypertension (23 of 84 [27.4%] patients and 16 of 117 [13.7%] patients, respectively [difference, 13.7%; 95% CI, 1.3%-26.1%]) and diabetes (16 of 84 [19.0%] patients and 6 of 117 [5.1%] patients, respectively [difference, 13.9%; 95% CI, 3.6%-24.2%]). In bivariate Cox regression analysis, risk factors associated with the development of ARDS and progression from ARDS to death included older age (hazard ratio [HR], 3.26; 95% CI 2.08-5.11; and HR, 6.17; 95% CI, 3.26-11.67, respectively), neutrophilia (HR, 1.14; 95% CI, 1.09-1.19; and HR, 1.08; 95% CI, 1.01-1.17, respectively), and organ and coagulation dysfunction (eg, higher lactate dehydrogenase [HR, 1.61; 95% CI, 1.44-1.79; and HR, 1.30; 95% CI, 1.11-1.52, respectively] and D-dimer [HR, 1.03; 95% CI, 1.01-1.04; and HR, 1.02; 95% CI, 1.01-1.04, respectively]). High fever (≥39 °C) was associated with higher likelihood of ARDS development (HR, 1.77; 95% CI, 1.11-2.84) and lower likelihood of death (HR, 0.41; 95% CI, 0.21-0.82). Among patients with ARDS, treatment with methylprednisolone decreased the risk of death (HR, 0.38; 95% CI, 0.20-0.72). Conclusions and Relevance Older age was associated with greater risk of development of ARDS and death likely owing to less rigorous immune response. Although high fever was associated with the development of ARDS, it was also associated with better outcomes among patients with ARDS. Moreover, treatment with methylprednisolone may be beneficial for patients who develop ARDS.",
+          "publish_time" : "2020-03-13",
+          "authors" : "Wu, Chaomin; Chen, Xiaoyan; Cai, Yanping; Xia, Jia'an; Zhou, Xing; Xu, Sha; Huang, Hanping; Zhang, Li; Zhou, Xia; Du, Chunling; Zhang, Yuye; Song, Juan; Wang, Sijiao; Chao, Yencheng; Yang, Zeyong; Xu, Jie; Zhou, Xin; Chen, Dechang; Xiong, Weining; Xu, Lei; Zhou, Feng; Jiang, Jinjun; Bai, Chunxue; Zheng, Junhua; Song, Yuanlin",
+          "journal" : "JAMA internal medicine",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.1001/jamainternmed.2020.0994; https://www.ncbi.nlm.nih.gov/pubmed/32167524/",
+          "s2_id" : "212693474"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 294,
+      "relation" : "eq"
+    },
+    "max_score" : 29.969631,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "186940",
+        "_score" : 29.969631,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "kluongpp",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Effect of Systemic Glucocorticoids on Mortality or Mechanical Ventilation in Patients With COVID-19.",
+          "doi" : "10.12788/jhm.3497",
+          "pmcid" : "",
+          "pubmed_id" : "32804611",
+          "license" : "unk",
+          "abstract" : "The efficacy of glucocorticoids in COVID-19 is unclear. This study was designed to determine whether systemic glucocorticoid treatment in COVID-19 patients is associated with reduced mortality or mechanical ventilation. This observational study included 1,806 hospitalized COVID-19 patients; 140 were treated with glucocorticoids within 48 hours of admission. Early use of glucocorticoids was not associated with mortality or mechanical ventilation. However, glucocorticoid treatment of patients with initial C-reactive protein (CRP) ≥20 mg/dL was associated with significantly reduced risk of mortality or mechanical ventilation (odds ratio, 0.23; 95% CI, 0.08-0.70), while glucocorticoid treatment of patients with CRP <10 mg/dL was associated with significantly increased risk of mortality or mechanical ventilation (OR, 2.64; 95% CI, 1.39-5.03). Whether glucocorticoid treatment is associated with changes in mortality or mechanical ventilation in patients with high or low CRP needs study in prospective, randomized clinical trials.",
+          "publish_time" : "2020-08-01",
+          "authors" : "Keller, Marla J; Kitsis, Elizabeth A; Arora, Shitij; Chen, Jen-Ting; Agarwal, Shivani; Ross, Michael J; Tomer, Yaron; Southern, William",
+          "journal" : "Journal of hospital medicine",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.12788/jhm.3497; https://www.ncbi.nlm.nih.gov/pubmed/32804611/",
+          "s2_id" : "221164374"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 103,
+      "relation" : "eq"
+    },
+    "max_score" : 31.061815,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "186297",
+        "_score" : 31.061815,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "jrb2ufox",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Predictors of coronavirus disease 2019 severity: A retrospective study of 64 cases.",
+          "doi" : "10.7883/yoken.jjid.2020.298",
+          "pmcid" : "",
+          "pubmed_id" : "32741931",
+          "license" : "unk",
+          "abstract" : "To analyze clinical characteristics and potential predictors of disease severity in patients with COVID-19.Clinical data from 64 patients with COVID-19 were retrospectively analyzed. Of the 64 patients, 37 were male and 27 were female. Their mean age was 47.8 years, 43 (67.2%) cases were non-severe, 21 (32.8%) were severe, and 2 patients (3.1%) died. Age and serum ferritin were significantly associated with COVID-19 severity. Repeated monitoring of ferritin, interleukin-6, C-reactive protein, lactic acid dehydrogenase, and erythrocyte sedimentation rate during COVID-19 treatment may assist the prediction of disease severity and evaluation of treatment effects. There were no significant differences in the duration of severe illness or the number of days on high-level respiratory support between a low-dose methylprednisolone group and a high-dose methylprednisolone group. The mean number of days in hospital in the high dose group was higher than that in the low-dose group. Repeated monitoring of ferritin, interleukin-6, C-reactive protein, lactic acid dehydrogenase, and erythrocyte sedimentation rate during COVID-19 treatment may assist the prediction of disease severity and evaluation of treatment effects.",
+          "publish_time" : "2020-08-01",
+          "authors" : "Huang, Huihuang; Song, Bing; Xu, Zhe; Jiao, Yanmei; Huang, Lei; Zhao, Peng; Huang, Jiagan; Zhou, Zihan; Zhao, Zhuanghong; Tian, Jing; Zhou, Yuting; Wang, Fu-Sheng; Jiang, Tianjun",
+          "journal" : "Japanese journal of infectious diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.7883/yoken.jjid.2020.298; https://www.ncbi.nlm.nih.gov/pubmed/32741931/",
+          "s2_id" : "220941352"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 836,
+      "relation" : "eq"
+    },
+    "max_score" : 34.653297,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "89147",
+        "_score" : 34.653297,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "xdh86nh5",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of myocardial injury in patients with COVID-19 and association between concomitant cardiovascular diseases and severity of COVID-19].",
+          "doi" : "10.3760/cma.j.cn112148-20200225-00123",
+          "pmcid" : "",
+          "pubmed_id" : "32141280",
+          "license" : "unk",
+          "abstract" : "Objective: To evaluate the cardiovascular damage of patients with COVID-19, and determine the correlation of serum N-terminal pro B-type natriuretic peptide (NT-proBNP) and cardiac troponin-I (cTnI) with the severity of COVID-19, and the impact of concomitant cardiovascular disease on severity of COVID-19 was also evaluated. Methods: A cross-sectional study was designed on 150 consecutive patients with COVID-19 in the fever clinic of Tongji Hospital in Wuhan from January to February in 2020, including 126 mild cases and 24 cases in critical care. Both univariate and multivariate logistic regression were used to analyze the correlation of past medical history including hypertension, diabetes and coronary heart disease (CHD) , as well as the levels of serum NT-proBNP and cTnI to the disease severity of COVID-19 patients. Results: Age, hypersensitive C-reactive protein(hs-CRP) and serum creatinine levels of the patients were higher in critical care cases than in mild cases(all P<0.05). Prevalence of male, elevated NT-proBNP and cTnI, hypertension and coronary heart disease were significantly higher in critical cases care patients than in the mild cases(all P<0.05). Univariate logistic regression analysis showed that age, male, elevated NT-proBNP, elevated cTnI, elevated hs-CRP, elevated serum creatinine, hypertension, and CHD were significantly correlated with critical disease status(all P<0.05). Multivariate logistic regression analysis showed that elevated cTnI(OR=26.909, 95%CI 4.086-177.226, P=0.001) and CHD (OR=16.609, 95%CI 2.288-120.577, P=0.005) were the independent risk factors of critical disease status. Conclusions: COVID-19 can significantly affect the heart function and lead to myocardial injury. The past medical history of CHD and increased level of cTnI are two independent determinants of clinical disease status in patients with COVID-19.",
+          "publish_time" : "2020-03-06",
+          "authors" : "Chen, C; Yan, J T; Zhou, N; Zhao, J P; Wang, D W",
+          "journal" : "Zhonghua xin xue guan bing za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112148-20200225-00123; https://www.ncbi.nlm.nih.gov/pubmed/32141280/",
+          "s2_id" : "212566063"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 817,
+      "relation" : "eq"
+    },
+    "max_score" : 34.959167,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "183691",
+        "_score" : 34.959167,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "72g3vd5p",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Diagnosis and treatment of COVID-19: acute kidney injury cannot be ignored].",
+          "doi" : "10.3760/cma.j.cn112137-20200229-00520",
+          "pmcid" : "",
+          "pubmed_id" : "32145717",
+          "license" : "unk",
+          "abstract" : "2019年12月新型冠状病毒肺炎（COVID-19）疫情肆虐武汉，不仅席卷整个中国，还蔓延至全球多个国家和地区，被世界卫生组织（WHO）定义为国际关注的突发公共卫生事件。流行病学资料显示此次COVID-19重症比例高达20%以上。重症COVID-19患者除呼吸系统为病毒的主要靶器官外，肾脏也是主要受累器官之一，且COVID-19合并急性肾损伤（AKI）是患者预后不良的独立危险因素。因此救治COVID-19患者的临床实践中应做到规范化的AKI集束化防治（5R原则）：风险筛查（Risk）、早期识别（Recognition)、及时处理（Response）、肾脏替代治疗（Renal replacement theraphy）及肾脏康复（Recovery）来改善患者的预后。.",
+          "publish_time" : "2020-03-08",
+          "authors" : "Yang, X H; Sun, R H; Chen, D C",
+          "journal" : "Zhonghua yi xue za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112137-20200229-00520; https://www.ncbi.nlm.nih.gov/pubmed/32145717/",
+          "s2_id" : "212638951"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 817,
+      "relation" : "eq"
+    },
+    "max_score" : 34.959167,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "183691",
+        "_score" : 34.959167,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "72g3vd5p",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Diagnosis and treatment of COVID-19: acute kidney injury cannot be ignored].",
+          "doi" : "10.3760/cma.j.cn112137-20200229-00520",
+          "pmcid" : "",
+          "pubmed_id" : "32145717",
+          "license" : "unk",
+          "abstract" : "2019年12月新型冠状病毒肺炎（COVID-19）疫情肆虐武汉，不仅席卷整个中国，还蔓延至全球多个国家和地区，被世界卫生组织（WHO）定义为国际关注的突发公共卫生事件。流行病学资料显示此次COVID-19重症比例高达20%以上。重症COVID-19患者除呼吸系统为病毒的主要靶器官外，肾脏也是主要受累器官之一，且COVID-19合并急性肾损伤（AKI）是患者预后不良的独立危险因素。因此救治COVID-19患者的临床实践中应做到规范化的AKI集束化防治（5R原则）：风险筛查（Risk）、早期识别（Recognition)、及时处理（Response）、肾脏替代治疗（Renal replacement theraphy）及肾脏康复（Recovery）来改善患者的预后。.",
+          "publish_time" : "2020-03-08",
+          "authors" : "Yang, X H; Sun, R H; Chen, D C",
+          "journal" : "Zhonghua yi xue za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112137-20200229-00520; https://www.ncbi.nlm.nih.gov/pubmed/32145717/",
+          "s2_id" : "212638951"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 35.35543,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "171912",
+        "_score" : 35.35543,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qtcqaqsi",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical characteristics and outcomes of 112 cardiovascular disease patients infected by 2019-nCoV].",
+          "doi" : "10.3760/cma.j.cn112148-20200220-00105",
+          "pmcid" : "",
+          "pubmed_id" : "32120458",
+          "license" : "unk",
+          "abstract" : "Objective: To explore the clinical characteristics and prognosis of the new coronavirus 2019-nCoV patients combined with cardiovascular disease (CVD). Methods: A retrospective analysis was performed on 112 COVID-19 patients with CVD admitted to the western district of Union Hospital in Wuhan, from January 20, 2020 to February 15, 2020. They were divided into critical group (ICU, n=16) and general group (n=96) according to the severity of the disease and patients were followed up to the clinical endpoint. The observation indicators included total blood count, C-reactive protein (CRP), arterial blood gas analysis, myocardial injury markers, coagulation function, liver and kidney function, electrolyte, procalcitonin (PCT), B-type natriuretic peptide (BNP), blood lipid, pulmonary CT and pathogen detection. Results: Compared with the general group, the lymphocyte count (0.74×10(9) (0.34×10(9), 0.94×10(9))/L vs. 0.99×10(9) (0.71×10(9), 1.29×10(9))/L, P=0.03) was extremely lower in the critical group, CRP (106.98 (81.57, 135.76) mg/L vs. 34.34 (9.55,76.54) mg/L, P<0.001) and PCT (0.20 (0.15,0.48) μg/L vs. 0.11 (0.06,0.20)μg/L, P<0.001) were significantly higher in the critical group. The BMI of the critical group was significantly higher than that of the general group (25.5 (23.0, 27.5) kg/m(2) vs. 22.0 (20.0, 24.0) kg/m(2), P=0.003). Patients were further divided into non-survivor group (17, 15.18%) group and survivor group (95, 84.82%). Among the non-survivors, there were 88.24% (15/17) patients with BMI> 25 kg/m(2), which was significantly higher than that of survivors (18.95% (18/95), P<0.001). Compared with the survived patients, oxygenation index (130 (102, 415) vs. 434 (410, 444), P<0.001) was significantly lower and lactic acid (1.70 (1.30, 3.00) mmol/L vs. 1.20 (1.10, 1.60) mmol/L, P<0.001) was significantly higher in the non-survivors. There was no significant difference in the proportion of ACEI/ARB medication between the critical group and the general group or between non-survivors and survivors (all P>0.05). Conclusion: COVID-19 patients combined with CVD are associated with a higher risk of mortality. Critical patients are characterized with lower lymphocyte counts. Higher BMI are more often seen in critical patients and non-survivor. ACEI/ARB use does not affect the morbidity and mortality of COVID-19 combined with CVD. Aggravating causes of death include fulminant inflammation, lactic acid accumulation and thrombotic events.",
+          "publish_time" : "2020-03-02",
+          "authors" : "Peng, Y D; Meng, K; Guan, H Q; Leng, L; Zhu, R R; Wang, B Y; He, M A; Cheng, L X; Huang, K; Zeng, Q T",
+          "journal" : "Zhonghua xin xue guan bing za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112148-20200220-00105; https://www.ncbi.nlm.nih.gov/pubmed/32120458/",
+          "s2_id" : "211831883"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 822,
+      "relation" : "eq"
+    },
+    "max_score" : 34.019447,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "113020",
+        "_score" : 34.019447,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "ncjraaei",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Risk assessment of exported risk of novel coronavirus pneumonia from Hubei Province].",
+          "doi" : "10.3760/cma.j.cn112150-20200219-00142",
+          "pmcid" : "",
+          "pubmed_id" : "32083409",
+          "license" : "unk",
+          "abstract" : "Objective: To evaluate the exported risk of novel coronavirus pneumonia (NCP) from Hubei Province and the imported risk in various provinces across China. Methods: Data of reported NCP cases and Baidu Migration Indexin all provinces of the country as of February 14, 2020 were collected. The correlation analysis between cumulative number of reported cases and the migration index from Hubei was performed, and the imported risks from Hubei to different provinces across China were further evaluated. Results: A total of 49 970 confirmed cases were reported nationwide, of which 37 884 were in Hubei Province. The average daily migration index from Hubei to other provinces was 312.09, Wuhan and other cities in Hubei were 117.95 and 194.16, respectively. The cumulative NCP cases of provinces was positively correlated with the migration index derived from Hubei province, also in Wuhan and other cities in Hubei, with correlation coefficients of 0.84, 0.84, and 0.81. In linear model, population migration from Hubei Province, Wuhan and other cities in Hubei account for 71.2%, 70.1%, and 66.3% of the variation, respectively. The period of high exported risk from Hubei occurred before January 27, of which the risks before January 23 mainly came from Wuhan, and then mainly from other cities in Hubei. Hunan Province, Henan Province and Guangdong Province ranked the top three in terms of cumulative imported risk (the cumulative risk indices were 58.61, 54.75 and 49.62 respectively). Conclusion: The epidemic in each province was mainly caused by the importation of Hubei Province. Taking measures such as restricting the migration of population in Hubei Province and strengthening quarantine measures for immigrants from Hubei Province may greatly reduce the risk of continued spread of the epidemic.",
+          "publish_time" : "2020-02-21",
+          "authors" : "Hu, J X; He, G H; Liu, T; Xiao, J P; Rong, Z H; Guo, L C; Zeng, W L; Zhu, Z H; Gong, D X; Yin, L H; Wan, D H; Zeng, L L; Ma, W J",
+          "journal" : "Zhonghua yu fang yi xue za zhi [Chinese journal of preventive medicine]",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112150-20200219-00142; https://www.ncbi.nlm.nih.gov/pubmed/32083409/",
+          "s2_id" : "211231802"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 814,
+      "relation" : "eq"
+    },
+    "max_score" : 35.09815,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "89890",
+        "_score" : 35.09815,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "vh07fg3f",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of the first cluster of cases in a family of novel coronavirus pneumonia in Gansu Province].",
+          "doi" : "10.3760/cma.j.issn.0253-9624.2020.0005",
+          "pmcid" : "",
+          "pubmed_id" : "32064855",
+          "license" : "unk",
+          "abstract" : "The epidemiological history and clinical characteristics of 7 cases of COVID-19 and 1 case of close contact in the first family aggregation epidemic of COVID-19 in Gansu Province were analyzed. The first patient A developed on January 22, 2020, with a history of residence in Wuhan, and confirmed severe cases of NCP on January 24, 2020; patient B, on January 23, 2020, diagnosed on January 31, severe cases; patient C, asymptomatic, diagnosed on January 27; patient D, asymptomatic, diagnosed on January 27; patient E, on January 24, diagnosed on January 28; patient F, asymptomatic, diagnosed on January 31; Patient G was asymptomatic and was diagnosed on January 31. In close contact, H was asymptomatic, PCR test was negative and asymptomatic, and he was discharged early. Among the 7 patients, 1 case died of (B) aggravation, and the other patients' condition was effectively controlled after active treatment. Except for the discharged cases, 5 cases were positive for COVID-19 specific IgM antibody and 1 case was negative. In this clustering outbreak, 4 patients remained asymptomatic, but PCR and IgM antibodies were positive, indicating that asymptomatic patients may be the key point to control the epidemic. Specific IgM antibody screening for patients whose pharyngeal swab nucleic acid test is negative but with ground glass-like lung lesions is very important for early detection and early isolation.",
+          "publish_time" : "2020-02-17",
+          "authors" : "Bai, S L; Wang, J Y; Zhou, Y Q; Yu, D S; Gao, X M; Li, L L; Yang, F",
+          "journal" : "Zhonghua yu fang yi xue za zhi [Chinese journal of preventive medicine]",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0253-9624.2020.0005; https://www.ncbi.nlm.nih.gov/pubmed/32064855/",
+          "s2_id" : "211135714"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "94966",
+        "_score" : 35.53615,
+        "_source" : {
+          "corduid" : "0qsx5qvd",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[First case of 2019 novel coronavirus infection in children in Shanghai].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0002",
+          "pmcid" : "",
+          "pubmed_id" : "32023679",
+          "license" : "unk",
+          "abstract" : "报道上海第l例确诊新型冠状病毒(2019-nCoV)感染患儿的诊治经过。患儿 男，7岁，因\"发热3 h伴咳嗽\"以及父亲被确诊2019-nCoV感染的肺炎收入复旦大学附属儿科医院负压病房。经过对症治疗后治愈。儿童2019-nCoV感染临床表现相对成人较轻，家庭内传播是儿童感染重要的途径。本例患儿虽然症状轻，但恢复期连续2次2019-nCoV核酸检测阳性，提示需要观察轻症儿童病例在恢复期无症状排毒的传染性。.",
+          "publish_time" : "2020-02-04",
+          "authors" : "Cai, J H; Wang, X S; Ge, Y L; Xia, A M; Chang, H L; Tian, H; Zhu, Y X; Wang, Q R; Zeng, J S",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0002; https://www.ncbi.nlm.nih.gov/pubmed/32023679/",
+          "s2_id" : "211047656"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "100753",
+        "_score" : 35.53615,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "6re3eh73",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Frist case of severe childhood novel coronavirus pneumonia in China].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0005",
+          "pmcid" : "",
+          "pubmed_id" : "32045966",
+          "license" : "unk",
+          "abstract" : "1例主诉为\"间断腹泻、呕吐6 d，发热伴呼吸急促半天\"的患儿就诊于武汉儿童医院重症医学科，诊断为儿童危重型新型冠状病毒肺炎（NCP）。以\"新型冠状病毒肺炎\"\"儿童\"\"危重型\"为关键词检索截至2020年2月8日中国知网、维普网、万方等相关数据库，未见报道。本例为中国首例危重型NCP患儿，以消化道症状起病，早期呼吸道症状不明显，快速进展为急性呼吸窘迫综合征、脓毒症休克并伴有急性肾衰竭。患儿早期连续2次咽拭子2019 新型冠状病毒（2019-nCoV）核酸检测阴性。对于重症疑似病例，建议采集下呼吸道样本或重复采集上呼吸道样本进行检测。体外连续血液净化技术可尽早应用到危重型NCP患儿的救治中。.",
+          "publish_time" : "2020-02-11",
+          "authors" : "Chen, F; Liu, Z S; Zhang, F R; Xiong, R H; Chen, Y; Cheng, X F; Wang, W Y; Ren, J",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0005; https://www.ncbi.nlm.nih.gov/pubmed/32045966/",
+          "s2_id" : "211086987"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 817,
+      "relation" : "eq"
+    },
+    "max_score" : 35.597027,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "164438",
+        "_score" : 35.597027,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qi50p9w5",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Preliminary study of the relationship between novel coronavirus pneumonia and liver function damage: a multicenter study].",
+          "doi" : "10.3760/cma.j.issn.1007-3418.2020.02.003",
+          "pmcid" : "",
+          "pubmed_id" : "32077660",
+          "license" : "unk",
+          "abstract" : "Objective: To analyze the clinical characteristics of cases of novel coronavirus pneumonia and a preliminary study to explore the relationship between different clinical classification and liver damage. Methods: Consecutively confirmed novel coronavirus infection cases admitted to seven designated hospitals during January 23, 2020 to February 8, 2020 were included. Clinical classification (mild, moderate, severe, and critical) was carried out according to the diagnosis and treatment program of novel coronavirus pneumonia (Trial Fifth Edition) issued by the National Health Commission. The research data were analyzed using SPSS19.0 statistical software. Quantitative data were expressed as median (interquartile range), and qualitative data were expressed as frequency and rate. Results: 32 confirmed cases that met the inclusion criteria were included. 28 cases were of mild or moderate type (87.50%), and four cases (12.50%) of severe or critical type. Four cases (12.5%) were combined with one underlying disease (bronchial asthma, coronary heart disease, malignant tumor, chronic kidney disease), and one case (3.13%) was simultaneously combined with high blood pressure and malignant tumor. The results of laboratory examination showed that the alanine aminotransferase (ALT), aspartate aminotransferase (AST), albumin (ALB), and total bilirubin (TBil) for entire cohort were 26.98 (16.88 ~ 46.09) U/L and 24.75 (18.71 ~ 31.79) U/L, 39.00 (36.20 ~ 44.20) g/L and 16.40 (11.34- ~ 21.15) mmol/L, respectively. ALT, AST, ALB and TBil of the mild or moderate subgroups were 22.75 (16.31- ~ 37.25) U/L, 23.63 (18.71 ~ 26.50) U/L, 39.70 (36.50 ~ 46.10) g/L, and 15.95 (11.34 ~ 20.83) mmol/L, respectively. ALT, AST, ALB and TBil of the severe or critical subgroups were 60.25 (40.88 ~ 68.90) U/L, 37.00 (20.88 ~ 64.45) U/L, 35.75 (28.68 ~ 42.00) g/L, and 20.50 (11.28 ~ 25.00) mmol/L, respectively. Conclusion: The results of this multicenter retrospective study suggests that novel coronavirus pneumonia combined with liver damage is more likely to be caused by adverse drug reactions and systemic inflammation in severe patients receiving medical treatment. Therefore, liver function monitoring and evaluation should be strengthened during the treatment of such patients.",
+          "publish_time" : "2020-02-20",
+          "authors" : "Liu, C; Jiang, Z C; Shao, C X; Zhang, H G; Yue, H M; Chen, Z H; Ma, B Y; Liu, W Y; Huang, H H; Yang, J; Wang, Y; Liu, H Y; Xu, D; Wang, J T; Yang, J Y; Pan, H Q; Zou, S Q; Li, F J; Lei, J Q; Li, X; He, Q; Gu, Y; Qi, X L",
+          "journal" : "Zhonghua gan zang bing za zhi = Zhonghua ganzangbing zazhi = Chinese journal of hepatology",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1007-3418.2020.02.003; https://www.ncbi.nlm.nih.gov/pubmed/32077660/",
+          "s2_id" : "211214584"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 827,
+      "relation" : "eq"
+    },
+    "max_score" : 34.828884,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "121808",
+        "_score" : 34.828884,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "j8cz0wx5",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical characteristics of 30 medical workers infected with new coronavirus pneumonia].",
+          "doi" : "10.3760/cma.j.issn.1001-0939.2020.03.014",
+          "pmcid" : "",
+          "pubmed_id" : "32164090",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel coronavirus referred to jianghan university hospital between January 11, 2020 and January 3, 2020 were studied. The data reviewed included those of clinical manifestations, laboratory investigation and Radiographic features. Results: The patients consisted of 10 men and 20 women, including 22 doctors and 8 nurses,aged 21~59 years(mean 35±8 years).They were divided to 26 common type and 4 severe cases, all of whom had close(within 1m) contact with patients infected of novel coronavirus pneumonia. The average contact times were 12 (7,16) and the average cumulative contact time was 2 (1.5,2.7) h.Clinical symptoms of these patients were fever in 23 patients (76.67%) , headache in 16 petients (53.33%) , fatigue or myalgia in 21patients (70%) , nausea, vomiting or diarrhea in 9 petients (30%) , cough in 25 petients (83.33%) , and dyspnea in 14 petients (46.67%) .Routine blood test revealed WBC<4.0×10(9)/L in 8 petients (26.67%) , (4-10) ×10(9)/L in 22 petients (73.33%) , and WBC>4.0×10(9)/L in 4 petients (13.33%) during the disease.Lymphocyte count<1.0×10(9)/L occurred in 12 petients (40%),abnormal liver function in 7 petients (23.33%) ,myocardial damage in 5 petients(16.67%), elevated D-dimer (>0.5mg/l) in 5 patients (16.67%). Compared with normal patients, the average exposure times, cumulative exposure time, BMI, Fever time, white blood cell count, liver enzyme, LDH, myoenzyme and D-dimer were significantly increased in severe patients, while the lymphocyte count and albumin levels in peripheral blood were significantly decreased.Chest CT mainly showed patchy shadows and interstitial changes.According to imaging examination, 11 patients (36.67%) showed Unilateral pneumonia and 19 patients (63.33%) showed bilateral pneumonia,4 patients (13.33%) showed bilateral multiple mottling and ground-glass opacity.Compared with the patients infected in the protected period, the proportion of severe infection and bilateral pneumonia were both increased in the patients infected in unprotected period. Conclusion: Medical staffs are at higher risk of infection.Infection rates are associated with contact time, the amount of suction virus. Severe patients had BMI increased, heating time prolonged, white blood cell count, lymphocyte count, D-dimer and albumin level significantly changed and were prone to be complicated with liver damage and myocardial damage.Strict protection measures is important to prevent infection for medical workers.",
+          "publish_time" : "2020-03-12",
+          "authors" : "Liu, M; He, P; Liu, H G; Wang, X J; Li, F J; Chen, S; Lin, J; Chen, P; Liu, J H; Li, C H",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1001-0939.2020.03.014; https://www.ncbi.nlm.nih.gov/pubmed/32164090/",
+          "s2_id" : "212690911"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "174817",
+        "_score" : 35.53615,
+        "_source" : {
+          "corduid" : "lv3hdgxa",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[First case of neonate infected with novel coronavirus pneumonia in China].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0009",
+          "pmcid" : "",
+          "pubmed_id" : "32065520",
+          "license" : "unk",
+          "abstract" : "1例以\"打喷嚏，伴间断吐奶1周\"为主诉的17日龄新生儿于2020年2月5日就诊于武汉儿童医院新生儿内科隔离病房，其父母于入院前3 d出现发热伴咳嗽，确诊新型冠状病毒肺炎（NCP）患者。患儿早期临床症状 轻，病程中出现一过性发热及腹泻，无严重并发症，反复咽拭子和肛拭子2019新型冠状病毒(2019-nCoV)核酸检测阳性，肺部影像学提示炎性改变，诊断为新生儿NCP，提示感染后新生儿呼吸道及消化道中均可存在病毒。需要关注新生儿作 为感染者和传播者的可能性，同时也提出针对新生儿NCP的医疗及家庭看护问题。.",
+          "publish_time" : "2020-02-17",
+          "authors" : "Zeng, L K; Tao, X W; Yuan, W H; Wang, J; Liu, X; Liu, Z S",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0009; https://www.ncbi.nlm.nih.gov/pubmed/32065520/",
+          "s2_id" : "211133726"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 827,
+      "relation" : "eq"
+    },
+    "max_score" : 34.828884,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "81130",
+        "_score" : 34.828884,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "pai9avke",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical features of 2019 novel coronavirus pneumonia in the early stage from a fever clinic in Beijing].",
+          "doi" : "10.3760/cma.j.issn.1001-0939.2020.0013",
+          "pmcid" : "",
+          "pubmed_id" : "32061066",
+          "license" : "unk",
+          "abstract" : "Objective: To summarize and analyze the clinical and imaging characteristics of patients with 2019 novel coronavirus pneumonia in the early stage in Beijing. Methods: A retrospective analysis of clinical and imaging data of 9 patients with 2019 novel coronavirus infection diagnosed in one fever clinicic in Beijing from January 18, 2020 to February 3, 2020. Results: 5 male and 4 female was included in those 9 patients, whose median age was 36 years, and the age range from 15 to 49 years. 8 of these patients had no underlying disease and one suffered from diabetes. 7 patients had a history of travel to Wuhan City or Hubei Province, and one patient was a medical staff. Two family clustered was found. The incubation period was 1 to 6 days. The clinical manifestations were fever in 8 cases (8/9) , dry cough in 5 cases (5/9) , pharyngalgia in 4 cases (4/9) , fatigue in 4 cases (4/9) , body soreness in 4 cases (4/9) , and blocked or watery nose in 1 case (1/9) . Six patients (6/9) had abnormal cell peripheral blood, of which 3 (3/9) had an increased monocyte count, 2 (2/9) had a reduced lymphocyte , and 1 (1/9) had an increased leukocyte count, while the 3 patients had normal cell blood routines. The median of CRP was 16.3 mg/L, including 5 patients with slightly elevated (5/9) , 4 patients with normal values (4/9) . the results of procalcitonin test were negative in5 patients. Three patients were examined by chest X-ray examination, one of which was normal, one case showed infiltrates of right upper lung, and another showed in right lower lung. All patients underwent chest HRCT. And 7 cases (7/9) showed multiple ground glass exudation, including 5 cases (5/7) involved bilateral lungs, 2 cases (2/7) involved unilateral lung, 3 cases (3/7) with patchy consolidation, and 2 cases (2/9) showed no abnormality. Conclusions: The patents with 2019 novel coronavirus pneumonia in this study generally have an epidemiological history. The clinical manifestations are fever and cough. Peripheral white blood cell counts were most normal And PCT were all negative. Chest HRCT manifested as multiple ground-glass opacities with partly consolidation. Some patients had normal chest radiographs but HRCT showed pneumonia. Some patients had no pneumonia on chest HRCT.",
+          "publish_time" : "2020-02-15",
+          "authors" : "Zhang, M Q; Wang, X H; Chen, Y L; Zhao, K L; Cai, Y Q; An, C L; Lin, M G; Mu, X D",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1001-0939.2020.0013; https://www.ncbi.nlm.nih.gov/pubmed/32061066/",
+          "s2_id" : "211122077"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "115102",
+        "_score" : 35.53615,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "wywsvwuy",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[2019-novel coronavirus infection in a three-month-old baby].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0006",
+          "pmcid" : "",
+          "pubmed_id" : "32043842",
+          "license" : "unk",
+          "abstract" : "患儿 女，3月19日龄，湖北孝感人，因发热4 h住院，外周血白细胞不高，胸X线片示右肺纹理略增粗，似有点片状阴影，咽拭子2019新型冠状病毒（2019-nCoV）核酸检测呈阳性，2019-nCoV感染诊断成立，符合 普通型。经积极治疗15 d后痊愈出院。患儿呼吸道症状出现较晚，症状较轻。患儿父母在患儿发病7 d后2019-nCoV检测阳性，提示家庭内传播是2019-nCoV感染的重要传播途径。患儿虽然连续3次咽拭子转阴，同期的痰及粪便仍可检出2019-nCoV核酸。患儿母亲无发热及呼吸道症状，但胸部CT发现左肺及右上肺渗出性病变，提示肺部病变可见于无症状2019-nCoV感染者。.",
+          "publish_time" : "2020-02-11",
+          "authors" : "Zhang, Y H; Lin, D J; Xiao, M F; Wang, J C; Wei, Y; Lei, Z X; Zeng, Z Q; Li, L; Li, H A; Xiang, W",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0006; https://www.ncbi.nlm.nih.gov/pubmed/32043842/",
+          "s2_id" : "211079475"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 827,
+      "relation" : "eq"
+    },
+    "max_score" : 34.828884,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "135997",
+        "_score" : 34.828884,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "0deyspy2",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of clinical features of 29 patients with 2019 novel coronavirus pneumonia].",
+          "doi" : "10.3760/cma.j.issn.1001-0939.2020.03.013",
+          "pmcid" : "",
+          "pubmed_id" : "32164089",
+          "license" : "unk",
+          "abstract" : "Objective: To analyze the clinical characteristics of 2019 novel coronavirus (2019-nCoV) pneumonia and to investigate the correlation between serum inflammatory cytokines and severity of the disease. Methods: 29 patients with 2019-ncov admitted to the isolation ward of Tongji hospital affiliated to Tongji medical college of Huazhong University of Science and Technology in January 2020 were selected as the study subjects. Clinical data were collected and the general information, clinical symptoms, blood test and CT imaging characteristics were analyzed. According to the relevant diagnostic criteria, the patients were divided into three groups: mild (15 cases), severe (9 cases) and critical (5 cases). The expression levels of inflammatory cytokines and other markers in the serum of each group were detected, and the changes of these indicators of the three groups were compared and analyzed, as well as their relationship with the clinical classification of the disease. Results: (1) The main symptoms of 2019-nCoV pneumonia was fever (28/29) with or without respiratory and other systemic symptoms. Two patients died with underlying disease and co-bacterial infection, respectively. (2) The blood test of the patients showed normal or decreased white blood cell count (23/29), decreased lymphocyte count (20/29), increased hypersensitive C reactive protein (hs-CRP) (27/29), and normal procalcitonin. In most patients, serum lactate dehydrogenase (LDH) was significantly increased (20/29), while albumin was decreased (15/29). Alanine aminotransferase (ALT), aspartate aminotransferase (AST), total bilirubin (Tbil), serum creatinine (Scr) and other items showed no significant changes. (3) CT findings of typical cases were single or multiple patchy ground glass shadows accompanied by septal thickening. When the disease progresses, the lesion increases and the scope expands, and the ground glass shadow coexists with the solid shadow or the stripe shadow. (4) There were statistically significant differences in the expression levels of interleukin-2 receptor (IL-2R) and IL-6 in the serum of the three groups (P<0.05), among which the critical group was higher than the severe group and the severe group was higher than the mild group. However, there were no statistically significant differences in serum levels of tumor necrosis factor-alpha (TNF-α), IL-1, IL-8, IL-10, hs-CRP, lymphocyte count and LDH among the three groups (P>0.05). Conclusion: The clinical characteristics of 2019-nCoV pneumonia are similar to those of common viral pneumonia. High resolution CT is of great value in the differential diagnosis of this disease. The increased expression of IL-2R and IL-6 in serum is expected to predict the severity of the 2019-nCoV pneumonia and the prognosis of patients.",
+          "publish_time" : "2020-03-12",
+          "authors" : "Chen, L; Liu, H G; Liu, W; Liu, J; Liu, K; Shang, J; Deng, Y; Wei, S",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1001-0939.2020.03.013; https://www.ncbi.nlm.nih.gov/pubmed/32164089/",
+          "s2_id" : "212690202"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 806,
+      "relation" : "eq"
+    },
+    "max_score" : 35.53615,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "152698",
+        "_score" : 35.53615,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "dezzigmx",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of CT features of 15 Children with 2019 novel coronavirus infection].",
+          "doi" : "10.3760/cma.j.issn.0578-1310.2020.0007",
+          "pmcid" : "",
+          "pubmed_id" : "32061200",
+          "license" : "unk",
+          "abstract" : "Objective: To explore imaging characteristics of children with 2019 novel coronavirus (2019-nCoV) infection. Methods: A retrospective analysis was performed on clinical data and chest CT images of 15 children diagnosed with 2019-nCoV. They were admitted to the third people's Hospital of Shenzhen from January 16 to February 6, 2020. The distribution and morphology of pulmonary lesions on chest CT images were analyzed. Results: Among the 15 children, there were 5 males and 10 females, aged from 4 to 14 years old. Five of the 15 children were febrile and 10 were asymptomatic on first visit. The first nasal or pharyngeal swab samples in all the 15 cases were positive for 2019-nCoV nucleic acid. For their first chest CT images, 6 patients had no lesions, while 9 patients had pulmonary inflammation lesions. Seven cases of small nodular ground glass opacities and 2 cases of speckled ground glass opacities were found. After 3 to 5 days of treatment, 2019-nCoV nucleic acid in a second respiratory sample turned negative in 6 cases. Among them, chest CT images showed less lesions in 2 cases, no lesion in 3 cases, and no improvement in 1 case. Other 9 cases were still positive in a second nucleic acid test. Six patients showed similar chest CT inflammation, while 3 patients had new lesions, which were all small nodular ground glass opacities. Conclusions: The early chest CT images of children with 2019-nCoV infection are mostly small nodular ground glass opacities. The clinical symptoms of children with 2019-nCoV infection are nonspecific. Dynamic reexamination of chest CT and nucleic acid are important.",
+          "publish_time" : "2020-02-16",
+          "authors" : "Feng, K; Yun, Y X; Wang, X F; Yang, G D; Zheng, Y J; Lin, C M; Wang, L F",
+          "journal" : "Zhonghua er ke za zhi = Chinese journal of pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.0578-1310.2020.0007; https://www.ncbi.nlm.nih.gov/pubmed/32061200/",
+          "s2_id" : "211134409"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 36.45545,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "110591",
+        "_score" : 36.45545,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qfnao9fh",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Mental health survey of 230 medical staff in a tertiary infectious disease hospital for COVID-19].",
+          "doi" : "10.3760/cma.j.cn121094-20200219-00063",
+          "pmcid" : "",
+          "pubmed_id" : "32131151",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the mental health of clinical first-line medical staff in COVID-19 epidemic and provide theoretical basis for psychological intervention. Method: The mental health status of the first-line medical staff was investigated by Self-rating Anxiety Acale (SAS) and Post-Traumatic Stress Disorder Self-rating Scale(PTSD-SS). From February 7 to 14, 2020, 246 medical staff were investigated who participated in the treatment of COVID-19 using cluster sampling , and received 230 responses, with a recovery rate of 93.5%. Results: The incidence of anxiety in medical staff was 23.04% (53/230), and the score of SAS was (42.91 ± 10.89). Among them, the incidence of severe anxiety, moderate anxiety and mild anxiety were 2.17% (5/230), 4.78% (11/230) and 16.09% (37/230), respectively. The incidence of anxiety in female medical staff was higher than that in male [25.67% (48/187) vs 11.63% (5/43), Z=-2.008, P=0.045], the score of SAS in female medical staff was higher than that in male [(43.78±11.12) vs (39.14 ± 9.01), t =-2.548, P=0.012]. The incidence of anxiety in nurses was higher than that in doctors [26.88% (43/160) vs 14.29% (10/70), Z=-2.066, P=0.039], and the score of SAS in nurses was higher than that in doctors [(44.84±10.42) vs (38.50±10.72), t =-4.207, P<0.001]. The incidence of stress disorder in medical staff was 27.39% (63/230), and the score of PTSD-SS was (42.92 ± 17.88). The score of PTSD-SS in female medical staff was higher than that of male [(44.30±18.42) vs(36.91 ± 13.95), t=-2.472, P=0.014]. Conclusions: In COVID-19 epidemic, the incidence of anxiety and stress disorder is high among medical staff. Medical institutions should strengthen the training of psychological skills of medical staff. Special attention should be paid to the mental health of female nurses.",
+          "publish_time" : "2020-03-04",
+          "authors" : "Huang, J Z; Han, M F; Luo, T D; Ren, A K; Zhou, X P",
+          "journal" : "Zhonghua lao dong wei sheng zhi ye bing za zhi = Zhonghua laodong weisheng zhiyebing zazhi = Chinese journal of industrial hygiene and occupational diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn121094-20200219-00063; https://www.ncbi.nlm.nih.gov/pubmed/32131151/",
+          "s2_id" : "212416824"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 68,
+      "relation" : "eq"
+    },
+    "max_score" : 18.124422,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "195148",
+        "_score" : 18.124422,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "6iw0mzpe",
+          "sha" : "",
+          "source_x" : "WHO",
+          "title" : "Status of sleep and exercise during remote learning period for primary school students in one city during the outbreak of COVID-19",
+          "doi" : "10.16835/j.cnki.1000-9817.2021.04.016",
+          "pmcid" : "",
+          "pubmed_id" : "",
+          "license" : "unk",
+          "abstract" : "Objective: To explore the relationship between sleep and exercise among grade 1-6 students in a certain city during the period of home-based online courses in the epidemic, and to provide reference basis for the government and relevant departments to make relevant policies on student health promotion.",
+          "publish_time" : "2021",
+          "authors" : "Lin, XiaoMan Liu Rui Zhang DongMei Huang JingYi",
+          "journal" : "Chinese Journal of School Health",
+          "mag_id" : "",
+          "who_covidence_id" : "#covidwho-1502915",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.16835/j.cnki.1000-9817.2021.04.016",
+          "s2_id" : "245759350"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 836,
+      "relation" : "eq"
+    },
+    "max_score" : 34.653297,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "89147",
+        "_score" : 34.653297,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "xdh86nh5",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of myocardial injury in patients with COVID-19 and association between concomitant cardiovascular diseases and severity of COVID-19].",
+          "doi" : "10.3760/cma.j.cn112148-20200225-00123",
+          "pmcid" : "",
+          "pubmed_id" : "32141280",
+          "license" : "unk",
+          "abstract" : "Objective: To evaluate the cardiovascular damage of patients with COVID-19, and determine the correlation of serum N-terminal pro B-type natriuretic peptide (NT-proBNP) and cardiac troponin-I (cTnI) with the severity of COVID-19, and the impact of concomitant cardiovascular disease on severity of COVID-19 was also evaluated. Methods: A cross-sectional study was designed on 150 consecutive patients with COVID-19 in the fever clinic of Tongji Hospital in Wuhan from January to February in 2020, including 126 mild cases and 24 cases in critical care. Both univariate and multivariate logistic regression were used to analyze the correlation of past medical history including hypertension, diabetes and coronary heart disease (CHD) , as well as the levels of serum NT-proBNP and cTnI to the disease severity of COVID-19 patients. Results: Age, hypersensitive C-reactive protein(hs-CRP) and serum creatinine levels of the patients were higher in critical care cases than in mild cases(all P<0.05). Prevalence of male, elevated NT-proBNP and cTnI, hypertension and coronary heart disease were significantly higher in critical cases care patients than in the mild cases(all P<0.05). Univariate logistic regression analysis showed that age, male, elevated NT-proBNP, elevated cTnI, elevated hs-CRP, elevated serum creatinine, hypertension, and CHD were significantly correlated with critical disease status(all P<0.05). Multivariate logistic regression analysis showed that elevated cTnI(OR=26.909, 95%CI 4.086-177.226, P=0.001) and CHD (OR=16.609, 95%CI 2.288-120.577, P=0.005) were the independent risk factors of critical disease status. Conclusions: COVID-19 can significantly affect the heart function and lead to myocardial injury. The past medical history of CHD and increased level of cTnI are two independent determinants of clinical disease status in patients with COVID-19.",
+          "publish_time" : "2020-03-06",
+          "authors" : "Chen, C; Yan, J T; Zhou, N; Zhao, J P; Wang, D W",
+          "journal" : "Zhonghua xin xue guan bing za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112148-20200225-00123; https://www.ncbi.nlm.nih.gov/pubmed/32141280/",
+          "s2_id" : "212566063"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 827,
+      "relation" : "eq"
+    },
+    "max_score" : 34.828884,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "172699",
+        "_score" : 34.828884,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "a4fce66l",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical characteristics of 30 medical workers infected with new coronavirus pneumonia].",
+          "doi" : "10.3760/cma.j.issn.1001-0939.2020.0016",
+          "pmcid" : "",
+          "pubmed_id" : "32062957",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel coronavirus referred to jianghan university hospital between January 11, 2020 and January 3, 2020 were studied. The data reviewed included those of clinical manifestations, laboratory investigation and Radiographic features. Results: The patients consisted of 10 men and 20 women, including 22 doctors and 8 nurses,aged 21~59 years(mean 35±8 years).They were divided to 26 common type and 4 severe cases, all of whom had close(within 1m) contact with patients infected of novel coronavirus pneumonia. The average contact times were 12 (7,16) and the average cumulative contact time was 2 (1.5,2.7) h.Clinical symptoms of these patients were fever in 23 patients (76.67%) , headache in 16 petients (53.33%) , fatigue or myalgia in 21patients (70%) , nausea, vomiting or diarrhea in 9 petients (30%) , cough in 25 petients (83.33%) , and dyspnea in 14 petients (46.67%) .Routine blood test revealed WBC <4.0×10(9)/L in 8 petients (26.67%) , (4-10) ×10(9)/L in 22 petients (73.33%) , and WBC>4.0×10(9)/L in 4 petients (13.33%) during the disease.Lymphocyte count <1.0×10(9)/L occurred in 12 petients (40%),abnormal liver function in 7 petients (23.33%) ,myocardial damage in 5 petients(16.67%), elevated D-dimer (>0.5mg/l) in 5 patients (16.67%). Compared with normal patients, the average exposure times, cumulative exposure time, BMI, Fever time, white blood cell count, liver enzyme, LDH, myoenzyme and D-dimer were significantly increased in severe patients, while the lymphocyte count and albumin levels in peripheral blood were significantly decreased.Chest CT mainly showed patchy shadows and interstitial changes.According to imaging examination, 11 patients (36.67%) showed Unilateral pneumonia and 19 patients (63.33%) showed bilateral pneumonia,4 patients (13.33%) showed bilateral multiple mottling and ground-glass opacity.Compared with the patients infected in the protected period, the proportion of severe infection and bilateral pneumonia were both increased in the patients infected in unprotected period. Conclusion: Medical staffs are at higher risk of infection.Infection rates are associated with contact time, the amount of suction virus. Severe patients had BMI increased, heating time prolonged , white blood cell count, lymphocyte count, D-dimer and albumin level significantly changed and were prone to be complicated with liver damage and myocardial damage.Strict protection measures is important to prevent infection for medical workers.",
+          "publish_time" : "2020-02-17",
+          "authors" : "Liu, M; He, P; Liu, H G; Wang, X J; Li, F J; Chen, S; Lin, J; Chen, P; Liu, J H; Li, C H",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1001-0939.2020.0016; https://www.ncbi.nlm.nih.gov/pubmed/32062957/",
+          "s2_id" : "211134853"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 35.35543,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "171912",
+        "_score" : 35.35543,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qtcqaqsi",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical characteristics and outcomes of 112 cardiovascular disease patients infected by 2019-nCoV].",
+          "doi" : "10.3760/cma.j.cn112148-20200220-00105",
+          "pmcid" : "",
+          "pubmed_id" : "32120458",
+          "license" : "unk",
+          "abstract" : "Objective: To explore the clinical characteristics and prognosis of the new coronavirus 2019-nCoV patients combined with cardiovascular disease (CVD). Methods: A retrospective analysis was performed on 112 COVID-19 patients with CVD admitted to the western district of Union Hospital in Wuhan, from January 20, 2020 to February 15, 2020. They were divided into critical group (ICU, n=16) and general group (n=96) according to the severity of the disease and patients were followed up to the clinical endpoint. The observation indicators included total blood count, C-reactive protein (CRP), arterial blood gas analysis, myocardial injury markers, coagulation function, liver and kidney function, electrolyte, procalcitonin (PCT), B-type natriuretic peptide (BNP), blood lipid, pulmonary CT and pathogen detection. Results: Compared with the general group, the lymphocyte count (0.74×10(9) (0.34×10(9), 0.94×10(9))/L vs. 0.99×10(9) (0.71×10(9), 1.29×10(9))/L, P=0.03) was extremely lower in the critical group, CRP (106.98 (81.57, 135.76) mg/L vs. 34.34 (9.55,76.54) mg/L, P<0.001) and PCT (0.20 (0.15,0.48) μg/L vs. 0.11 (0.06,0.20)μg/L, P<0.001) were significantly higher in the critical group. The BMI of the critical group was significantly higher than that of the general group (25.5 (23.0, 27.5) kg/m(2) vs. 22.0 (20.0, 24.0) kg/m(2), P=0.003). Patients were further divided into non-survivor group (17, 15.18%) group and survivor group (95, 84.82%). Among the non-survivors, there were 88.24% (15/17) patients with BMI> 25 kg/m(2), which was significantly higher than that of survivors (18.95% (18/95), P<0.001). Compared with the survived patients, oxygenation index (130 (102, 415) vs. 434 (410, 444), P<0.001) was significantly lower and lactic acid (1.70 (1.30, 3.00) mmol/L vs. 1.20 (1.10, 1.60) mmol/L, P<0.001) was significantly higher in the non-survivors. There was no significant difference in the proportion of ACEI/ARB medication between the critical group and the general group or between non-survivors and survivors (all P>0.05). Conclusion: COVID-19 patients combined with CVD are associated with a higher risk of mortality. Critical patients are characterized with lower lymphocyte counts. Higher BMI are more often seen in critical patients and non-survivor. ACEI/ARB use does not affect the morbidity and mortality of COVID-19 combined with CVD. Aggravating causes of death include fulminant inflammation, lactic acid accumulation and thrombotic events.",
+          "publish_time" : "2020-03-02",
+          "authors" : "Peng, Y D; Meng, K; Guan, H Q; Leng, L; Zhu, R R; Wang, B Y; He, M A; Cheng, L X; Huang, K; Zeng, Q T",
+          "journal" : "Zhonghua xin xue guan bing za zhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112148-20200220-00105; https://www.ncbi.nlm.nih.gov/pubmed/32120458/",
+          "s2_id" : "211831883"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 439,
+      "relation" : "eq"
+    },
+    "max_score" : 25.629616,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "80003",
+        "_score" : 25.629616,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "v8voyhq9",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Comparative analysis of structural characteristics and epitopes in S proteins between SARS-CoV-2 and SARS-CoV].",
+          "doi" : "10.3785/j.issn.1008-9292.2020.06.06",
+          "pmcid" : "",
+          "pubmed_id" : "32762171",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To provide data support for the study of pathogenic mechanism of SARS-CoV-2 at the molecular level, and provide suitable candidate targets for vaccine, antibody and drug research and development through comparative analysis for structural characteristics and epitopes of S protein of SARS-CoV-2 and SARS-CoV. METHODS Based on the reference sequences of S protein, physical and chemical properties, hydrophobicity, signal peptide, transmembrane region, domain, secondary structure, tertiary structure analysis and antigenic epitopes prediction were carried out. Meanwhile, the tissue expression, related pathways and reactome pathways of angiotensis Ⅰ converting enzyme 2 (ACE2) and C-type lectin domain family 4 member M (CLEC4M) receptors were analyzed. RESULTS The amino acid sequence of S protein of SARS-CoV-2 and SARS-CoV has a 75.80% consistency. The structural characteristics of the two coronaviruses are highly consistent, but the secondary structure and tertiary structure of SARS-CoV-2 is not as obvious as SARS-CoV. ACE2 and CLEC4M are expressed in alimentary system, heart, kidney, lung and placenta. The main related the pathways of renin-angiotensin system, protein digestion and absorption pathway, and the reactome pathways of metabolism of angiotensinogen to angiotensins, GPCR ligand binding, are related to typical symptoms of coronavirus disease 2019 induced by SARS-CoV-2. Three pairs of highly or completely homologous epitopes of S protein were obtained. The 600-605, 695-703 and 888-896 amino acid residues in SARS-CoV-2 were highly homologous with 586-591, 677-685 and 870-878 amino acid residues in SARS-CoV, respectively. CONCLUSIONS The similarity of S protein of SARS-CoV-2 and SARS-CoV determines that they have similar infection patterns and clinical manifestations. The candidate epitopes with high reliability can provide reference for virus diagnosis and vaccine development.",
+          "publish_time" : "2020-05-25",
+          "authors" : "Lun, Yongzhi; Liu, Ben; Dong, Wen; Sun, Jie; Pan, Linghong",
+          "journal" : "Zhejiang da xue xue bao. Yi xue ban = Journal of Zhejiang University. Medical sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3785/j.issn.1008-9292.2020.06.06; https://www.ncbi.nlm.nih.gov/pubmed/32762171/",
+          "s2_id" : "221036635"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 84,
+      "relation" : "eq"
+    },
+    "max_score" : 26.308784,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "145470",
+        "_score" : 26.308784,
+        "_source" : {
+          "corduid" : "xyfzjvd9",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "A pregnant woman and the SARS-CoV-2 infection: how are barriers easily crossed?",
+          "doi" : "10.1701/3347.33190",
+          "pmcid" : "",
+          "pubmed_id" : "32319449",
+          "license" : "unk",
+          "abstract" : "A case of SARS-CoV-2 in a pregnant woman is described. How the case has crossed the barriers is highlighted, hoping this will be useful in planning appropriate intervention in cases of infected pregnant women.",
+          "publish_time" : "2020-04-01",
+          "authors" : "Indraccolo, Ugo",
+          "journal" : "Recenti progressi in medicina",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.1701/3347.33190; https://www.ncbi.nlm.nih.gov/pubmed/32319449/",
+          "s2_id" : "216072956"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 539,
+      "relation" : "eq"
+    },
+    "max_score" : 24.086552,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "184608",
+        "_score" : 24.086552,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "7bdbefzs",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Clinical characteristics of 161 cases of corona virus disease 2019 (COVID-19) in Changsha.",
+          "doi" : "10.26355/eurrev_202003_20711",
+          "pmcid" : "",
+          "pubmed_id" : "32271459",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE In December 2019, a new type of coronavirus-infected pneumonia broke out in Wuhan and spread rapidly to other parts of the country. The purpose of this study was to investigate the clinical features of coronavirus disease 2019 (COVID-19). MATERIALS AND METHODS A retrospective analysis was performed on the confirmed cases of COVID-19, who were admitted to the North Hospital of Changsha first Hospital (Changsha Public Health treatment Center) from January 17 to February 7, 2020. RESULTS The median age of COVID-19 patients was 45 years (range 33.5-57). The male patients accounted for 49.7%, 64.6% of the patients had a history of exposure in Wuhan, and 31.7% had family aggregation. The median days of onset were six, and the incidence of severe illness was 18.6%. Compared with the non-severe group, the severe group showed statistical significance in older age, hypertension, bilateral lung plaque shadow, decrease in lymphocyte count, increase in C-reactive protein (CRP), aspartate aminotransferase (AST), lactate dehydrogenase, and creatine kinase. CONCLUSIONS Age, combined hypertension, oxygenation index, double lung patch, decreased lymphocyte count, and elevated levels of C-reactive protein, aspartate aminotransferase, lactate dehydrogenase, and creatine kinase can be used as predictors of the disease severity.",
+          "publish_time" : "2020-03-01",
+          "authors" : "Zheng, F; Tang, W; Li, H; Huang, Y-X; Xie, Y-L; Zhou, Z-G",
+          "journal" : "European review for medical and pharmacological sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.26355/eurrev_202003_20711; https://www.ncbi.nlm.nih.gov/pubmed/32271459/",
+          "s2_id" : "215618350"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 824,
+      "relation" : "eq"
+    },
+    "max_score" : 35.86663,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "186296",
+        "_score" : 35.86663,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "rxpdo0q1",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Logistic regression analysis of death risk factors of patients with severe and critical coronavirus disease 2019 and their predictive value].",
+          "doi" : "10.3760/cma.j.cn121430-20200507-00364",
+          "pmcid" : "",
+          "pubmed_id" : "32576344",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To analyze the risk factors of death in patients with severe and critical coronavirus disease 2019 (COVID-19) and their predictive value. METHODS Using the clinical and epidemiological database of Yangtze River Shipping General Hospital in Wuhan, the clinical and epidemiological data of 105 patients with severe and critical COVID-19 from January to March in 2020 were collected. Multivariate unconditional Logistic regression method was used to analyze the death risk factors of patients during hospitalization. The receiver operating characteristic (ROC) curve was drawn according to the multivariate analysis results to construct a death prediction model; the prediction value of the model was analyzed. RESULTS The 105 patients with severe and critical COVID-19 were enrolled with 66 males (62.9%) and 39 females (37.1%). The age was (58.2±14.4) years old. Forty-two patients died in hospital and 63 survived. Among the dead patients, 69.0% (29/42) were male, and 78.6% (33/42) were over 60 years old. Compared with survival patients, the non-survival patients were older (years old: 59.2±12.5 vs. 51.2±11.4), and had more comorbidities, including coronary heart disease, hypertension, myocardial damage and thrombocytopenia (coronary heart disease: 33.3% vs. 11.1%, hypertension: 28.6% vs. 9.5%, myocardial damage: 73.8% vs. 11.1%, thrombocytopenia: 61.9% vs. 14.3%), and received more mechanical ventilation (92.9% vs. 44.4%), with significant differences (all P < 0.01). The variables of gender, age, basic diseases, mechanical ventilation and complications were included in the unconditional Logistic regression analysis, which showed that gender [odds ratio (OR) = 2.852, 95% confidence interval (95%CI) was 0.122-66.694], age (OR = 3.257, 95%CI was 0.466-18.584), coronary heart disease (OR = 7.337, 95%CI was 0.227-87.021), hypertension (OR = 5.517, 95%CI was 0.258-65.024) and concurrent myocardial damage (OR = 7.322, 95%CI was 0.278-95.020) and thrombocytopenia (OR = 3.968, 95%CI was 0.325-35.549) were independent risk factors for death in patients with severe and critical COVID-19 during hospitalization. According to the risk factors, the death prediction model was constructed and ROC curve was analyzed, which showed that the area under ROC curve (AUC) of death prediction model for predicting the mortality of patients with severe and critical COVID-19 during hospitalization was 0.804, the sensitivity was 83.8%, and the specificity was 82.3%. CONCLUSIONS Various risk factors are associated with the death of severe or critical COVID-19 patients, such as gender, age, basic diseases and complications. The death prediction model is constructed by gender, age, basic diseases with coronary heart disease and hypertension, concurrent myocardial damage and thrombocytopenia, which has certain predictive value for the death of patients with severe or critical COVID-19.",
+          "publish_time" : "2020-05-01",
+          "authors" : "Hu, Kai; Li, Bojun",
+          "journal" : "Zhonghua wei zhong bing ji jiu yi xue",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn121430-20200507-00364; https://www.ncbi.nlm.nih.gov/pubmed/32576344/",
+          "s2_id" : "220046626"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 475,
+      "relation" : "eq"
+    },
+    "max_score" : 36.1381,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "126632",
+        "_score" : 36.1381,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "9kg7uqtf",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Tracheal intubation in patients with severe and critical COVID-19: analysis of 18 cases].",
+          "doi" : "10.12122/j.issn.1673-4254.2020.03.07",
+          "pmcid" : "",
+          "pubmed_id" : "32376592",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To analyze the clinical characteristics of patients with severe or critical coronavirus disease 2019 (COVID-19) receiving tracheal intubation. METHODS We analyzed clinical characteristics of 18 severely or critically ill patients with COVID-19 undergoing tracheal intubation. The general demographic and clinical data of the patients including their age, gender, pre- intubation state of consciousness and the ventilation mode were recorded. The anesthesiologists performing the tracheal intubation procedure evaluated and recorded the tracheal intubation conditions of the patients. The changes in the vital signs of the patients before anesthesia induction and after intubation were recorded. RESULTS The average ages of these patients were 70.39±8.02 years. Fifteen patients (83.33%) received non- invasive ventilation before tracheal intubation, and 13 patients (72.22%) were conscious before tracheal intubation. After induction of anesthesia, the blood pressure and heart rate of the patients decreased significantly (P < 0.05). Most of the patients (94.44%) were in excellent or good conditions for tracheal intubation, and the first-attempt success rate of tracheal intubation was 100%. Five patients died within 3 weeks following the intubation. Tracheotomy was performed in one patient. Twelve patients were still on endotracheal mechanical ventilation in the intensive care unit, and one of them received ECMO treatment due to poor oxygenation. A total of 16 experienced anesthesiologists participated in tracheal intubation, all with third-level protection during the operation, and no medical staff infection has been detected so far. CONCLUSIONS For patients with severe and critical COVID-19 and indications of tracheal intubation, we recommend early intubation with invasive respiratory support to improve the treatment efficacy and reduce the mortality. Anesthetic agents should be used carefully during tracheal intubation to ensure patients' safety. The medical staff should have a high-level protection during the intubation to maximally ensure their safety.",
+          "publish_time" : "2020-03-30",
+          "authors" : "Wang, Jiafang; Lu, Fan; Zhou, Mingxing; Qi, Zhong; Chen, Zhijun",
+          "journal" : "Nan fang yi ke da xue xue bao = Journal of Southern Medical University",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.12122/j.issn.1673-4254.2020.03.07; https://www.ncbi.nlm.nih.gov/pubmed/32376592/",
+          "s2_id" : "218532539"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 539,
+      "relation" : "eq"
+    },
+    "max_score" : 24.086552,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "184608",
+        "_score" : 24.086552,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "7bdbefzs",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Clinical characteristics of 161 cases of corona virus disease 2019 (COVID-19) in Changsha.",
+          "doi" : "10.26355/eurrev_202003_20711",
+          "pmcid" : "",
+          "pubmed_id" : "32271459",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE In December 2019, a new type of coronavirus-infected pneumonia broke out in Wuhan and spread rapidly to other parts of the country. The purpose of this study was to investigate the clinical features of coronavirus disease 2019 (COVID-19). MATERIALS AND METHODS A retrospective analysis was performed on the confirmed cases of COVID-19, who were admitted to the North Hospital of Changsha first Hospital (Changsha Public Health treatment Center) from January 17 to February 7, 2020. RESULTS The median age of COVID-19 patients was 45 years (range 33.5-57). The male patients accounted for 49.7%, 64.6% of the patients had a history of exposure in Wuhan, and 31.7% had family aggregation. The median days of onset were six, and the incidence of severe illness was 18.6%. Compared with the non-severe group, the severe group showed statistical significance in older age, hypertension, bilateral lung plaque shadow, decrease in lymphocyte count, increase in C-reactive protein (CRP), aspartate aminotransferase (AST), lactate dehydrogenase, and creatine kinase. CONCLUSIONS Age, combined hypertension, oxygenation index, double lung patch, decreased lymphocyte count, and elevated levels of C-reactive protein, aspartate aminotransferase, lactate dehydrogenase, and creatine kinase can be used as predictors of the disease severity.",
+          "publish_time" : "2020-03-01",
+          "authors" : "Zheng, F; Tang, W; Li, H; Huang, Y-X; Xie, Y-L; Zhou, Z-G",
+          "journal" : "European review for medical and pharmacological sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.26355/eurrev_202003_20711; https://www.ncbi.nlm.nih.gov/pubmed/32271459/",
+          "s2_id" : "215618350"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 475,
+      "relation" : "eq"
+    },
+    "max_score" : 36.1381,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "150059",
+        "_score" : 36.1381,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "6k8vedy3",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Psychological status and sleep quality of nursing interns during the outbreak of COVID-19].",
+          "doi" : "10.12122/j.issn.1673-4254.2020.03.09",
+          "pmcid" : "",
+          "pubmed_id" : "32376580",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To investigate the psychological status and sleep quality of nursing interns in collective isolation during the outbreak of coronavirus disease 2019 (COVID-19) and provide evidence for adequate interventions. METHODS We surveyed a total of 95 nursing interns who were isolated collectively in a general teaching hospital in Guangzhou using a self-designed questionnaire, which consisted of a basic information form, self-rating anxiety scale (SAS), self-rating depression scale (SDS) and Pittsburgh Sleep Quality Index (PSQI). Descriptive analysis, single factor analysis and correlation analysis were used to analyze the current status of the interns' psychology and sleep quality, the potential factors affecting their psychology and sleep quality, and the correlation between their psychological status and sleep quality. RESULTS The surveyed interns had SAS, SDS and PSQI score of 37.79±6.59, 43.98±9.74 and 5.20±3.14, respectively, which were significant higher than the national norms in China (P < 0.05). Correlation analysis indicated that both anxiety and depression were positively correlated with the sleep quality score (r=0.508 and 0.546, respectively). Univariate analysis showed that the major factors affecting the psychological status and sleep quality of the interns during collective isolation included recent contact with persons from the affected area before isolation and the onset of fever during the isolation. CONCLUSIONS These interns showed relatively high levels of anxiety and depression during the collective isolation to affect their sleep quality, and interventions should be timely administered to improve their mental health and sleep quality.",
+          "publish_time" : "2020-03-30",
+          "authors" : "Sheng, Xiaoyan; Liu, Fenyu; Zhou, Jin; Liao, Rongrong",
+          "journal" : "Nan fang yi ke da xue xue bao = Journal of Southern Medical University",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.12122/j.issn.1673-4254.2020.03.09; https://www.ncbi.nlm.nih.gov/pubmed/32376580/",
+          "s2_id" : "218534507"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 36.45545,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "110591",
+        "_score" : 36.45545,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qfnao9fh",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Mental health survey of 230 medical staff in a tertiary infectious disease hospital for COVID-19].",
+          "doi" : "10.3760/cma.j.cn121094-20200219-00063",
+          "pmcid" : "",
+          "pubmed_id" : "32131151",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the mental health of clinical first-line medical staff in COVID-19 epidemic and provide theoretical basis for psychological intervention. Method: The mental health status of the first-line medical staff was investigated by Self-rating Anxiety Acale (SAS) and Post-Traumatic Stress Disorder Self-rating Scale(PTSD-SS). From February 7 to 14, 2020, 246 medical staff were investigated who participated in the treatment of COVID-19 using cluster sampling , and received 230 responses, with a recovery rate of 93.5%. Results: The incidence of anxiety in medical staff was 23.04% (53/230), and the score of SAS was (42.91 ± 10.89). Among them, the incidence of severe anxiety, moderate anxiety and mild anxiety were 2.17% (5/230), 4.78% (11/230) and 16.09% (37/230), respectively. The incidence of anxiety in female medical staff was higher than that in male [25.67% (48/187) vs 11.63% (5/43), Z=-2.008, P=0.045], the score of SAS in female medical staff was higher than that in male [(43.78±11.12) vs (39.14 ± 9.01), t =-2.548, P=0.012]. The incidence of anxiety in nurses was higher than that in doctors [26.88% (43/160) vs 14.29% (10/70), Z=-2.066, P=0.039], and the score of SAS in nurses was higher than that in doctors [(44.84±10.42) vs (38.50±10.72), t =-4.207, P<0.001]. The incidence of stress disorder in medical staff was 27.39% (63/230), and the score of PTSD-SS was (42.92 ± 17.88). The score of PTSD-SS in female medical staff was higher than that of male [(44.30±18.42) vs(36.91 ± 13.95), t=-2.472, P=0.014]. Conclusions: In COVID-19 epidemic, the incidence of anxiety and stress disorder is high among medical staff. Medical institutions should strengthen the training of psychological skills of medical staff. Special attention should be paid to the mental health of female nurses.",
+          "publish_time" : "2020-03-04",
+          "authors" : "Huang, J Z; Han, M F; Luo, T D; Ren, A K; Zhou, X P",
+          "journal" : "Zhonghua lao dong wei sheng zhi ye bing za zhi = Zhonghua laodong weisheng zhiyebing zazhi = Chinese journal of industrial hygiene and occupational diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn121094-20200219-00063; https://www.ncbi.nlm.nih.gov/pubmed/32131151/",
+          "s2_id" : "212416824"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 1,
+      "relation" : "eq"
+    },
+    "max_score" : 9.83378,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "36429",
+        "_score" : 9.83378,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "alapbhgf",
+          "sha" : "d06df481053de20ad94ecd6d65d0935c3c7c44d4",
+          "source_x" : "PMC",
+          "title" : "Environment Problems in the Coastal Zone",
+          "doi" : "10.1007/978-1-4020-3625-5_3",
+          "pmcid" : "PMC7122320",
+          "pubmed_id" : "",
+          "license" : "no-cc",
+          "abstract" : "Understanding coastal dynamics and natural history is important in developing a better understanding of natural systems and human impacts in coastal zones. This chapter outlines the characteristics of sedimentary environments in coastal zones which must be understood in order to manage and preserve coastal environments.",
+          "publish_time" : "2008",
+          "authors" : "Sekiguchi, Hideo; Aksornkoae, Sanit",
+          "journal" : "Asia-Pacific Coasts and Their Management",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "document_parses/pdf_json/d06df481053de20ad94ecd6d65d0935c3c7c44d4.json",
+          "pmc_json_files" : "",
+          "url" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7122320/",
+          "s2_id" : ""
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 67,
+      "relation" : "eq"
+    },
+    "max_score" : 33.444847,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "108796",
+        "_score" : 33.444847,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "el78z6z7",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Management of Spine Trauma in COVID-19 Pandemic: A Preliminary Report.",
+          "doi" : "10.22038/abjs.2020.47882.2368",
+          "pmcid" : "",
+          "pubmed_id" : "32733982",
+          "license" : "unk",
+          "abstract" : "Background COVID-19 was first identified in Iran in February 2020 and since then it spread rapidly through all over the country and soon after that it was reported as a pandemic. The current study presents a preliminary report of spine trauma management during COVID-19 pandemic. Methods A cross sectional study was designed to evaluate patients admitted for vertebral fractures with diagnosis of COVID-19 infection on February and March 2020. Analysis was made based on clinical and laboratory data along with the imaging findings from chest HRCT. Results Seven patients with spine trauma including five males and two females ranging from 14 to 59 years were diagnosed for COVID-19 infection through CT-scan findings. Except one, all other patients were asymptomatic for COVID-19 at the time of admission. In three cases the COVID diagnosis was made the day after arrival and in others after 10, 14 and 35 days. Five patients were treated surgically among whom four were admitted to ICU soon after the surgery. The mean ICU stay for operated patients were eight days and the mean hospital stay was 22.6 days. Conclusion Proper diagnosis of COVID-19 is the keystone to protect both patients and health care providers. During the pandemic all admitted patients should be screened for COVID-19 infection. Unnecessary procedures for spine trauma patients should be avoided in order to reduce complications related to surgery and to preserve ICU beds.",
+          "publish_time" : "2020-04-01",
+          "authors" : "Chehrassan, Mohammadreza; Ebrahimpour, Adel; Ghandhari, Hasan; Sanei Taheri, Morteza; Athari, Bahador; Sadighi, Mehrdad; Jafari KafiAbadi, Meisam; Karami, Amin; Zali, Alireza",
+          "journal" : "The archives of bone and joint surgery",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.22038/abjs.2020.47882.2368; https://www.ncbi.nlm.nih.gov/pubmed/32733982/",
+          "s2_id" : "219112332"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 825,
+      "relation" : "eq"
+    },
+    "max_score" : 23.370792,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "264139",
+        "_score" : 23.370792,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "i66og0hb",
+          "sha" : "",
+          "source_x" : "WHO",
+          "title" : "Research progress on the mechanism of multiple organ dysfunction in patients with COVID-19",
+          "doi" : "10.3760/cma.j.issn.1674-2397.2021.02.005",
+          "pmcid" : "",
+          "pubmed_id" : "",
+          "license" : "unk",
+          "abstract" : "The pathogen of COVID-19 is 2019-nCoV, which belongs to the beta coronavirus. Angiotensin-converting enzyme 2 (ACE2) is the receptor of 2019-nCoV as the same of SARS-CoV. Most of the severe patients were the elderly with underlying diseases, which may be related to the decrease in the number of naive T cells. In addition to pulmonary symptoms, COVID-19 can also cause multiple organ dysfunction and even multiple organ failure (liver, nervous system, heart, kidney, etc.). Pathogenic mechanisms such as direct virus invasion, cytokine storm, endothelial cells damage, and down-regulation of ACE2 may play important roles in the severity of the disease. © 2021 Chinese Medical Association",
+          "publish_time" : "2021",
+          "authors" : "Chen, K.; Jiang, S.; Hu, A.",
+          "journal" : "Chinese Journal of Clinical Infectious Diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "#covidwho-1328153",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1674-2397.2021.02.005",
+          "s2_id" : "239725632"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 439,
+      "relation" : "eq"
+    },
+    "max_score" : 25.629616,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "80003",
+        "_score" : 25.629616,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "v8voyhq9",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Comparative analysis of structural characteristics and epitopes in S proteins between SARS-CoV-2 and SARS-CoV].",
+          "doi" : "10.3785/j.issn.1008-9292.2020.06.06",
+          "pmcid" : "",
+          "pubmed_id" : "32762171",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To provide data support for the study of pathogenic mechanism of SARS-CoV-2 at the molecular level, and provide suitable candidate targets for vaccine, antibody and drug research and development through comparative analysis for structural characteristics and epitopes of S protein of SARS-CoV-2 and SARS-CoV. METHODS Based on the reference sequences of S protein, physical and chemical properties, hydrophobicity, signal peptide, transmembrane region, domain, secondary structure, tertiary structure analysis and antigenic epitopes prediction were carried out. Meanwhile, the tissue expression, related pathways and reactome pathways of angiotensis Ⅰ converting enzyme 2 (ACE2) and C-type lectin domain family 4 member M (CLEC4M) receptors were analyzed. RESULTS The amino acid sequence of S protein of SARS-CoV-2 and SARS-CoV has a 75.80% consistency. The structural characteristics of the two coronaviruses are highly consistent, but the secondary structure and tertiary structure of SARS-CoV-2 is not as obvious as SARS-CoV. ACE2 and CLEC4M are expressed in alimentary system, heart, kidney, lung and placenta. The main related the pathways of renin-angiotensin system, protein digestion and absorption pathway, and the reactome pathways of metabolism of angiotensinogen to angiotensins, GPCR ligand binding, are related to typical symptoms of coronavirus disease 2019 induced by SARS-CoV-2. Three pairs of highly or completely homologous epitopes of S protein were obtained. The 600-605, 695-703 and 888-896 amino acid residues in SARS-CoV-2 were highly homologous with 586-591, 677-685 and 870-878 amino acid residues in SARS-CoV, respectively. CONCLUSIONS The similarity of S protein of SARS-CoV-2 and SARS-CoV determines that they have similar infection patterns and clinical manifestations. The candidate epitopes with high reliability can provide reference for virus diagnosis and vaccine development.",
+          "publish_time" : "2020-05-25",
+          "authors" : "Lun, Yongzhi; Liu, Ben; Dong, Wen; Sun, Jie; Pan, Linghong",
+          "journal" : "Zhejiang da xue xue bao. Yi xue ban = Journal of Zhejiang University. Medical sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3785/j.issn.1008-9292.2020.06.06; https://www.ncbi.nlm.nih.gov/pubmed/32762171/",
+          "s2_id" : "221036635"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 475,
+      "relation" : "eq"
+    },
+    "max_score" : 36.1381,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "150059",
+        "_score" : 36.1381,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "6k8vedy3",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Psychological status and sleep quality of nursing interns during the outbreak of COVID-19].",
+          "doi" : "10.12122/j.issn.1673-4254.2020.03.09",
+          "pmcid" : "",
+          "pubmed_id" : "32376580",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To investigate the psychological status and sleep quality of nursing interns in collective isolation during the outbreak of coronavirus disease 2019 (COVID-19) and provide evidence for adequate interventions. METHODS We surveyed a total of 95 nursing interns who were isolated collectively in a general teaching hospital in Guangzhou using a self-designed questionnaire, which consisted of a basic information form, self-rating anxiety scale (SAS), self-rating depression scale (SDS) and Pittsburgh Sleep Quality Index (PSQI). Descriptive analysis, single factor analysis and correlation analysis were used to analyze the current status of the interns' psychology and sleep quality, the potential factors affecting their psychology and sleep quality, and the correlation between their psychological status and sleep quality. RESULTS The surveyed interns had SAS, SDS and PSQI score of 37.79±6.59, 43.98±9.74 and 5.20±3.14, respectively, which were significant higher than the national norms in China (P < 0.05). Correlation analysis indicated that both anxiety and depression were positively correlated with the sleep quality score (r=0.508 and 0.546, respectively). Univariate analysis showed that the major factors affecting the psychological status and sleep quality of the interns during collective isolation included recent contact with persons from the affected area before isolation and the onset of fever during the isolation. CONCLUSIONS These interns showed relatively high levels of anxiety and depression during the collective isolation to affect their sleep quality, and interventions should be timely administered to improve their mental health and sleep quality.",
+          "publish_time" : "2020-03-30",
+          "authors" : "Sheng, Xiaoyan; Liu, Fenyu; Zhou, Jin; Liao, Rongrong",
+          "journal" : "Nan fang yi ke da xue xue bao = Journal of Southern Medical University",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.12122/j.issn.1673-4254.2020.03.09; https://www.ncbi.nlm.nih.gov/pubmed/32376580/",
+          "s2_id" : "218534507"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 36.45545,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "110591",
+        "_score" : 36.45545,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qfnao9fh",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Mental health survey of 230 medical staff in a tertiary infectious disease hospital for COVID-19].",
+          "doi" : "10.3760/cma.j.cn121094-20200219-00063",
+          "pmcid" : "",
+          "pubmed_id" : "32131151",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the mental health of clinical first-line medical staff in COVID-19 epidemic and provide theoretical basis for psychological intervention. Method: The mental health status of the first-line medical staff was investigated by Self-rating Anxiety Acale (SAS) and Post-Traumatic Stress Disorder Self-rating Scale(PTSD-SS). From February 7 to 14, 2020, 246 medical staff were investigated who participated in the treatment of COVID-19 using cluster sampling , and received 230 responses, with a recovery rate of 93.5%. Results: The incidence of anxiety in medical staff was 23.04% (53/230), and the score of SAS was (42.91 ± 10.89). Among them, the incidence of severe anxiety, moderate anxiety and mild anxiety were 2.17% (5/230), 4.78% (11/230) and 16.09% (37/230), respectively. The incidence of anxiety in female medical staff was higher than that in male [25.67% (48/187) vs 11.63% (5/43), Z=-2.008, P=0.045], the score of SAS in female medical staff was higher than that in male [(43.78±11.12) vs (39.14 ± 9.01), t =-2.548, P=0.012]. The incidence of anxiety in nurses was higher than that in doctors [26.88% (43/160) vs 14.29% (10/70), Z=-2.066, P=0.039], and the score of SAS in nurses was higher than that in doctors [(44.84±10.42) vs (38.50±10.72), t =-4.207, P<0.001]. The incidence of stress disorder in medical staff was 27.39% (63/230), and the score of PTSD-SS was (42.92 ± 17.88). The score of PTSD-SS in female medical staff was higher than that of male [(44.30±18.42) vs(36.91 ± 13.95), t=-2.472, P=0.014]. Conclusions: In COVID-19 epidemic, the incidence of anxiety and stress disorder is high among medical staff. Medical institutions should strengthen the training of psychological skills of medical staff. Special attention should be paid to the mental health of female nurses.",
+          "publish_time" : "2020-03-04",
+          "authors" : "Huang, J Z; Han, M F; Luo, T D; Ren, A K; Zhou, X P",
+          "journal" : "Zhonghua lao dong wei sheng zhi ye bing za zhi = Zhonghua laodong weisheng zhiyebing zazhi = Chinese journal of industrial hygiene and occupational diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn121094-20200219-00063; https://www.ncbi.nlm.nih.gov/pubmed/32131151/",
+          "s2_id" : "212416824"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 831,
+      "relation" : "eq"
+    },
+    "max_score" : 36.45545,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "110591",
+        "_score" : 36.45545,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "qfnao9fh",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Mental health survey of 230 medical staff in a tertiary infectious disease hospital for COVID-19].",
+          "doi" : "10.3760/cma.j.cn121094-20200219-00063",
+          "pmcid" : "",
+          "pubmed_id" : "32131151",
+          "license" : "unk",
+          "abstract" : "Objective: To investigate the mental health of clinical first-line medical staff in COVID-19 epidemic and provide theoretical basis for psychological intervention. Method: The mental health status of the first-line medical staff was investigated by Self-rating Anxiety Acale (SAS) and Post-Traumatic Stress Disorder Self-rating Scale(PTSD-SS). From February 7 to 14, 2020, 246 medical staff were investigated who participated in the treatment of COVID-19 using cluster sampling , and received 230 responses, with a recovery rate of 93.5%. Results: The incidence of anxiety in medical staff was 23.04% (53/230), and the score of SAS was (42.91 ± 10.89). Among them, the incidence of severe anxiety, moderate anxiety and mild anxiety were 2.17% (5/230), 4.78% (11/230) and 16.09% (37/230), respectively. The incidence of anxiety in female medical staff was higher than that in male [25.67% (48/187) vs 11.63% (5/43), Z=-2.008, P=0.045], the score of SAS in female medical staff was higher than that in male [(43.78±11.12) vs (39.14 ± 9.01), t =-2.548, P=0.012]. The incidence of anxiety in nurses was higher than that in doctors [26.88% (43/160) vs 14.29% (10/70), Z=-2.066, P=0.039], and the score of SAS in nurses was higher than that in doctors [(44.84±10.42) vs (38.50±10.72), t =-4.207, P<0.001]. The incidence of stress disorder in medical staff was 27.39% (63/230), and the score of PTSD-SS was (42.92 ± 17.88). The score of PTSD-SS in female medical staff was higher than that of male [(44.30±18.42) vs(36.91 ± 13.95), t=-2.472, P=0.014]. Conclusions: In COVID-19 epidemic, the incidence of anxiety and stress disorder is high among medical staff. Medical institutions should strengthen the training of psychological skills of medical staff. Special attention should be paid to the mental health of female nurses.",
+          "publish_time" : "2020-03-04",
+          "authors" : "Huang, J Z; Han, M F; Luo, T D; Ren, A K; Zhou, X P",
+          "journal" : "Zhonghua lao dong wei sheng zhi ye bing za zhi = Zhonghua laodong weisheng zhiyebing zazhi = Chinese journal of industrial hygiene and occupational diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn121094-20200219-00063; https://www.ncbi.nlm.nih.gov/pubmed/32131151/",
+          "s2_id" : "212416824"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 443,
+      "relation" : "eq"
+    },
+    "max_score" : 15.922728,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "198221",
+        "_score" : 15.922728,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "6ghptz1o",
+          "sha" : "",
+          "source_x" : "WHO",
+          "title" : "Global patent analysis on coronavirus vaccine",
+          "doi" : "10.7501/j.issn.1674-6376.2020.09.006",
+          "pmcid" : "",
+          "pubmed_id" : "",
+          "license" : "unk",
+          "abstract" : "Based on the patent information related to coronavirus vaccine, the present situation and development trend of coronavirus vaccine have been analyzed. Since the outbreak of SARS in 2002, the amount of patent applications of coronavirus vaccine reached the peak in 2003. Since the outbreak of Middle East respiratory syndrome in 2012, there was a small increase on the amount of patent applications of coronavirus vaccine from 2012 to 2015. In view of the analyses of the key applicants and vaccine types, it is concluded that nucleic acid vaccine, inactivated vaccine and viral vector vaccine are the main vaccine types against coronavirus, which is consistent with the three types of vaccines that have entered clinical trials in China and the United States.",
+          "publish_time" : "2020",
+          "authors" : "Yu, Ting",
+          "journal" : "Drug Evaluation Research",
+          "mag_id" : "",
+          "who_covidence_id" : "#covidwho-1395263",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.7501/j.issn.1674-6376.2020.09.006",
+          "s2_id" : "242403479"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 834,
+      "relation" : "eq"
+    },
+    "max_score" : 33.89036,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "120906",
+        "_score" : 33.89036,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "rimoxhbo",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Epidemiological analysis on 1 052 cases of COVID-19 in epidemic clusters].",
+          "doi" : "10.3760/cma.j.cn112338-20200301-00223",
+          "pmcid" : "",
+          "pubmed_id" : "32213270",
+          "license" : "unk",
+          "abstract" : "Objective: To understand the epidemiological characteristics of the cases of COVID-19 epidemic clusters, and explore the influence of family factors and social factors such as group activities on the spread of the disease. Methods: The data of cases of COVID-19 epidemic clusters from 19 January, 2020 to 25 February, 2020 were collected from the official platforms of 36 cities in 6 provinces in China. Descriptive statistical methods, χ(2) test and curve fitting were used to analyze the epidemiological characteristics of the clustered cases. Results: By 25 February, 2020, the data of 1 052 cases in 366 epidemic clusters were collected. In these clustered cases, 86.9%(914/1 050) occurred in families. Among the 1 046 cases with gender information, 513 were males (49.0%) and 533 were females (51.0%). The cases were mainly young adults between 18 and 59 years old, accounting for 68.5% (711/1 038). In the 366 epidemic clusters , the clusters in which the first confirmed cases with the history of sojourn in Wuhan or Hubei accounted for 47.0%(172/366). From 19 January to 3 February, 2020, the first confirmed cases with Wuhan or Hubei sojourn history accounted for 66.5%. From 4 to 25 February, the first confirmed cases who had Wuhan or Hubei sojourn history accounted for only 18.2%. The median of interval between the first generation case onset and the second generation case onset was 5 (2-8) days. The median of onset- diagnosis interval of the initial cases was 6 (3-9) days, and the median of onset-diagnosis interval of the secondary cases was 5 (3-8) days. Conclusions: Epidemic clusters of COVID-19 were common in many cities outside Wuhan and Hubei. Close contact in family was one of the main causes for the spread of household transmission of the virus. After 4 February, the epidemic clusters were mainly caused by the first generation or second generation cases in local areas, and the time for diagnosis became shorter.",
+          "publish_time" : "2020-03-26",
+          "authors" : "Gan, H; Zhang, Y; Yuan, M; Wu, X Y; Liu, Z R; Liu, M; Wu, J B; Xu, S J; Gong, L; Xu, H L; Tao, F B",
+          "journal" : "Zhonghua liu xing bing xue za zhi = Zhonghua liuxingbingxue zazhi",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112338-20200301-00223; https://www.ncbi.nlm.nih.gov/pubmed/32213270/",
+          "s2_id" : "214683346"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 436,
+      "relation" : "eq"
+    },
+    "max_score" : 36.24716,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "138251",
+        "_score" : 36.24716,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "boremzts",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "Mental health status of patients with coronavirus disease 2019 in Changsha.",
+          "doi" : "10.11817/j.issn.1672-7347.2020.200347",
+          "pmcid" : "",
+          "pubmed_id" : "32879122",
+          "license" : "unk",
+          "abstract" : "OBJECTIVES The epidemic of coronavirus disease 2019 (COVID-19) brought psychological stress to the public, especially to patients. This study aims to investigate the mental health of patients with COVID-19 in Changsha. METHODS We took cross-section investigation for the mental health of 112 patients with COVID-19 via questionnaires. Mann-Whitney U test, Chi-square test, and Fisher's exact test were performed to compare general and clinical data between the slight-ordinary patients and severe patients. Single sample t-tests were used to compare the difference between the factor scores of the Symptom Check-List 90 (SCL-90) in COVID-19 patients with the norm of 2015 and factor scores of SCL-90 in patients with the severe acute respiratory syndrome (SARS). RESULTS The obsessive-compulsive, depression, sleep and eating disorders had the highest frequency among the positive symptoms of SCL-90 in patients with COVID-19 in Changsha. The factor scores of somatization, depression, anxiety, phobia anxiety, sleep and eating disorders in patients with COVID-19 were higher than those of the norm (P≤0.001 or P<0.05). Slight-ordinary patients with COVID-19 in Changsha showed lower factor scores of somatization, depression, anxiety, and hostility compared with the patients with SARS (P<0.001 or P<0.05). There was no difference in factor scores of SCL-90 between the patients with severe COVID-19 and those with SARS(P>0.05). CONCLUSIONS The levels of somatization, depression, anxiety, phobia anxiety, sleep and eating disorders in patients with COVID-19 in Changsha are higher than those of the norm. However, the mental health of slight-ordinary patients with COVID-19 is better than that of patients with SARS. It needs to provide targeting psychological interventions depending on the severity of patients.",
+          "publish_time" : "2020-06-28",
+          "authors" : "Qin, Xuemei; Shu, Kongliang; Wang, Mi; Chen, Wentao; Huang, Mei; Yang, Aiping; Zhou, Yun; Zhang, Yan; Ju, Yumeng; Liu, Jiyang",
+          "journal" : "Zhong nan da xue xue bao. Yi xue ban = Journal of Central South University. Medical sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.11817/j.issn.1672-7347.2020.200347; https://www.ncbi.nlm.nih.gov/pubmed/32879122/",
+          "s2_id" : "221475686"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 11,
+      "relation" : "eq"
+    },
+    "max_score" : 20.608898,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "695463",
+        "_score" : 20.608898,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "rs9f2a0i",
+          "sha" : "",
+          "source_x" : "Medline; WHO",
+          "title" : "Number of public health nurses and COVID-19 incidence rate by variant type: an ecological study of 47 prefectures in Japan",
+          "doi" : "10.1265/ehpm.22-00013",
+          "pmcid" : "",
+          "pubmed_id" : "35527010",
+          "license" : "unk",
+          "abstract" : "BACKGROUND: Community health activities by public health nurses (PHNs) are known to improve lifestyle habits of local residents, and may encourage the practice of infectious disease prevention behaviors during the COVID-19 pandemic. We investigated the association between prefecture-level COVID-19 incidence rate and the number of PHNs per population in Japan, by the COVID-19 variant type. METHODS: Our data were based on government surveys where prefectural-level data are accessible to the public. The outcome variable was the COVID-19 incidence rate (i.e., the cumulative number of COVID-19 cases per 100,000 population for each variant type in 47 prefectures). The explanatory variable was the number of PHNs per 100,000 population by prefecture. Covariates included socioeconomic factors, regional characteristics, healthcare resources, and health behaviors. The generalized estimating equations of the multivariable Poisson regression models were used to estimate adjusted incidence rate ratio (IRR) and 95% confidence interval (CI) for the COVID-19 cases. We performed stratified analyses by variant type (i.e., wild type, alpha variant, and delta variant). RESULTS: A total of 1,705,224 confirmed COVID-19 cases (1351.6 per 100,000 population) in Japan were reported as of September 30, 2021. The number of PHNs per 100,000 population in Japan was 41.9. Multivariable Poisson regression models showed that a lower number of PHNs per population was associated with higher IRR of COVID-19. Among all COVID-19 cases, compared to the highest quintile group of the number of PHNs per population, the adjusted IRR of the lowest quintile group was consistently significant in the models adjusting for socioeconomic factors (IRR: 3.76, 95% CI: 2.55-5.54), regional characteristics (1.73, 1.28-2.34), healthcare resources (3.88, 2.45-6.16), and health behaviors (2.17, 1.39-3.37). These significant associations were unaffected by the variant type of COVID-19. CONCLUSION: We found that the COVID-19 incidence rate was higher in prefectures with fewer PHNs per population, regardless of the COVID-19 variant type. By increasing the number of PHNs, it may be possible to contain the spread of COVID-19 in Japan and provide an effective human resource to combat emerging infectious diseases in the future.",
+          "publish_time" : "2022",
+          "authors" : "Tomioka, Kimiko; Shima, Midori; Saeki, Keigo",
+          "journal" : "Environ Health Prev Med",
+          "mag_id" : "",
+          "who_covidence_id" : "#covidwho-1817356",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.1265/ehpm.22-00013; https://www.ncbi.nlm.nih.gov/pubmed/35527010/",
+          "s2_id" : "248569183"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 827,
+      "relation" : "eq"
+    },
+    "max_score" : 34.828884,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "167578",
+        "_score" : 34.828884,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "iprkszdn",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Analysis of clinical features of 29 patients with 2019 novel coronavirus pneumonia].",
+          "doi" : "10.3760/cma.j.issn.1001-0939.2020.0005",
+          "pmcid" : "",
+          "pubmed_id" : "32026671",
+          "license" : "unk",
+          "abstract" : "Objective: To analyze the clinical characteristics of 2019 novel coronavirus (2019-nCoV) pneumonia and to investigate the correlation between serum inflammatory cytokines and severity of the disease. Methods: 29 patients with 2019-ncov admitted to the isolation ward of Tongji hospital affiliated to Tongji medical college of Huazhong University of Science and Technology in January 2020 were selected as the study subjects. Clinical data were collected and the general information, clinical symptoms, blood test and CT imaging characteristics were analyzed. According to the relevant diagnostic criteria, the patients were divided into three groups: mild (15 cases), severe (9 cases) and critical (5 cases). The expression levels of inflammatory cytokines and other markers in the serum of each group were detected, and the changes of these indicators of the three groups were compared and analyzed, as well as their relationship with the clinical classification of the disease. Results: (1) The main symptoms of 2019-nCoV pneumonia was fever (28/29) with or without respiratory and other systemic symptoms. Two patients died with underlying disease and co-bacterial infection, respectively. (2) The blood test of the patients showed normal or decreased white blood cell count (23/29), decreased lymphocyte count (20/29), increased hypersensitive C reactive protein (hs-CRP) (27/29), and normal procalcitonin. In most patients,serum lactate dehydrogenase (LDH) was significantly increased (20/29), while albumin was decreased(15/29). Alanine aminotransferase (ALT), aspartate aminotransferase (AST), total bilirubin (Tbil), serum creatinine (Scr) and other items showed no significant changes. (3) CT findings of typical cases were single or multiple patchy ground glass shadows accompanied by septal thickening. When the disease progresses, the lesion increases and the scope expands, and the ground glass shadow coexists with the solid shadow or the stripe shadow. (4) There were statistically significant differences in the expression levels of interleukin-2 receptor (IL-2R) and IL-6 in the serum of the three groups (P<0.05), among which the critical group was higher than the severe group and the severe group was higher than the mildgroup. However, there were no statistically significant differences in serum levels of tumor necrosis factor-alpha (TNF-α), IL-1, IL-8, IL-10, hs-CRP, lymphocyte count and LDH among the three groups (P>0.05). Conclusion: The clinical characteristics of 2019-nCoV pneumonia are similar to those of common viral pneumonia. High resolution CT is of great value in the differential diagnosis of this disease. The increased expression of IL-2R and IL-6 in serum is expected to predict the severity of the 2019-nCoV pneumonia and the prognosis of patients.",
+          "publish_time" : "2020-02-06",
+          "authors" : "Chen, L; Liu, H G; Liu, W; Liu, J; Liu, K; Shang, J; Deng, Y; Wei, S",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.issn.1001-0939.2020.0005; https://www.ncbi.nlm.nih.gov/pubmed/32026671/",
+          "s2_id" : "211046763"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 439,
+      "relation" : "eq"
+    },
+    "max_score" : 25.687634,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "207297",
+        "_score" : 25.687634,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "j0ok7abx",
+          "sha" : "",
+          "source_x" : "WHO",
+          "title" : "Standardized management guideline for pediatric wards of hematology and oncology during the epidemic of coronavirus disease 2019",
+          "doi" : "10.7499/j.issn.1008-8830.2020.03.001",
+          "pmcid" : "",
+          "pubmed_id" : "",
+          "license" : "unk",
+          "abstract" : "With the spread of coronavirus disease 2019 (COVID-19) and growing knowledge of its diagnosis and treatment, it has been clear that children are also susceptible to severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The children with hematological tumors are a special population with immunosuppression and special therapeutic characteristics. Here the management guideline for pediatric wards of hematology and oncology during COVID-19 epidemic is established based on the features of children with hematological tumors.",
+          "publish_time" : "2020",
+          "authors" : "Wu, X. Y.",
+          "journal" : "Chinese Journal of Contemporary Pediatrics",
+          "mag_id" : "",
+          "who_covidence_id" : "#covidwho-1389757",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.7499/j.issn.1008-8830.2020.03.001",
+          "s2_id" : "226074296"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 841,
+      "relation" : "eq"
+    },
+    "max_score" : 33.711197,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "111595",
+        "_score" : 33.711197,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "h5rewhil",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Clinical analysis of 150 cases of 2019 novel coronavirus infection in Nanyang City, Henan Province].",
+          "doi" : "10.3760/cma.j.cn112147-20200224-00168",
+          "pmcid" : "",
+          "pubmed_id" : "32295322",
+          "license" : "unk",
+          "abstract" : "Objective: To analyze the epidemiological characteristics and clinical features of the patients with 2019-nCoV infection in Nanyang City, so as to provide evidence for clinical diagnosis and treatment. Methods: The epidemiology, clinical symptoms, atory and radiologic data of 150 patients with 2019-nCoV infection admitted to the designated hospitals in Nanyang City from January 24,2020 to February 16, 2020 were retrospectively analyzed. Results: The 150 patients with 2019 nCov infection consisted of 67 men and 83 women, and the median age was 45±16 years; 69 of them were the first generation case,60 of them were the second generation case, 6 of them were the third generation case,the median incubation period of the first generation case was 5.4±2.2 days, and the second generation case was 6.7±3.1 days, and the first-generation cases are the majority in severe patients (69%) . The most common basic disease was hypertension (13 cases, 9%), diabetes (9 cases, 6%), and the most common symptom is fever(142 cases, 95%, 63% showed moderate fever) , cough and sputum(108 cases,72%), fatigue(23 cases,15%), anorexia(20 cases, 13%), headache, diarrhea, muscle soreness, sore throat as the first symptoms. The average time from onset of symptoms to consultation was 4.2±2.2 days for all patients. The changes in peripheral blood cells were mainly lymphonpenia (83 cases, 55%) and eosinophilia (95 cases, 63%), The lymphocyte count of the severe and critically ill patients was more significantly reduced, and some patients had increased myocardial enzymes, mainly LDH (47 cases, 31%), and a few patients had liver function damage, mainly manifested in ALT and AST. High, very few patients have renal impairment. Among the inflammation-related indicators, the main manifestations are increased CRP (66 cases, 43%) and ESR (86 cases, 57%), elevated D-Dimer in 29% of patients. 144 cases have different degrees of infective lesions in chest CT examination, with 30 cases (21%) on one side and 144 cases (79%) on both sides. Morphologically, most of the lesions were patchy ground glass lesions, which could be accompanied by air bronchus signs and some consolidation and paving stone signs. Of the cases showing \"white lung\", 87% were sever ill or critically ill. After active treatment, 45% of patients were discharged according to discharge standards. 33% of sever and critically ill patients were discharged, 49% of them were degraded hospitalization.The average length of hospitalization was 12±4 days. Conclusion: A history of epidemiological exposure, fever, chest CT with signs of pneumonia, normal or decreased WBC, and lymphocytopenia, eosinophilia are the clinical basis for the diagnosis of this disease, and most of the sever patients were the first generation cases. The degree of lymphocytopenia is related to the severity of the disease.",
+          "publish_time" : "2020-04-15",
+          "authors" : "Sun, C; Zhang, X B; Dai, Y; Xu, X Z; Zhao, J",
+          "journal" : "Zhonghua jie he he hu xi za zhi = Zhonghua jiehe he huxi zazhi = Chinese journal of tuberculosis and respiratory diseases",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3760/cma.j.cn112147-20200224-00168; https://www.ncbi.nlm.nih.gov/pubmed/32295322/",
+          "s2_id" : "215795391"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 475,
+      "relation" : "eq"
+    },
+    "max_score" : 36.1381,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "126632",
+        "_score" : 36.1381,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "9kg7uqtf",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Tracheal intubation in patients with severe and critical COVID-19: analysis of 18 cases].",
+          "doi" : "10.12122/j.issn.1673-4254.2020.03.07",
+          "pmcid" : "",
+          "pubmed_id" : "32376592",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To analyze the clinical characteristics of patients with severe or critical coronavirus disease 2019 (COVID-19) receiving tracheal intubation. METHODS We analyzed clinical characteristics of 18 severely or critically ill patients with COVID-19 undergoing tracheal intubation. The general demographic and clinical data of the patients including their age, gender, pre- intubation state of consciousness and the ventilation mode were recorded. The anesthesiologists performing the tracheal intubation procedure evaluated and recorded the tracheal intubation conditions of the patients. The changes in the vital signs of the patients before anesthesia induction and after intubation were recorded. RESULTS The average ages of these patients were 70.39±8.02 years. Fifteen patients (83.33%) received non- invasive ventilation before tracheal intubation, and 13 patients (72.22%) were conscious before tracheal intubation. After induction of anesthesia, the blood pressure and heart rate of the patients decreased significantly (P < 0.05). Most of the patients (94.44%) were in excellent or good conditions for tracheal intubation, and the first-attempt success rate of tracheal intubation was 100%. Five patients died within 3 weeks following the intubation. Tracheotomy was performed in one patient. Twelve patients were still on endotracheal mechanical ventilation in the intensive care unit, and one of them received ECMO treatment due to poor oxygenation. A total of 16 experienced anesthesiologists participated in tracheal intubation, all with third-level protection during the operation, and no medical staff infection has been detected so far. CONCLUSIONS For patients with severe and critical COVID-19 and indications of tracheal intubation, we recommend early intubation with invasive respiratory support to improve the treatment efficacy and reduce the mortality. Anesthetic agents should be used carefully during tracheal intubation to ensure patients' safety. The medical staff should have a high-level protection during the intubation to maximally ensure their safety.",
+          "publish_time" : "2020-03-30",
+          "authors" : "Wang, Jiafang; Lu, Fan; Zhou, Mingxing; Qi, Zhong; Chen, Zhijun",
+          "journal" : "Nan fang yi ke da xue xue bao = Journal of Southern Medical University",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.12122/j.issn.1673-4254.2020.03.07; https://www.ncbi.nlm.nih.gov/pubmed/32376592/",
+          "s2_id" : "218532539"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 439,
+      "relation" : "eq"
+    },
+    "max_score" : 25.629616,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "80003",
+        "_score" : 25.629616,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "v8voyhq9",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Comparative analysis of structural characteristics and epitopes in S proteins between SARS-CoV-2 and SARS-CoV].",
+          "doi" : "10.3785/j.issn.1008-9292.2020.06.06",
+          "pmcid" : "",
+          "pubmed_id" : "32762171",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To provide data support for the study of pathogenic mechanism of SARS-CoV-2 at the molecular level, and provide suitable candidate targets for vaccine, antibody and drug research and development through comparative analysis for structural characteristics and epitopes of S protein of SARS-CoV-2 and SARS-CoV. METHODS Based on the reference sequences of S protein, physical and chemical properties, hydrophobicity, signal peptide, transmembrane region, domain, secondary structure, tertiary structure analysis and antigenic epitopes prediction were carried out. Meanwhile, the tissue expression, related pathways and reactome pathways of angiotensis Ⅰ converting enzyme 2 (ACE2) and C-type lectin domain family 4 member M (CLEC4M) receptors were analyzed. RESULTS The amino acid sequence of S protein of SARS-CoV-2 and SARS-CoV has a 75.80% consistency. The structural characteristics of the two coronaviruses are highly consistent, but the secondary structure and tertiary structure of SARS-CoV-2 is not as obvious as SARS-CoV. ACE2 and CLEC4M are expressed in alimentary system, heart, kidney, lung and placenta. The main related the pathways of renin-angiotensin system, protein digestion and absorption pathway, and the reactome pathways of metabolism of angiotensinogen to angiotensins, GPCR ligand binding, are related to typical symptoms of coronavirus disease 2019 induced by SARS-CoV-2. Three pairs of highly or completely homologous epitopes of S protein were obtained. The 600-605, 695-703 and 888-896 amino acid residues in SARS-CoV-2 were highly homologous with 586-591, 677-685 and 870-878 amino acid residues in SARS-CoV, respectively. CONCLUSIONS The similarity of S protein of SARS-CoV-2 and SARS-CoV determines that they have similar infection patterns and clinical manifestations. The candidate epitopes with high reliability can provide reference for virus diagnosis and vaccine development.",
+          "publish_time" : "2020-05-25",
+          "authors" : "Lun, Yongzhi; Liu, Ben; Dong, Wen; Sun, Jie; Pan, Linghong",
+          "journal" : "Zhejiang da xue xue bao. Yi xue ban = Journal of Zhejiang University. Medical sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3785/j.issn.1008-9292.2020.06.06; https://www.ncbi.nlm.nih.gov/pubmed/32762171/",
+          "s2_id" : "221036635"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 439,
+      "relation" : "eq"
+    },
+    "max_score" : 25.629616,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "80003",
+        "_score" : 25.629616,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "v8voyhq9",
+          "sha" : "",
+          "source_x" : "Medline",
+          "title" : "[Comparative analysis of structural characteristics and epitopes in S proteins between SARS-CoV-2 and SARS-CoV].",
+          "doi" : "10.3785/j.issn.1008-9292.2020.06.06",
+          "pmcid" : "",
+          "pubmed_id" : "32762171",
+          "license" : "unk",
+          "abstract" : "OBJECTIVE To provide data support for the study of pathogenic mechanism of SARS-CoV-2 at the molecular level, and provide suitable candidate targets for vaccine, antibody and drug research and development through comparative analysis for structural characteristics and epitopes of S protein of SARS-CoV-2 and SARS-CoV. METHODS Based on the reference sequences of S protein, physical and chemical properties, hydrophobicity, signal peptide, transmembrane region, domain, secondary structure, tertiary structure analysis and antigenic epitopes prediction were carried out. Meanwhile, the tissue expression, related pathways and reactome pathways of angiotensis Ⅰ converting enzyme 2 (ACE2) and C-type lectin domain family 4 member M (CLEC4M) receptors were analyzed. RESULTS The amino acid sequence of S protein of SARS-CoV-2 and SARS-CoV has a 75.80% consistency. The structural characteristics of the two coronaviruses are highly consistent, but the secondary structure and tertiary structure of SARS-CoV-2 is not as obvious as SARS-CoV. ACE2 and CLEC4M are expressed in alimentary system, heart, kidney, lung and placenta. The main related the pathways of renin-angiotensin system, protein digestion and absorption pathway, and the reactome pathways of metabolism of angiotensinogen to angiotensins, GPCR ligand binding, are related to typical symptoms of coronavirus disease 2019 induced by SARS-CoV-2. Three pairs of highly or completely homologous epitopes of S protein were obtained. The 600-605, 695-703 and 888-896 amino acid residues in SARS-CoV-2 were highly homologous with 586-591, 677-685 and 870-878 amino acid residues in SARS-CoV, respectively. CONCLUSIONS The similarity of S protein of SARS-CoV-2 and SARS-CoV determines that they have similar infection patterns and clinical manifestations. The candidate epitopes with high reliability can provide reference for virus diagnosis and vaccine development.",
+          "publish_time" : "2020-05-25",
+          "authors" : "Lun, Yongzhi; Liu, Ben; Dong, Wen; Sun, Jie; Pan, Linghong",
+          "journal" : "Zhejiang da xue xue bao. Yi xue ban = Journal of Zhejiang University. Medical sciences",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://doi.org/10.3785/j.issn.1008-9292.2020.06.06; https://www.ncbi.nlm.nih.gov/pubmed/32762171/",
+          "s2_id" : "221036635"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 14,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10000,
+      "relation" : "gte"
+    },
+    "max_score" : 15.191567,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "967788",
+        "_score" : 15.191567,
+        "_ignored" : [
+          "abstract.keyword"
+        ],
+        "_source" : {
+          "corduid" : "mjwx9wcr",
+          "sha" : "451a461458cffc4001744c31e240810de52de5f8",
+          "source_x" : "Medline; PMC",
+          "title" : "Remote CBT for Psychosis During the COVID-19 Pandemic: Challenges and Opportunities",
+          "doi" : "10.1007/s10597-020-00718-0",
+          "pmcid" : "PMC7528451",
+          "pubmed_id" : "33001323",
+          "license" : "no-cc",
+          "abstract" : "The COVID pandemic is now leading to the emergence of a secondary mental health pandemic. Clients with psychosis are at increased risk of poorer medium- and long-term psychosocial and clinical outcomes. In response to the pressing need to flexibly deliver high-quality care to individuals with psychosis, this brief report proposes high yield cognitive behavioral techniques for psychosis (HY-CBt-p) facilitated by task sharing and digital enhancements. HY-CBt-p is delivered over fewer sessions than formulation-based Cognitive Behavioral Therapy for psychosis (CBTp), can be learned by a range of providers, and includes techniques such as developing a normalizing explanation; techniques to reduce anxiety, depression, and insomnia, which perpetuate psychotic symptoms; self-monitoring; reality testing; and wellness planning. Previous research suggests that effect sizes will be lower than that of 16-session formulation-driven CBTp, but additional research is needed to test the feasibility, acceptability, efficacy, and comparative effectiveness of different forms of remote-delivered CBTp.",
+          "publish_time" : "2020-10-01",
+          "authors" : "Kopelovich, Sarah L.; Turkington, Doug",
+          "journal" : "Community Ment Health J",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "document_parses/pdf_json/451a461458cffc4001744c31e240810de52de5f8.json",
+          "pmc_json_files" : "document_parses/pmc_json/PMC7528451.xml.json",
+          "url" : "https://www.ncbi.nlm.nih.gov/pubmed/33001323/; https://doi.org/10.1007/s10597-020-00718-0",
+          "s2_id" : "222070860"
+        }
+      }
+    ]
+  }
+}
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10000,
+      "relation" : "gte"
+    },
+    "max_score" : 10.344996,
+    "hits" : [
+      {
+        "_index" : "cord-19-data",
+        "_type" : "files",
+        "_id" : "28602",
+        "_score" : 10.344996,
+        "_source" : {
+          "corduid" : "bzw36642",
+          "sha" : "",
+          "source_x" : "PMC",
+          "title" : "Statement by global coalition for circulatory health on WHO work in health emergencies",
+          "doi" : "10.1016/j.diabres.2022.109832",
+          "pmcid" : "PMC8920574",
+          "pubmed_id" : "35301070",
+          "license" : "no-cc",
+          "abstract" : "",
+          "publish_time" : "2022-03-15",
+          "authors" : "",
+          "journal" : "Diabetes Res Clin Pract",
+          "mag_id" : "",
+          "who_covidence_id" : "",
+          "arxiv_id" : "",
+          "pdf_json_files" : "",
+          "pmc_json_files" : "",
+          "url" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8920574/",
+          "s2_id" : ""
+        }
+      }
+    ]
+  }
+}

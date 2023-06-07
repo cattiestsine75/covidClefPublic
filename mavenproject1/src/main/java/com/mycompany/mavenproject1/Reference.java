@@ -60,7 +60,7 @@ public class Reference {
      * @return DOI, Date accepted, ID, IDFormat, Title, Abstract, and Authors
      */
     public String toString() {
-        return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat +" MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
+        return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat + " MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
     }
 
     /**
@@ -135,7 +135,7 @@ public class Reference {
                     if (absIn.contains("<p")) {
                         this.Abstract = grabTag(absIn, "<p", "</p", true);
                         this.Abstract = this.Abstract.substring(1);
-                       // formatAbstract();
+                        // formatAbstract();
                     }
                 }
                 while (absIn.contains("<sec")) {
@@ -169,10 +169,10 @@ public class Reference {
         //  }
     }
 
-    
-    
     /**
-     * Populates the reference with all relevant information using the PMC database given that the reference's doi is able to be found in the PMC database.
+     * Populates the reference with all relevant information using the PMC
+     * database given that the reference's doi is able to be found in the PMC
+     * database.
      */
     public void populate() {
 
@@ -261,14 +261,14 @@ public class Reference {
 
                     //ABSTRACT RELATED STUFF:
                     String absIn = grabTag(in, "<abstract", "</abstract>", true);
-                   // System.out.println(absIn);
+                    // System.out.println(absIn);
                     this.Abstract = "";
 
                     if (!absIn.contains("<sec")) {
                         if (absIn.contains("<p")) {
                             this.Abstract = grabTag(absIn, "<p", "</p", true);
                             this.Abstract = this.Abstract.substring(1);
-                        //    formatAbstract();
+                            //    formatAbstract();
                         }
                     }
                     while (absIn.contains("<sec")) {
@@ -634,7 +634,7 @@ public class Reference {
                         int x = in.indexOf(srch) + srch.length() + 1;
                         publisher = in.substring(x, in.indexOf("\",", x));
                         this.miscInfo = "PUBLISHER: " + publisher;
-                       // System.out.println("PUB:" + publisher);
+                        // System.out.println("PUB:" + publisher);
 
                     }
                     formatAbstract();
@@ -652,6 +652,83 @@ public class Reference {
         }
     }
 
+    public void populateElastic(ArrayList<String> docs) {
+        Boolean inCord = false;
+        for (String doc : docs) {
+            if (!inCord) {
+                if (doc.contains(this.doi)) {
+                    System.out.println("FOUND THE DOI IN ES DUMP!");
+                    /*
+                    LocalDate dateAccepted; //date accepted.
+                     */
+                    String srch = "\"doi\" : \"";
+                    String idFromDoc = "a;lskdfj;alskdfj;alskdfj";
+                    if (doc.contains(srch)) {
+                        int x = doc.indexOf(srch) + srch.length();
+                        idFromDoc = doc.substring(x, doc.indexOf("\",", x));
+                      if(!this.doi.equals(idFromDoc)){
+                     //     System.out.println("GIVEN DOI:" + this.doi + ". FROM ELASTIC:" + idFromDoc);
+                      }
+                    }
+                    if (idFromDoc.equals(this.doi)) {
+
+                        inCord = true;
+                        // System.out.println(doc);
+                        String title;
+                        String abs;
+                        srch = "\"title\" : \"";
+                        String auths;
+                        this.id = idFromDoc;
+                        this.idFormat = "ELASTIC";
+                        Reference.found++;
+                        this.hasBeenFound = true;
+                        if (doc.contains(srch)) {
+                            int x = doc.indexOf(srch) + srch.length();
+                            title = doc.substring(x, doc.indexOf("\",", x));
+                            // System.out.println(title);
+                            this.title = title;
+                        }
+                        srch = "\"abstract\" : \"";
+                        if (doc.contains(srch)) {
+                            int x = doc.indexOf(srch) + srch.length();
+                            abs = doc.substring(x, doc.indexOf("\",", x));
+                            this.Abstract = abs;
+                            //  System.out.println(abs);
+                        }
+                        srch = "\"publish_time\" : \"";
+                        String date;
+                        if (doc.contains(srch)) {
+                            int x = doc.indexOf(srch) + srch.length();
+                            date = doc.substring(x, doc.indexOf("\",", x));
+                            this.dateAccepted = LocalDate.parse(date);
+                            //  System.out.println(this.dateAccepted);
+                        }
+                        srch = "\"authors\" : \"";
+                        if (doc.contains(srch)) {
+                            int x = doc.indexOf(srch) + srch.length();
+                            auths = doc.substring(x, doc.indexOf("\",", x));
+                            StringTokenizer tk1 = new StringTokenizer(auths, ";");
+                            while (tk1.hasMoreElements()) {
+                                String authdata = tk1.nextToken();
+                                StringTokenizer tk2 = new StringTokenizer(authdata, ",");
+                                String last = "";
+                                String first = "";
+                                if (tk2.countTokens() >= 2) {
+                                    last = tk2.nextToken();
+                                    first = tk2.nextToken();
+                                }
+                                this.authors.add(new Author(first, last, "elasticNoEmail"));
+                            }
+
+                        }
+                        // System.out.println(this.authors);
+                        //  String
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * Reformats the abstract, adding newlines after sentences being ended, and
      * removing any possible tags.
@@ -663,7 +740,7 @@ public class Reference {
             }
         }
 
-        while (Abstract.contains("<")) {
+        while (Abstract.contains("<") && Abstract.contains(">")) {
 
             //  System.out.println(Abstract);
             int x = Abstract.indexOf("<");
