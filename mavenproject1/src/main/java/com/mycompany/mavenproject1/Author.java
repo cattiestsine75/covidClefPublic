@@ -62,6 +62,10 @@ public class Author {
     public String toString() {
         return this.firstname + "%" + this.surname + "%" + this.email +  "%" + contributions;
     }
+    
+    public String toJson(){
+        return ("{\"firstname\":\"" + this.firstname + "\",\"surname\":\"" + this.surname + "\",\"email\":\"" + this.email + "\",\"contributions\":\"" + this.contributions+"\"}");
+    }
 
     public static String removeLike(String in, String del, int length) {
         while (in.indexOf(del) != -1) {

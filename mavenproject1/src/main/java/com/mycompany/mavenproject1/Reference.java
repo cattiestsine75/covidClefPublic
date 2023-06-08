@@ -62,6 +62,26 @@ public class Reference {
     public String toString() {
         return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat + " MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
     }
+    
+    public String toJson(){
+        Reference r = this;
+        String abs = r.Abstract;
+        System.out.println(abs);
+        abs = abs.replace("\n", "\\n");
+        abs = abs.replace("  ", "");
+        System.out.println("\n\n\n" + abs);
+        String x = ("{\"doi\":\"" + r.doi + "\",\"date\":\"" + r.dateAccepted + "\",\"title\":\"" + r.title + "\",\"abstract\":\"" + abs + "\",\"id\":\"" + r.id + "\",\"idformat\":\"" + r.idFormat + "\",\"foundapis\":\"" + r.foundApis + "\",\"miscinfo\":\"" + r.miscInfo + "\",\"authors\":[");
+        for (int i = 0; i < r.authors.size(); i++) {
+            Author a = r.authors.get(i);
+            if (i != r.authors.size() - 1) {
+                x = x + a.toJson().replace("  ", "") + ",";
+            }else{
+                x = x + a.toJson();
+            }
+        }
+        x = x + "]}";
+        return x;
+    }
 
     /**
      * Populates the Reference with all relevant information based off of what

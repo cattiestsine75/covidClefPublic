@@ -46,7 +46,6 @@ public class Main {
     public static int searchOffset = 0;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 2 + 113, 113);//ends at 5
     // have 97.6 of references, missing 55.
-
     /**
      * @param args the command line arguments
      */
@@ -171,7 +170,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-                   slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+               //    slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
