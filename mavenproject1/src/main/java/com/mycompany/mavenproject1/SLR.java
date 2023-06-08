@@ -8,6 +8,7 @@ package com.mycompany.mavenproject1;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -66,40 +67,35 @@ public class SLR {
             XSSFRow row;
             Map<Integer, Object[]> data = new TreeMap<Integer, Object[]>();
             data.put(1, new Object[]{"Title", "Abstract", "Authors", "ID", "ID Format", "Date Accepted", "Other found locations", "Misc. Data"});
-            
+
             for (int i = 0; i < this.references.size(); i++) {
-                
+
                 Reference r = this.references.get(i);
 
-               // String x = (i + 2) + "";
-             //   System.out.println(x + "  " + r.title + " " + r.doi + " " + r.dateAccepted);
-                
-                
-                
-                
-                
+                // String x = (i + 2) + "";
+                //   System.out.println(x + "  " + r.title + " " + r.doi + " " + r.dateAccepted);
                 //THIS IS AN IMPORTANT LINE!
                 //if(!r.hasBeenFound){ //if it wasn't previously found
-                data.put(i+2, new Object[]{r.title, r.Abstract, r.authors.toString(), r.id, r.idFormat, r.dateAccepted.toString(), r.foundApis, r.miscInfo});
-                
-               // }
+                data.put(i + 2, new Object[]{r.title, r.Abstract, r.authors.toString(), r.id, r.idFormat, r.dateAccepted.toString(), r.foundApis, r.miscInfo});
+
+                // }
             }
             System.out.println("\n" + k + " THE SIZE: " + data.size() + "\n\n");
             Set<Integer> keyid = data.keySet();
             int rowid = 0; // row number, row 1 = 0
 
             for (int key : keyid) {
-               // System.out.println(key);
+                // System.out.println(key);
                 row = spreadsheet.getRow(rowid);
                 rowid++;
                 Object[] objectArr = data.get(key);
                 int cellid = 2; // column number,  A = 0
                 for (Object obj : objectArr) {
                     Cell cell = row.createCell(cellid++);
-                    try{
-                    cell.setCellValue((String) (obj));
-                    }catch(Exception e){
-                        System.out.println(e + "\n\nHERES THE ERROR STRING:" + (String)obj);
+                    try {
+                        cell.setCellValue((String) (obj));
+                    } catch (Exception e) {
+                        System.out.println(e + "\n\nHERES THE ERROR STRING:" + (String) obj);
                     }
                 }
             }
@@ -112,21 +108,40 @@ public class SLR {
             System.out.println(ex);
         }
     }
-    
-    public void dumpDataJson(int k){
-        try{
+
+    public void dumpDataJson(int k) {
+        try {
             File myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\References_JSON\\" + k + ".txt");
-            if(myFile.createNewFile()){
+            if (myFile.createNewFile()) {
                 System.out.println("File Created: '" + myFile.getName() + "'");
-            }else{
+            } else {
                 System.out.println("File '" + myFile.getName() + "' already Exists.");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
 
     public String toString() {
         return "TITLE: " + this.name + " \nLINK: " + this.link + "\nREFERENCES: " + this.references;
+    }
+
+    public String toJson() {
+        SLR s = this;
+        File myFile;
+
+        //Reference r = s.references.get(0);
+        //  System.out.println(r.toJson());
+        String txt = ("{" + "\"name\":\"" + s.name + "\",\"id\":\"" + s.id + "\",\"link\":\"" + s.link + "\",\"dbsearches\":\"" + s.dbSearches + "\",\"refs\":\"" + s.refs + "\",\"references\":[");
+        for (int i = 0; i < s.references.size(); i++) {
+            Reference z = s.references.get(i);
+            if (i != s.references.size() - 1) {
+                txt = txt + z.toJson() + ",";
+            } else {
+                txt = txt + z.toJson();
+            }
+        }
+        txt = txt + ("]}");
+        return txt;
     }
 }

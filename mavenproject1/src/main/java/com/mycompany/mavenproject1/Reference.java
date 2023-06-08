@@ -70,7 +70,7 @@ public class Reference {
         abs = abs.replace("\n", "\\n");
         abs = abs.replace("  ", "");
         System.out.println("\n\n\n" + abs);
-        String x = ("{\"doi\":\"" + r.doi + "\",\"date\":\"" + r.dateAccepted + "\",\"title\":\"" + r.title + "\",\"abstract\":\"" + abs + "\",\"id\":\"" + r.id + "\",\"idformat\":\"" + r.idFormat + "\",\"foundapis\":\"" + r.foundApis + "\",\"miscinfo\":\"" + r.miscInfo + "\",\"authors\":[");
+        String x = ("{\"doi\":\"" + r.doi.replace("\"", "'") + "\",\"date\":\"" + r.dateAccepted + "\",\"title\":\"" + r.title.replace("\"", "'") + "\",\"abstract\":\"" + abs.replace("\"", "'") + "\",\"id\":\"" + r.id.replace("\"", "'") + "\",\"idformat\":\"" + r.idFormat + "\",\"foundapis\":\"" + r.foundApis + "\",\"miscinfo\":\"" + r.miscInfo + "\",\"authors\":[");
         for (int i = 0; i < r.authors.size(); i++) {
             Author a = r.authors.get(i);
             if (i != r.authors.size() - 1) {
