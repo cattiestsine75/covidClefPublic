@@ -109,23 +109,17 @@ public class SLR {
         }
     }
 
-    public void dumpDataJson(int k) {
-        try {
-            File myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\References_JSON\\" + k + ".txt");
-            if (myFile.createNewFile()) {
-                System.out.println("File Created: '" + myFile.getName() + "'");
-            } else {
-                System.out.println("File '" + myFile.getName() + "' already Exists.");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
+  
 
     public String toString() {
         return "TITLE: " + this.name + " \nLINK: " + this.link + "\nREFERENCES: " + this.references;
     }
 
+    
+    /**
+     * returns the information about the slr in json format
+     * @return json formatted text.s
+     */
     public String toJson() {
         SLR s = this;
         File myFile;

@@ -33,6 +33,19 @@ import java.util.StringTokenizer;
 july 8th deadline
 
  */
+
+/**
+ * Project is prepare a dataset. 
+ * ML can learn from this dataset, to be able to search biomedical texts
+ * BM25 algorithm, LM algorithm
+ * Prepare the data/dataset.
+ * 
+ * Learn when someone is searching, what the results should be. 
+ * We will learn more 
+ * 
+ * Trec EVal QREL
+ * 
+ */
 //show where the crossref data comes from
 /**
  *
@@ -46,6 +59,7 @@ public class Main {
     public static int searchOffset = 0;// starts at 0
     public static int searchAmt = Math.min(searchOffset + 2 + 113, 113);//ends at 5
     // have 97.6 of references, missing 55.
+
     /**
      * @param args the command line arguments
      */
@@ -57,6 +71,7 @@ public class Main {
         int crosses = 0;
         int cores = 0;
         int meds = 0;
+        int elastics = 0;
         Scanner keyboard = new Scanner(System.in);
         try {
             Scanner coreIn = new Scanner(new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\keys\\CoreApiKey.txt"));
@@ -136,6 +151,9 @@ public class Main {
                         crosses++;
                     }
                     if (r.idFormat.equals("ELASTIC")) {
+                        elastics++;
+                    }
+                    if (r.idFormat.equals("ELASTIC")) {
 
                         count++;
                         //System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -149,7 +167,7 @@ public class Main {
                         if (!r.title.equals("Unknown Title")) {
                             scount++;
                         }
-                      //  System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted + "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
+                        //  System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted + "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
                         System.out.println("\n\n");
                         //  }
                     }
@@ -159,8 +177,9 @@ public class Main {
             j = 0;
         }
 
-        System.out.println("COUNT: " + scount + " OF " + count);
-        System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d\n", pmcs, elsevs, cores, meds, springs, crosses);
+        // System.out.println("COUNT: " + scount + " OF " + count);
+        System.out.println("FOUND {" + Reference.found + "}" + "out of " + Reference.total + " Referenced documents");
+        System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d, ELASTIC: %d\n", pmcs, elsevs, cores, meds, springs, crosses, elastics);
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
 
@@ -170,7 +189,7 @@ public class Main {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
                     //  System.out.println(k + " " + l + " " + slrs.get(k).references.get(l).title + "ENDTITLE :" + slrs.get(k).references.get(l).foundApis); //print out all references within the scope of your search
                 }
-               //    slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
+                //    slrs.get(k).dumpData(k); //dump the data of each SLR on the spreadsheet.
             }
         } else {
             System.out.println("Aborting!");
@@ -178,7 +197,6 @@ public class Main {
 
         // System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted+ "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
         System.out.println("\n\nDONE WITH THAT\n\n");
-        System.out.println("{" + Reference.found + "}" + "out of " + Reference.total);
 
         //  System.out.println(in.substring(in.indexOf("abstract")));
         //  System.out.println(in.substrsing(in.indexOf("abstract")));

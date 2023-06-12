@@ -63,6 +63,11 @@ public class Reference {
         return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat + " MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
     }
     
+    
+    /**
+     * returns the json string of all information of a given reference.
+     * @return json formatted string containing all reference info.
+     */
     public String toJson(){
         Reference r = this;
         String abs = r.Abstract;
