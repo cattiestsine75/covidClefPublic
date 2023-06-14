@@ -677,6 +677,10 @@ public class Reference {
         }
     }
 
+    /**
+     * Populates a Reference using the output of queries from elasticsearch. This method may not function for your given use case. Please modify it as you see fit.
+     * @param docs 
+     */
     public void populateElastic(ArrayList<String> docs) {
         Boolean inCord = false;
         for (String doc : docs) {

@@ -12,3 +12,16 @@ Instructions:
 4.a) The getSLRs and refFileToDOIs methods are used to draw information out of excel (.xlsx) files and store them in SLR or Reference objects. If your use case does not involve files of the SAME FORMATTING as provided in this example, you must modify their behaviour to work properly.
 
 4.b) Create reference to these files within the workspace.
+
+
+
+Important notes:
+
+
+USING CORD-19 THROUGH ELASTIC SEARCH.
+
+	The current program utilizes elastic search on a separate machine. As such, the output of the elastic search queries was stored in a text file in the 'additionalFiles' folder. The output of cord-19 queries will vary largely, and thus it is strongly recommended to create or modify your own method of populating SLR/References using ES. 
+
+
+
+
