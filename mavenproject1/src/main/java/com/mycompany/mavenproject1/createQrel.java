@@ -30,27 +30,25 @@ public class createQrel {
         File myFile;
         myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\qrelMod.txt");
 
-        //Reference r = s.references.get(0);
-        //  System.out.println(r.toJson());
         int topic = 1;
         int iteration = 0;
         int relevancy = 1;
-      //  try {
-         //   FileWriter writer = new FileWriter(myFile);
+        try {
+            FileWriter writer = new FileWriter(myFile);
             for (k = 2; k < slrs.size(); k++) {
                 SLR s = slrs.get(k);
                 for (Reference r : s.references) {
-              //   String z = String.format("%d %d %s %d\n", topic, iteration, r.doi, relevancy);
+                    String z = String.format("%d %d %s %d\n", topic, iteration, r.doi, relevancy);
                     System.out.println(r.doi);
-               //  writer.write(z);
+                    writer.write(z);
                 }
                 System.out.println("^");
-        //    }
-         //   writer.close();
-                    
-      //  } catch (IOException e) {
+            }
+            writer.close();
 
-      //  } catch (Exception e) {
+        } catch (IOException e) {
+
+        } catch (Exception e) {
 
         }
     }

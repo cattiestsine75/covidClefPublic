@@ -62,13 +62,13 @@ public class Reference {
     public String toString() {
         return "DOI: " + this.doi + ". Date Accepted: " + this.dateAccepted + " ID: " + this.id + " OF FORMAT: " + this.idFormat + " MISC INFO: " + this.miscInfo + "\nTitle:" + this.title + "\nAbstract:{" + this.Abstract + "}ABSTRACT END\nAuthors:" + this.authors;
     }
-    
-    
+
     /**
      * returns the json string of all information of a given reference.
+     *
      * @return json formatted string containing all reference info.
      */
-    public String toJson(){
+    public String toJson() {
         Reference r = this;
         String abs = r.Abstract;
         System.out.println(abs);
@@ -80,7 +80,7 @@ public class Reference {
             Author a = r.authors.get(i);
             if (i != r.authors.size() - 1) {
                 x = x + a.toJson().replace("  ", "") + ",";
-            }else{
+            } else {
                 x = x + a.toJson();
             }
         }
@@ -91,6 +91,10 @@ public class Reference {
     /**
      * Populates the Reference with all relevant information based off of what
      * is provided in the input.
+     *
+     * This method of Reference population is generally considered out of favour
+     * in comparison to the newer, populate() method due to its reliance on an
+     * input string.
      *
      * @param in The input, In text, of a GetRecord OAI PMC API request for a
      * given document.
@@ -253,12 +257,10 @@ public class Reference {
                     while (autIn.indexOf("<contrib") != -1) {
                         //System.out.println("AUTHOR PROBLEM");
                         String authorBlock = grabTag(autIn, "<contrib", "</contrib>", true);
-                        // System.out.println(authorBlock);
                         String surname = grabTag(authorBlock, "surname", false);
                         String firstname = grabTag(authorBlock, "given-names", false);
                         String email = grabTag(authorBlock, "email", false);
-                        this.authors.add(new Author(firstname, surname, email));                                                   //where we add the authors
-                        // System.out.println(firstname + " " + surname + " " + email);
+                        this.authors.add(new Author(firstname, surname, email));
                         autIn = autIn.substring(autIn.indexOf("</contrib") + 1);
                     }
 
@@ -266,7 +268,6 @@ public class Reference {
                     String dateIn = grabTag(in, "\"accepted\"", "</date>", true);
                     LocalDate date = LocalDate.EPOCH;
                     if (!dateIn.equals("NULL")) {
-                        //System.out.println(dateIn);
 
                         int day = 1;
                         int month = 1;
@@ -286,24 +287,20 @@ public class Reference {
 
                     //ABSTRACT RELATED STUFF:
                     String absIn = grabTag(in, "<abstract", "</abstract>", true);
-                    // System.out.println(absIn);
                     this.Abstract = "";
 
                     if (!absIn.contains("<sec")) {
                         if (absIn.contains("<p")) {
                             this.Abstract = grabTag(absIn, "<p", "</p", true);
                             this.Abstract = this.Abstract.substring(1);
-                            //    formatAbstract();
                         }
                     }
                     while (absIn.contains("<sec")) {
-
                         String abstractBlock = grabTag(absIn, "<sec", "</sec>", true);
                         String tit = grabTag(abstractBlock, "title", false);
                         String info = grabTag(abstractBlock, "<p", "</p", true);
                         info = info.substring(1);
                         for (int i = 0; i < info.length(); i++) {
-                            //System.out.print(in.charAt(i));
                             if (info.charAt(i) == '.' && !Character.isDigit(info.charAt(i - 1))) {
                                 info = info.substring(0, i + 1) + '\n' + info.substring(i + 1);
                             }
@@ -314,7 +311,6 @@ public class Reference {
                     }
                     formatAbstract();
                 } else {
-                    //   System.out.println("ADDING TO FILLED APIS" + " ID:" + this.id);
                     if (!this.foundApis.contains("PMC")) {
                         this.foundApis = this.foundApis + "_PMC";
                     }
@@ -362,9 +358,6 @@ public class Reference {
                     this.dateAccepted = theDate;
                     this.Abstract = Abstract;
                     this.title = title;
-                    // System.out.println(theDate);
-                    // System.out.println(title);
-                    //   System.out.println(Abstract);
 
                     String authorsData = coreData;
                     int x = 0;
@@ -384,7 +377,6 @@ public class Reference {
                         this.foundApis = this.foundApis + "_elsevier";
                     }
                 }
-                // System.out.println(in);
 
             }
         }
@@ -440,7 +432,6 @@ public class Reference {
                         StringTokenizer tk = new StringTokenizer(authorStuff, ",");
                         String lastname = tk.nextToken();
                         String firstname = tk.nextToken();
-                        // System.out.println(firstname + " " + lastname);
                         this.authors.add(new Author(firstname, lastname, null));
 
                     }
@@ -476,9 +467,7 @@ public class Reference {
                     int x = 0;
                     if (in.contains("\"authors\":[")) {
                         String authorsData = grabTag(in, "\"authors\":[", "]", true);
-                        // System.out.println(authorsData);
                         authorsData = removeLike(authorsData, ",", 1);
-                        // System.out.println("\n\nAFTER REMOVAL:\n" + authorsData);
 
                         while (authorsData.indexOf("\"name\":\"", x + 1) != -1) {
                             x = authorsData.indexOf("\"name\":\"", x + 1) + "\"name\":\"".length();
@@ -612,14 +601,12 @@ public class Reference {
                         int x = in.indexOf(srch) + srch.length();
                         abs = in.substring(x, in.indexOf("\",", x));
                         this.Abstract = abs;
-                        //  System.out.println(abs);
                     }
                     srch = "\"title\":[";
                     if (in.contains(srch)) {
                         int x = in.indexOf(srch) + srch.length();
                         title = in.substring(x, in.indexOf("],", x));
                         this.title = title;
-                        //  System.out.println(title);
                     }
                     srch = "\"author\":[";
                     if (in.contains(srch)) {
@@ -636,12 +623,10 @@ public class Reference {
                             srch = "\"family\":\"";
                             y = auths.indexOf(srch, y) + srch.length();
                             String ln = auths.substring(y, auths.indexOf("\"", y));
-                            // System.out.println(fn + ", " + ln);
                             this.authors.add(new Author(fn, ln, "xref no email"));
                             x = y + 1;
 
                         }
-                        // System.out.println(auths);
                     }
                     srch = "\"date-time\":\"";
                     if (in.contains(srch)) {
@@ -659,7 +644,6 @@ public class Reference {
                         int x = in.indexOf(srch) + srch.length() + 1;
                         publisher = in.substring(x, in.indexOf("\",", x));
                         this.miscInfo = "PUBLISHER: " + publisher;
-                        // System.out.println("PUB:" + publisher);
 
                     }
                     formatAbstract();
@@ -678,8 +662,11 @@ public class Reference {
     }
 
     /**
-     * Populates a Reference using the output of queries from elasticsearch. This method may not function for your given use case. Please modify it as you see fit.
-     * @param docs 
+     * Populates a Reference using the output of queries from elasticsearch.
+     * This method may not function for your given use case. Please modify it as
+     * you see fit.
+     *
+     * @param docs
      */
     public void populateElastic(ArrayList<String> docs) {
         Boolean inCord = false;
@@ -695,14 +682,12 @@ public class Reference {
                     if (doc.contains(srch)) {
                         int x = doc.indexOf(srch) + srch.length();
                         idFromDoc = doc.substring(x, doc.indexOf("\",", x));
-                      if(!this.doi.equals(idFromDoc)){
-                     //     System.out.println("GIVEN DOI:" + this.doi + ". FROM ELASTIC:" + idFromDoc);
-                      }
+                        if (!this.doi.equals(idFromDoc)) {
+                        }
                     }
                     if (idFromDoc.equals(this.doi)) {
 
                         inCord = true;
-                        // System.out.println(doc);
                         String title;
                         String abs;
                         srch = "\"title\" : \"";
@@ -714,7 +699,6 @@ public class Reference {
                         if (doc.contains(srch)) {
                             int x = doc.indexOf(srch) + srch.length();
                             title = doc.substring(x, doc.indexOf("\",", x));
-                            // System.out.println(title);
                             this.title = title;
                         }
                         srch = "\"abstract\" : \"";
@@ -722,7 +706,6 @@ public class Reference {
                             int x = doc.indexOf(srch) + srch.length();
                             abs = doc.substring(x, doc.indexOf("\",", x));
                             this.Abstract = abs;
-                            //  System.out.println(abs);
                         }
                         srch = "\"publish_time\" : \"";
                         String date;
@@ -730,7 +713,6 @@ public class Reference {
                             int x = doc.indexOf(srch) + srch.length();
                             date = doc.substring(x, doc.indexOf("\",", x));
                             this.dateAccepted = LocalDate.parse(date);
-                            //  System.out.println(this.dateAccepted);
                         }
                         srch = "\"authors\" : \"";
                         if (doc.contains(srch)) {
@@ -750,8 +732,7 @@ public class Reference {
                             }
 
                         }
-                        // System.out.println(this.authors);
-                        //  String
+
                     }
                 }
             }
