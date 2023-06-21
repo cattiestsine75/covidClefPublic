@@ -28,7 +28,7 @@ public class createQrel {
         int k = 2;
 
         File myFile;
-        myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\qrelMod.txt");
+        myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\qrel.txt");
 
         int topic = 1;
         int iteration = 0;
@@ -38,7 +38,7 @@ public class createQrel {
             for (k = 2; k < slrs.size(); k++) {
                 SLR s = slrs.get(k);
                 for (Reference r : s.references) {
-                    String z = String.format("%d %d %s %d\n", topic, iteration, r.doi, relevancy);
+                    String z = String.format("%d %d %50s %d\n", k, iteration, r.doi, relevancy);
                     System.out.println(r.doi);
                     writer.write(z);
                 }
