@@ -176,6 +176,9 @@ public class Main {
             i++;
             j = 0;
         }
+        
+        System.out.println("\n\n\n");
+        System.out.println(slrs.get(21).doi + "\n" + slrs.get(21).pmcID + "\n" + slrs.get(21).abs);
 
         // System.out.println("COUNT: " + scount + " OF " + count);
         System.out.println("FOUND {" + Reference.found + "}" + "out of " + Reference.total + " Referenced documents");
@@ -183,7 +186,7 @@ public class Main {
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
 
-        if (uIn.charAt(0) == 'y' || uIn.charAt(0) == 'Y') {
+        if (uIn.toLowerCase().charAt(0) == 'y') {
             System.out.println("Committing");
             for (int k = 2 + searchOffset; k < searchAmt; k++) {
                 for (int l = 0; l < slrs.get(k).references.size(); l++) {
@@ -194,7 +197,10 @@ public class Main {
         } else {
             System.out.println("Aborting!");
         }
-
+        System.out.println("TOTAL UNIQUE DOCUMENTS:" + dois.size());
+        for(String doi : dois){
+            System.out.println(doi);
+        }
         // System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted+ "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
         System.out.println("\n\nDONE WITH THAT\n\n");
 
@@ -750,7 +756,25 @@ public class Main {
             }
             break;
             case 4:
+                try{
+                s.date = LocalDate.parse(cellValue.replace("/","-"));
+                }catch(Exception e){
+                    System.out.println("PROBLEM PARSING DATE OF SLR '" + s.name + "':\n" + e);
+                }
+              
+               
+                break;
+            case 5:
                 s.refs = cellValue;
+                break;
+            case 6:
+                s.doi = cellValue;
+                break;
+            case 7:
+                s.pmcID = cellValue;
+                break;
+            case 8:
+                s.abs = cellValue;
                 break;
             default:
                 break;

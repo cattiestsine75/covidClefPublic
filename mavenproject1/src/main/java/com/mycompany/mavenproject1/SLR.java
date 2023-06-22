@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -31,12 +32,18 @@ public class SLR {
     public String dbSearches;
     public String refs;
     public ArrayList<Reference> references;
+    public LocalDate date;
+    public String doi;
+    public String pmcID;
+    public String abs;
+    public String publisher;
 
     public SLR() {
         name = "";
         link = "";
         this.id = IDGen;
         IDGen++;
+        date = LocalDate.EPOCH;
     }
 
     public SLR(String name, String link) {
