@@ -6,12 +6,22 @@
 package com.mycompany.mavenproject1;
 
 import static com.mycompany.mavenproject1.Main.getSLRs;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import org.apache.commons.io.IOUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -24,10 +34,52 @@ public class ProvideMoreSLRInfo {
     /**
      * @param args the command line arguments
      */
+    
+    //this code returned all but 19 SLR's information, the remainder of which had to be done manually
     public static void main(String[] args) {
         ArrayList<SLR> slrs;
         slrs = getSLRs();
-        System.out.println(slrs.get(21).abs);
+        int i = 2;
+        String fout = "";
+        for (i = 2; i < slrs.size(); i++) {
+            SLR s = slrs.get(i);
+            Reference r = new Reference();
+            if ((s.pmcID != null)) {
+                if (!s.pmcID.contains("N")) {
+                    System.out.println(i + ", " + s.pmcID);
+                    String base = "https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:" + s.pmcID
+                            + "&metadataPrefix=pmc";
+                    System.out.println(base);
+                    String in = getHTML(base);
+                    r.populate(in);
+                    s.abs = r.Abstract;
+                    s.authors = r.authors;
+
+                    System.out.println(i + ":\n " + r.Abstract);
+                    System.out.println("\n\n\n\n");
+
+                }
+            }
+        }
+        System.out.println("\n\n\nAUTHORS:");
+
+        for (i = 2; i < slrs.size(); i++) {
+            if (slrs.get(i).authors != null) {
+                if (slrs.get(i).authors.size() > 1) {
+                    System.out.println(i + ":\n " + slrs.get(i).authors);
+                }
+            }
+        }
+        DumpSLRData(slrs);
+        System.out.println("\n\n\n");
+        // System.out.println(fout);
+        String pmcID = slrs.get(4).pmcID;
+        System.out.println("\n\n" + pmcID);
+        String base = "https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:" + pmcID
+                + "&metadataPrefix=pmc";
+        String in = getHTML(base);
+        //System.out.println(in);
+
     }
 
     public static String getHTML(String urlToRead) {
@@ -53,7 +105,7 @@ public class ProvideMoreSLRInfo {
 
     }
 
-    public static String ESearch(String db, String query, boolean exact, String date) {
+    public static String ESearch(String db, String query, boolean exact) {
         String base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
 
         if (exact) {
@@ -143,6 +195,54 @@ public class ProvideMoreSLRInfo {
         String base = "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/";
         String in = getHTML(base + "?ids=" + doi);
         return grabTag(in, "pmcid=\"", "\"", true);
+    }
+
+    public static void DumpSLRData(ArrayList<SLR> slrs) {
+        try {
+            File myFile = new File("C:\\Users\\ethan\\Desktop\\2023USRAResearch\\CovidClef2023\\covidClef2023\\Covid_19_Dataset_and_References\\Covid_SLR_Dataset.xlsx");
+
+            FileInputStream file;
+
+            file = new FileInputStream(myFile);
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            XSSFSheet spreadsheet = workbook.getSheetAt(0);
+            XSSFRow row;
+            Map<Integer, Object[]> data = new TreeMap<Integer, Object[]>();
+            data.put(1, new Object[]{"Abstract", "Authors"});
+            for (int i = 2; i < slrs.size(); i++) {
+
+                SLR s = slrs.get(i);
+                
+                data.put(i, new Object[]{s.abs, s.authors.toString(),});
+
+                // }
+            }
+            Set<Integer> keyid = data.keySet();
+            int rowid = 0; // row number, row 1 = 0
+
+            for (int key : keyid) {
+                // System.out.println(key);
+                row = spreadsheet.getRow(rowid);
+                rowid++;
+                Object[] objectArr = data.get(key);
+                int cellid = 7; // column number,  A = 0
+                for (Object obj : objectArr) {
+                    Cell cell = row.createCell(cellid++);
+                    try {
+                        cell.setCellValue((String) (obj));
+                    } catch (Exception e) {
+                        System.out.println(e + "\n\nHERES THE ERROR STRING:" + (String) obj);
+                    }
+                }
+            }
+
+            FileOutputStream out = new FileOutputStream(myFile);
+            workbook.write(out);
+            workbook.close();
+            out.close();
+        } catch (Exception e) {
+            System.out.println("ERROR DUMPING SLR METADATA:\n" + e);
+        }
     }
 
 }

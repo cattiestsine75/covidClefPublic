@@ -37,8 +37,10 @@ public class SLR {
     public String pmcID;
     public String abs;
     public String publisher;
+    ArrayList<Author> authors; //Arraylist of Author objects.
 
     public SLR() {
+        authors = new ArrayList<>();
         name = "";
         link = "";
         this.id = IDGen;
@@ -116,15 +118,15 @@ public class SLR {
         }
     }
 
-  
+    
 
     public String toString() {
         return "TITLE: " + this.name + " \nLINK: " + this.link + "\nREFERENCES: " + this.references;
     }
 
-    
     /**
      * returns the information about the slr in json format
+     *
      * @return json formatted text.s
      */
     public String toJson() {
