@@ -54,6 +54,7 @@ public class ProvideMoreSLRInfo {
                     r.populate(in);
                     s.abs = r.Abstract;
                     s.authors = r.authors;
+                    s.publisher = r.publisherName;
 
                     System.out.println(i + ":\n " + r.Abstract);
                     System.out.println("\n\n\n\n");
@@ -208,12 +209,12 @@ public class ProvideMoreSLRInfo {
             XSSFSheet spreadsheet = workbook.getSheetAt(0);
             XSSFRow row;
             Map<Integer, Object[]> data = new TreeMap<Integer, Object[]>();
-            data.put(1, new Object[]{"Abstract", "Authors"});
+            data.put(1, new Object[]{"Abstract", "Authors", "Publisher"});
             for (int i = 2; i < slrs.size(); i++) {
 
                 SLR s = slrs.get(i);
                 
-                data.put(i, new Object[]{s.abs, s.authors.toString(),});
+                data.put(i, new Object[]{s.abs, s.authors.toString(), s.publisher});
 
                 // }
             }

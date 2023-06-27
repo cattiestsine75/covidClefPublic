@@ -110,7 +110,7 @@ public class Main {
 
         // TODO code application logic here
         ArrayList<SLR> slrs = initialize();
-
+        ArrayList<Reference> uniqRefs = new ArrayList<>();
         //pmcPopulate(slrs, searchAmt, searchOffset); //PMC gets 74 in 45 sec
         //elsevierPopulate(slrs, searchAmt, searchOffset); //ELSEVIER gets 20 in 29.8 sec
         //springerPopulate(slrs, searchAmt, searchOffset); //springer gets 10, 50 sec
@@ -131,6 +131,7 @@ public class Main {
                     j++;
                     if (!dois.contains(r.doi)) {
                         dois.add(r.doi);
+                        uniqRefs.add(r);
                     }
                     if (r.foundApis.contains("PMC") || r.idFormat.equals("PMC")) {
                         pmcs++;
@@ -775,6 +776,9 @@ public class Main {
                 break;
             case 8:
                 s.abs = cellValue;
+                break;
+            case 9:
+                
                 break;
             default:
                 break;

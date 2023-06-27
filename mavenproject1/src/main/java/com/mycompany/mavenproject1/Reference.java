@@ -31,6 +31,7 @@ public class Reference {
     String foundApis;
     ArrayList<Author> authors; //Arraylist of Author objects.
     String miscInfo;
+    String publisherName;
 
     LocalDate dateAccepted; //date accepted.
 
@@ -135,6 +136,7 @@ public class Reference {
                 }
 
                 //DATE RELATED STUFF:
+                this.publisherName = grabTag(in, "journal-title", false);
                 String dateIn = grabTag(in, "\"accepted\"", "</date>", true);
                 LocalDate date = LocalDate.EPOCH;
                 if (!dateIn.equals("NULL")) {
