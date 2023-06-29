@@ -33,18 +33,16 @@ import java.util.StringTokenizer;
 july 8th deadline
 
  */
-
 /**
- * Project is prepare a dataset. 
- * ML can learn from this dataset, to be able to search biomedical texts
- * BM25 algorithm, LM algorithm
- * Prepare the data/dataset.
- * 
- * Learn when someone is searching, what the results should be. 
- * We will learn more 
- * 
+ * Project is prepare a dataset. ML can learn from this dataset, to be able to
+ * search biomedical texts BM25 algorithm, LM algorithm Prepare the
+ * data/dataset.
+ *
+ * Learn when someone is searching, what the results should be. We will learn
+ * more
+ *
  * Trec EVal QREL
- * 
+ *
  */
 //show where the crossref data comes from
 /**
@@ -133,57 +131,59 @@ public class Main {
                         dois.add(r.doi);
                         uniqRefs.add(r);
                     }
-                    if (r.foundApis.contains("PMC") || r.idFormat.equals("PMC")) {
-                        pmcs++;
-                    }
-                    if (r.foundApis.contains("elsevier") || r.idFormat.equals("elsevier_pii")) {
-                        elsevs++;
-                    }
-                    if (r.foundApis.contains("Core") || r.idFormat.equals("CORE")) {
-                        cores++;
-                    }
-                    if (r.foundApis.contains("MedBiorxiv") || r.idFormat.equals("medrxiv/biorxiv doi")) {
-                        meds++;
-                    }
-                    if (r.foundApis.contains("Springer") || r.idFormat.equals("Springer")) {
-                        springs++;
-                    }
-                    if (r.foundApis.contains("CROSSREF") || r.idFormat.equals("CROSSREF")) {
-                        crosses++;
-                    }
-                    if (r.idFormat.equals("ELASTIC")) {
-                        elastics++;
-                    }
-                    if (r.idFormat.equals("ELASTIC")) {
 
-                        count++;
-                        //System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        //  System.out.println(r.doi);
-                        // if (r.id.equals("not found")) {
-                        // System.out.println("\n\nOLD^, new below, \n\n");
-                        // scount++;
+                    count++;
+                    //System.out.println("\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    //  System.out.println(r.doi);
+                    // if (r.id.equals("not found")) {
+                    // System.out.println("\n\nOLD^, new below, \n\n");
+                    // scount++;
 
-                        System.out.println("HAVE NOT FOUND: SLR" + i + ", REF:" + (j + 1) + ": " + r.doi);
-                        r.formatAbstract();
-                        if (!r.title.equals("Unknown Title")) {
-                            scount++;
-                        }
-                        //  System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted + "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
-                        System.out.println("\n\n");
-                        //  }
+                    System.out.println("HAVE NOT FOUND: SLR" + i + ", REF:" + (j + 1) + ": " + r.doi);
+
+                    if (!r.title.equals("Unknown Title")) {
+                        scount++;
                     }
+                    //  System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted + "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
+                    System.out.println("\n\n");
+                    //  }
+
                 }
             }
             i++;
             j = 0;
         }
-        
+
+        for (Reference r : uniqRefs) {
+            if (r.foundApis.contains("PMC") || r.idFormat.equals("PMC")) {
+                pmcs++;
+            }
+            if (r.foundApis.contains("elsevier") || r.idFormat.equals("elsevier_pii")) {
+                elsevs++;
+            }
+            if (r.foundApis.contains("Core") || r.idFormat.equals("CORE")) {
+                cores++;
+            }
+            if (r.foundApis.contains("MedBiorxiv") || r.idFormat.equals("medrxiv/biorxiv doi")) {
+                meds++;
+            }
+            if (r.foundApis.contains("Springer") || r.idFormat.equals("Springer")) {
+                springs++;
+            }
+            if (r.foundApis.contains("CROSSREF") || r.idFormat.equals("CROSSREF")) {
+                crosses++;
+            }
+            if (r.idFormat.equals("ELASTIC")) {
+                elastics++;
+            }
+        }
+
         System.out.println("\n\n\n");
         System.out.println(slrs.get(21).doi + "\n" + slrs.get(21).pmcID + "\n" + slrs.get(21).abs);
 
         // System.out.println("COUNT: " + scount + " OF " + count);
         System.out.println("FOUND {" + Reference.found + "}" + "out of " + Reference.total + " Referenced documents");
-        System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d, ELASTIC: %d\n", pmcs, elsevs, cores, meds, springs, crosses, elastics);
+        System.out.printf("DOCUMENT RETRIEVAL BREAKDOWN: \nPMC: %d, ELSEVIER: %d, CORE: %d, MEDRXIV: %d, SPRINGER: %d, CROSSREF: %d, ELASTIC: %d\n%d TOTAL\n", pmcs, elsevs, cores, meds, springs, crosses, elastics, uniqRefs.size());
         System.out.println("Commit above changes?\ny/n");
         String uIn = keyboard.nextLine();
 
@@ -199,9 +199,10 @@ public class Main {
             System.out.println("Aborting!");
         }
         System.out.println("TOTAL UNIQUE DOCUMENTS:" + dois.size());
-        for(String doi : dois){
+        for (String doi : dois) {
             System.out.println(doi);
         }
+
         // System.out.println(r.title + ":\n" + r.Abstract + "\n" + r.dateAccepted+ "\n" + r.authors + "\n" + r.idFormat + " " + r.id + "\n" + r.doi);
         System.out.println("\n\nDONE WITH THAT\n\n");
 
@@ -757,14 +758,13 @@ public class Main {
             }
             break;
             case 4:
-                try{
-                s.date = LocalDate.parse(cellValue.replace("/","-"));
-                }catch(Exception e){
-                    System.out.println("PROBLEM PARSING DATE OF SLR '" + s.name + "':\n" + e);
-                }
-              
-               
-                break;
+                try {
+                s.date = LocalDate.parse(cellValue.replace("/", "-"));
+            } catch (Exception e) {
+                System.out.println("PROBLEM PARSING DATE OF SLR '" + s.name + "':\n" + e);
+            }
+
+            break;
             case 5:
                 s.refs = cellValue;
                 break;
@@ -778,7 +778,7 @@ public class Main {
                 s.abs = cellValue;
                 break;
             case 9:
-                
+
                 break;
             default:
                 break;
