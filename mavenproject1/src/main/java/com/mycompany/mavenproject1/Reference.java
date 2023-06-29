@@ -33,6 +33,8 @@ public class Reference {
     String miscInfo;
     String publisherName;
 
+    ArrayList<Reference> references;
+
     LocalDate dateAccepted; //date accepted.
 
     /**
@@ -86,6 +88,7 @@ public class Reference {
             }
         }
         x = x + "]}";
+        x = x.replace("\n", "\\n");
         return x;
     }
 
@@ -780,6 +783,39 @@ public class Reference {
             int y = Abstract.indexOf(srch);
             Abstract = Abstract.substring(0, y) + Abstract.substring(loc);
         }
+    }
+
+    public void genCitations(String pmcID) {
+        ArrayList<Reference> output = new ArrayList<>();
+        String in = getHTML("https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_xml/" + pmcID + "/ascii?pretty");
+        //  System.out.println(in);
+        //  System.out.println("\n\n\n\n");
+
+        String srch = "References";
+        //System.out.println(in.indexOf(srch) + srch.length() + 1);
+        in = in.substring(in.indexOf(srch) + srch.length() + 1);
+        // in = in.substring(in.indexOf(srch) + srch.length() + 1);
+
+        //System.out.println(in);
+        srch = "<passage>";
+        while (in.indexOf(srch) != -1) {
+            String out = grabTag(in, "passage", false);
+            if (out.contains(">ref<")) {
+                Reference r = new Reference();
+                r.title = (grabTag(out, "text", false));
+                r.doi = (grabTag(out, "doi\">", "</info", true));
+                r.populate();
+                if (!r.title.equals("NULL")) {
+                    output.add(r);
+                    r.title.replace(" ", "%20");
+
+                    String url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=xml&retmax=1&term=" + r.title + "&field=title";
+                }
+            }
+            in = in.substring(in.indexOf(srch) + srch.length() + 1);
+
+        }
+        this.references = output;
     }
 
     /**
